@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		800DE5082A44C5C6006567E5 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DE5072A44C5C6006567E5 /* Product.swift */; };
+		800DE50B2A44CBA3006567E5 /* HomeContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DE50A2A44CBA3006567E5 /* HomeContracts.swift */; };
 		80E6AC772A449A3600EC17D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E6AC762A449A3600EC17D9 /* AppDelegate.swift */; };
 		80E6AC792A449A3600EC17D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E6AC782A449A3600EC17D9 /* SceneDelegate.swift */; };
 		80E6AC802A449A3700EC17D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E6AC7F2A449A3700EC17D9 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		800DE5072A44C5C6006567E5 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		800DE50A2A44CBA3006567E5 /* HomeContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContracts.swift; sourceTree = "<group>"; };
 		80E6AC732A449A3600EC17D9 /* DeliveryExpress(E-Commerce).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DeliveryExpress(E-Commerce).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E6AC762A449A3600EC17D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80E6AC782A449A3600EC17D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		800DE5062A44C5C0006567E5 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				800DE5072A44C5C6006567E5 /* Product.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		800DE5092A44CB98006567E5 /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				800DE50A2A44CBA3006567E5 /* HomeContracts.swift */,
+			);
+			path = Contracts;
+			sourceTree = "<group>";
+		};
 		80E6AC6A2A449A3600EC17D9 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +111,7 @@
 		80E6AC8A2A449A9200EC17D9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				800DE5062A44C5C0006567E5 /* Entities */,
 				80E6AC9F2A449F2500EC17D9 /* BasketScreen */,
 				80E6AC8D2A449ADC00EC17D9 /* HomeScreen */,
 			);
@@ -119,6 +140,7 @@
 		80E6AC8D2A449ADC00EC17D9 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				800DE5092A44CB98006567E5 /* Contracts */,
 				80E6AC922A449B0300EC17D9 /* Builder */,
 				80E6AC912A449AFB00EC17D9 /* Router */,
 				80E6AC902A449AF800EC17D9 /* Presenter */,
@@ -333,11 +355,13 @@
 			files = (
 				80E6ACBB2A44B13E00EC17D9 /* NetworkHelper.swift in Sources */,
 				80E6ACB62A44B0F800EC17D9 /* NetworkManager.swift in Sources */,
+				800DE5082A44C5C6006567E5 /* Product.swift in Sources */,
 				80E6ACA82A449F4D00EC17D9 /* BasketView.swift in Sources */,
 				80E6ACB12A44ADEB00EC17D9 /* ProductCell.swift in Sources */,
 				80E6AC942A449B5000EC17D9 /* HomeView.swift in Sources */,
 				80E6AC9A2A449B6000EC17D9 /* HomeRouter.swift in Sources */,
 				80E6AC772A449A3600EC17D9 /* AppDelegate.swift in Sources */,
+				800DE50B2A44CBA3006567E5 /* HomeContracts.swift in Sources */,
 				80E6AC9C2A449B6600EC17D9 /* HomeBuilder.swift in Sources */,
 				80E6AC792A449A3600EC17D9 /* SceneDelegate.swift in Sources */,
 				80E6AC982A449B5C00EC17D9 /* HomePresenter.swift in Sources */,

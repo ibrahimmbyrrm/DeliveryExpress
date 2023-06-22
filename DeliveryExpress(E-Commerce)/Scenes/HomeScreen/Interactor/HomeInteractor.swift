@@ -7,28 +7,38 @@
 
 import Foundation
 
-protocol HomeInteractorInterface {
-    var presenter : HomePresenterInterface? {get set}
-    func fetchData()
-}
+
 
 class HomeInteractor : HomeInteractorInterface {
     var presenter: HomePresenterInterface?
     
-    init() {
-        fetchData()
-    }
-    
     func fetchData() {
-        NetworkManager().fetchData(type: EndPointItems<[String]>.categories) { result in
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        NetworkManager().fetchData(type: EndPointItems<[String]>.categories) { [weak self] result in
+            guard let self else {return}
+            defer {dispatchGroup.leave()}
             switch result {
             case .success(let categories):
-                print(categories)
-                self.presenter?.categoriesFethced(categories)
+                self.presenter?.handleInteractorOutput(with: .categoriesLoaded(categories))
             case.failure(let erorr):
                 print(erorr)
             }
-        
+        }
+        dispatchGroup.enter()
+        NetworkManager().fetchData(type: EndPointItems<ProductResponse>.products) { [weak self] response in
+            guard let self else {return}
+            defer {dispatchGroup.leave()}
+            switch response {
+            case .success(let productResponse):
+                self.presenter?.handleInteractorOutput(with: .productsLoaded(productResponse.products))
+            case .failure(let error):
+                print(error)
+            }
+        }
+        /// -When all api calls done and all data transfered to presenter, interactor called presenter again for stoping activity indicator on view.
+        dispatchGroup.notify(queue: .main) {
+            self.presenter?.hideActivityIndicator()
         }
     }
 }

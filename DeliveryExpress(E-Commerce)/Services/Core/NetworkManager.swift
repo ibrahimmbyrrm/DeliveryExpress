@@ -19,7 +19,6 @@ class NetworkManager {
             case .success(let data):
                 guard let data = data else {return}
                 let decodedData = try? JSONDecoder().decode(T.self, from: data)
-                print(decodedData)
                 guard let decodedData else {return}
                 completion(.success(decodedData))
             case .failure(let error):

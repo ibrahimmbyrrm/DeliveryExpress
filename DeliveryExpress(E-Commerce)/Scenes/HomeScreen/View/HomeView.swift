@@ -9,17 +9,8 @@ import Foundation
 import UIKit
 import SnapKit
 
-protocol HomeViewInterface {
-    var presenter : HomePresenterInterface? {get set}
-    
-    func saveCategories(_ categories : [String])
-}
-
-typealias EntryPoint = HomeViewInterface & UIViewController
-
-
-class HomeView : EntryPoint {
-    
+class HomeView : UIViewController {
+    //MARK: - Programmatic UI Objects
     private let categoryTitleLabel : UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -72,36 +63,45 @@ class HomeView : EntryPoint {
         return collectionView
     }()
     
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .black
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+    //MARK: -Variables
     var presenter: HomePresenterInterface?
-    var categoryList = [String]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.categoryCollectionView.reloadData()
-            }
-            
-        }
-    }
-    
+    lazy var categoryList = [String]()
+    lazy var productList = [Product]()
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        presenter?.load()
         setDelegates()
         addSubviews()
         setupCategoryCollectionViewConstraints()
         setupProductCollectionViewConstraints()
         setupCategoryTitlelabelConstraints()
         setupProductTitleLabelContstraints()
+        setupActivityIndicator()
+        
     }
-    func saveCategories(_ categories: [String]) {
-        self.categoryList = categories
-        print(categories)
+    //MARK: - UI Configurations
+    private func setupActivityIndicator() {
+        activityIndicator.snp.makeConstraints { make in
+            make.centerX.equalTo(view.snp.centerX)
+            make.centerY.equalTo(view.snp.centerY)
+        }
+        activityIndicator.startAnimating()
+        
     }
     
     private func addSubviews() {
-    [productCollectionView,categoryCollectionView,categoryTitleLabel,productTitleLabel].forEach { v in
+    [productCollectionView,categoryCollectionView,categoryTitleLabel,productTitleLabel,activityIndicator].forEach { v in
         view.addSubview(v)
+        }
     }
-}
     
     private func setDelegates() {
         categoryCollectionView.delegate = self
@@ -143,6 +143,7 @@ class HomeView : EntryPoint {
         }
     }
 }
+    //MARK: - CollectionView Methods
 extension HomeView : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -159,7 +160,7 @@ extension HomeView : UICollectionViewDataSource, UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
-        case productCollectionView: return 15
+        case productCollectionView: return productList.count
         case categoryCollectionView: return categoryList.count
         default: return 5
         }
@@ -168,7 +169,8 @@ extension HomeView : UICollectionViewDataSource, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case productCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCollectionViewCell
+            cell.titleLabel.text = productList[indexPath.row].title
             return cell
         case categoryCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCollectionViewCell
@@ -177,6 +179,24 @@ extension HomeView : UICollectionViewDataSource, UICollectionViewDelegate, UICol
             cell.clipsToBounds = false
             return cell
         default: return UICollectionViewCell()
+        }
+    }
+}
+    //MARK: - Interface Methods
+extension HomeView : HomeViewInterface {
+    
+    func stopActivityIndicator() {
+        self.activityIndicator.stopAnimating()
+    }
+    
+    func saveCategories(with output: HomePresenterOutput) {
+        switch output {
+        case .saveCategories(let categories):
+            self.categoryList = categories
+            self.categoryCollectionView.reloadData()
+        case .saveProducts(let products):
+            self.productList = products
+            self.productCollectionView.reloadData()
         }
     }
 }

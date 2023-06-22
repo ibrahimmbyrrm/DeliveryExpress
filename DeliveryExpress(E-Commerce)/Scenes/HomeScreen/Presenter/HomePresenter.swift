@@ -7,12 +7,6 @@
 
 import Foundation
 
-protocol HomePresenterInterface {
-    var interactor : HomeInteractorInterface {get set}
-    var view : HomeViewInterface {get set}
-    var router : HomeRouterInterface {get set}
-    func categoriesFethced(_ categories : [String])
-}
 
 class HomePresenter : HomePresenterInterface{
     var interactor: HomeInteractorInterface
@@ -25,7 +19,23 @@ class HomePresenter : HomePresenterInterface{
         self.router = router
     }
     
-    func categoriesFethced(_ categories : [String]) {
-        view.saveCategories(categories)
+    func load() {
+        interactor.fetchData()
     }
+    
+    func handleInteractorOutput(with output : HomeInteractorOutput) {
+        switch output {
+        case .categoriesLoaded(let categories):
+            view.saveCategories(with: .saveCategories(categories))
+        case .productsLoaded(let products):
+            view.saveCategories(with: .saveProducts(products))
+        case .loadFailed:
+            print("error")
+        }
+    }
+    
+    func hideActivityIndicator() {
+        view.stopActivityIndicator()
+    }
+    
 }

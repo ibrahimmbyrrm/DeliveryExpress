@@ -29,7 +29,7 @@ extension EndPointItems : EndPointType{
     var path: String {
         switch self {
         case.products :
-            return "products"
+            return ""
         case .categories:
             return "categories"
         }

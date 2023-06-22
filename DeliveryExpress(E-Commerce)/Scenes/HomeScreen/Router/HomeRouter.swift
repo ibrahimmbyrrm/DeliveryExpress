@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol HomeRouterInterface {
-    var presenter : HomePresenterInterface? {get set}
-}
-
 class HomeRouter : HomeRouterInterface {
     var presenter: HomePresenterInterface?
     
