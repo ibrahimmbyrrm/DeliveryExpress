@@ -8,7 +8,7 @@
 import UIKit
 
 class ProductDetailContainer: UIView {
-
+    //MARK: - UI Objects
     private let brandLabel : UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -67,13 +67,22 @@ class ProductDetailContainer: UIView {
         label.textAlignment = .center
         return label
     }()
+    private let topDivider = DividerView()
+    private let bottomDivider = DividerView()
+    //MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .white
         addSubviews()
+        setupTopDividerConstrains()
         setupBrandLabelConstraints()
-        self.backgroundColor = UIColor(red: 1, green: 168/255, blue: 0, alpha: 0.5)
+        setupModelLabelConstraints()
+        setupPriceLabelConstraints()
+        setupStockLabelConstraints()
+        setupRatingLabelConstraints()
+        setupBottomDividerConstraints()
+        setupDescriptionLabelConstraints()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -86,43 +95,72 @@ class ProductDetailContainer: UIView {
         stockLabel.text = "Stock : \(product.stock)"
         priceLabel.text = "\(product.price)$"
     }
-    
-    private func setupBrandLabelConstraints() {
-        brandLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.snp.top).offset(12)
-            make.height.equalTo(20)
-            make.leading.equalTo(self.snp.leading).offset(12)
+    //MARK: - Layout Functions
+    private func setupTopDividerConstrains() {
+        topDivider.snp.makeConstraints { make in
+            make.top.equalTo(self.snp.top)
+            make.centerX.equalTo(self.snp.centerX)
         }
+    }
+    
+    private func setupBottomDividerConstraints() {
+        bottomDivider.snp.makeConstraints { make in
+            make.bottom.equalTo(self.snp.bottom)
+            make.centerX.equalTo(self.snp.centerX)
+        }
+    }
+    
+    private func setupModelLabelConstraints() {
         modelLabel.snp.makeConstraints { make in
             make.trailing.equalTo(self.snp.trailing).offset(-12)
             make.leading.equalTo(brandLabel.snp.trailing).offset(1)
             make.height.equalTo(20)
             make.top.equalTo(self.snp.top).offset(12)
         }
+    }
+    
+    private func setupDescriptionLabelConstraints() {
         descriptionLabel.snp.makeConstraints { make in
             make.leading.equalTo(self.snp.leading).offset(12)
             make.trailing.equalTo(self.snp.trailing).offset(-12)
             make.top.equalTo(modelLabel.snp.bottom).offset(12)
             make.width.equalTo(390)
         }
+    }
+    
+    private func setupRatingLabelConstraints() {
         ratingLabel.snp.makeConstraints { make in
             make.leading.equalTo(self.snp.leading).offset(12)
             make.top.equalTo(descriptionLabel.snp.bottom).offset(12)
             make.height.equalTo(20)
         }
+    }
+    
+    private func setupStockLabelConstraints() {
         stockLabel.snp.makeConstraints { make in
             make.trailing.equalTo(self.snp.trailing).offset(-100)
             make.top.equalTo(descriptionLabel.snp.bottom).offset(12)
             make.height.equalTo(20)
         }
+    }
+    
+    private func setupPriceLabelConstraints() {
         priceLabel.snp.makeConstraints { make in
             make.trailing.equalTo(self.snp.trailing).offset(-12)
-            make.bottom.equalTo(self.snp.bottom).offset(-12)
+            make.bottom.equalTo(bottomDivider.snp.top).offset(-11)
+        }
+    }
+    
+    private func setupBrandLabelConstraints() {
+        brandLabel.snp.makeConstraints { make in
+            make.top.equalTo(topDivider.snp.bottom).offset(11)
+            make.height.equalTo(20)
+            make.leading.equalTo(self.snp.leading).offset(12)
         }
     }
     
     private func addSubviews() {
-        [brandLabel,modelLabel,descriptionLabel,ratingLabel,stockLabel,priceLabel].forEach { v in
+        [bottomDivider,topDivider,brandLabel,modelLabel,descriptionLabel,ratingLabel,stockLabel,priceLabel].forEach { v in
             self.addSubview(v)
         }
     }

@@ -17,9 +17,9 @@ enum HomeViewOutput {
 
 class HomeView : UIViewController {
     //MARK: - Programmatic UI Objects
-    private let categoryTitleLabel = TitleLabel(text: HomeConstants.categTitle)
+    private let categoryTitleLabel = TitleLabel(text: Constants.HomeConstants.categTitle)
     
-    private let productTitleLabel = TitleLabel(text: HomeConstants.prodTitle)
+    private let productTitleLabel = TitleLabel(text: Constants.HomeConstants.prodTitle)
     
     private var categoryCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -31,7 +31,7 @@ class HomeView : UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.layer.cornerRadius = 12
-        collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: HomeConstants.categCell)
+        collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.categCell)
         collectionView.backgroundColor = .white
         return collectionView
     }()
@@ -44,7 +44,7 @@ class HomeView : UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: HomeConstants.prodCell)
+        collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.prodCell)
         collectionView.layer.cornerRadius = 12
         collectionView.backgroundColor = .white
         return collectionView
@@ -162,13 +162,13 @@ extension HomeView : UICollectionViewDataSource, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case productCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeConstants.prodCell, for: indexPath) as! ProductCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.HomeConstants.prodCell, for: indexPath) as! ProductCollectionViewCell
             cell.configure(with: productList[indexPath.row])
             cell.delegate = self
             cell.index = indexPath.row
             return cell
         case categoryCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeConstants.categCell, for: indexPath) as! CategoryCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.HomeConstants.categCell, for: indexPath) as! CategoryCollectionViewCell
             cell.titleLabel.text = categoryList[indexPath.row].uppercased()
             cell.delegate = self
             cell.index = indexPath.row

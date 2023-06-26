@@ -7,9 +7,17 @@
 
 import Foundation
 
-enum HomeConstants {
-    static let prodCell = "ProductCell"
-    static let categCell = "CategoryCell"
-    static let prodTitle = "Popular Products"
-    static let categTitle = "Popular Categories"
+enum Constants {
+    enum HomeConstants {
+        static let prodCell = "ProductCell"
+        static let categCell = "CategoryCell"
+        static let prodTitle = "Popular Products"
+        static let categTitle = "Popular Categories"
+    }
+    enum DetailConstants {
+        static let imageCell = "ProductImageCell"
+        static let detailTitle = "Product Details"
+    }
 }
+
+

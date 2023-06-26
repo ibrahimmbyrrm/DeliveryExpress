@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class ProductDetailPresenter : ProductDetailPresenterInterface {
     private let interactor : ProductDetailInteractorInterface
     private let view : ProductDetailViewInterface
@@ -18,6 +17,16 @@ class ProductDetailPresenter : ProductDetailPresenterInterface {
         self.interactor = interactor
         self.view = view
         self.router = router
+    }
+    
+    ///Eğer handleViewOutput fonksiyonuna başka bir output türü eklemezsek, output enumu üzerinde değişiklik yapıp product parametresini direk fonksiyonda alırız ve output girerken tekrar tekrar product vermemize gerek kalmaz.Böylelikle hafızada aynı iş için kullanılan 2 farklı product değişkeni tutulmaz.
+    func handleViewOutput(with output : ProductDetailViewOutput) {
+        switch output {
+        case .addToCart(let product):
+            print("presenter added to cart \(product.title)")
+        case .goToPayment(let product):
+            print("presenter goes to payment \(product.title)")
+        }
     }
     
     

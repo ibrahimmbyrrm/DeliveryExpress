@@ -12,8 +12,8 @@ protocol ProductDetailViewInterface {
     var presenter : ProductDetailPresenterInterface? {get set}
 }
 
-protocol ProductDetailPresenterInterface {
-    
+protocol ProductDetailPresenterInterface : AnyObject {
+    func handleViewOutput(with output : ProductDetailViewOutput)
 }
 
 protocol ProductDetailInteractorInterface {
@@ -26,4 +26,14 @@ protocol ProductDetailRouterInterface {
 
 protocol ProductDetailBuilderInterface {
     static func buildProductScreen(product : Product) -> UIViewController
+}
+protocol DetailButtonsInterface : AnyObject {
+    func addToCartClicked()
+    func goToPaymentClicked()
+}
+
+//May be changed
+enum ProductDetailViewOutput {
+    case addToCart(Product)
+    case goToPayment(Product)
 }
