@@ -19,9 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let tabBarController = UITabBarController()
         let homeView = HomeBuilder.buildModule()
+        let navigation = UINavigationController(rootViewController: homeView)
         let basketView = BasketView()
-        homeView.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
-        tabBarController.viewControllers = [homeView,basketView]
+        navigation.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
+        tabBarController.viewControllers = [navigation,basketView]
         tabBarController.tabBar.backgroundColor = .white
         var window = UIWindow(windowScene: windowScene)
         window.rootViewController = tabBarController

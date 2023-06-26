@@ -9,28 +9,24 @@ import Foundation
 import UIKit
 
 protocol HomeRouterInterface {
-    var presenter : HomePresenterInterface? {get set}
+    var view : UIViewController? {get set}
+    func navigateTo(to output : routerRotations)
 }
 
-protocol HomePresenterInterface {
-    var interactor : HomeInteractorInterface {get set}
-    var view : HomeViewInterface {get set}
-    var router : HomeRouterInterface {get set}
-    
+protocol HomePresenterInterface : AnyObject {
     func handleInteractorOutput(with output : HomeInteractorOutput)
-    func load()
+    func handleViewOutput(with output : HomeViewOutput)
     func hideActivityIndicator()
 }
 
-protocol HomeInteractorInterface {
+protocol HomeInteractorInterface : AnyObject {
     var presenter : HomePresenterInterface? {get set}
     func fetchData()
 }
 
-protocol HomeViewInterface {
+protocol HomeViewInterface : AnyObject {
     var presenter : HomePresenterInterface? {get set}
-    
-    func saveCategories(with output : HomePresenterOutput)
+    func saveData(with output : HomePresenterOutput)
     func stopActivityIndicator()
 }
 
@@ -44,6 +40,7 @@ enum HomeInteractorOutput {
     case productsLoaded([Product])
     case loadFailed
 }
+
 
 typealias EntryPoint = HomeViewInterface & UIViewController
 

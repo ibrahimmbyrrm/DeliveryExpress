@@ -10,13 +10,13 @@ import Foundation
 class HomeBuilder {
     
     static func buildModule() -> EntryPoint {
-        var interactor : HomeInteractorInterface = HomeInteractor()
+        let interactor : HomeInteractorInterface = HomeInteractor(service: NetworkManager.shared)
         var router : HomeRouterInterface = HomeRouter()
-        var view : HomeViewInterface = HomeView()
-        var presenter : HomePresenterInterface = HomePresenter(interactor: interactor, view: view, router: router)
+        let view : HomeViewInterface = HomeView()
+        let presenter : HomePresenterInterface = HomePresenter(interactor: interactor, view: view, router: router)
         interactor.presenter = presenter
         view.presenter = presenter
-        router.presenter = presenter
+        router.view = view as! EntryPoint
         return view as! EntryPoint
     }
 }

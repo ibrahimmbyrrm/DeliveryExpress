@@ -7,15 +7,18 @@
 
 import Foundation
 
+final class HomeInteractor : HomeInteractorInterface {
+    weak var presenter: HomePresenterInterface?
+    private let service : NetworkService
 
-
-class HomeInteractor : HomeInteractorInterface {
-    var presenter: HomePresenterInterface?
+    init(service : NetworkService) {
+        self.service = service
+    }
     
     func fetchData() {
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
-        NetworkManager().fetchData(type: EndPointItems<[String]>.categories) { [weak self] result in
+        service.fetchData(type: EndPointItems<[String]>.categories) { [weak self] result in
             guard let self else {return}
             defer {dispatchGroup.leave()}
             switch result {
@@ -26,7 +29,7 @@ class HomeInteractor : HomeInteractorInterface {
             }
         }
         dispatchGroup.enter()
-        NetworkManager().fetchData(type: EndPointItems<ProductResponse>.products) { [weak self] response in
+        service.fetchData(type: EndPointItems<ProductResponse>.products) { [weak self] response in
             guard let self else {return}
             defer {dispatchGroup.leave()}
             switch response {

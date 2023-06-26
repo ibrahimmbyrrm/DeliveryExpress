@@ -8,7 +8,15 @@
 import Foundation
 import Alamofire
 
-class NetworkManager {
+protocol NetworkService {
+    func fetchData<T: Decodable>(type : EndPointItems<T>,completion : @escaping(Result<T,httpError>)->Void)
+}
+
+class NetworkManager : NetworkService{
+    
+    //Singleton
+    static let shared = NetworkManager()
+    private init() {}
     
     func fetchData<T: Decodable>(type : EndPointItems<T>,completion : @escaping(Result<T,httpError>)->Void) {
         print("url")
