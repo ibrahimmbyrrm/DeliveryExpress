@@ -59,7 +59,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     func configure(with product : Product) {
         titleLabel.text = product.title
         descriptionLabel.text = product.description
-        productImageView.kf.setImage(with: URL(string: product.images.first!)!)
+        productImageView.setImage(with: product.images.first!)
         priceButton.setTitle("\(product.price)$ ▶", for: .normal)
         
     }

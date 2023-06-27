@@ -130,7 +130,7 @@ extension ProductDetailView : UICollectionViewDelegate,UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.DetailConstants.imageCell, for: indexPath) as! ProductImageCell
-        cell.productImageView.kf.setImage(with: product.images[indexPath.row].asUrl())
+        cell.productImageView.setImage(with: product.images[indexPath.row])
         return cell
     }
     
