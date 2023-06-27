@@ -65,6 +65,7 @@ class HomeView : UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .orange
         self.title = "Deviery Express"
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.prefersLargeTitles = true
         setDelegates()
         addSubviews()

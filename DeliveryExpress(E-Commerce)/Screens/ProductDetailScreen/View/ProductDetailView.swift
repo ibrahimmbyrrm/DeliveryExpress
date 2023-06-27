@@ -20,7 +20,6 @@ class ProductDetailView : UIViewController, ProductDetailViewInterface {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
-        collectionView.layer.borderWidth = 5
         collectionView.register(ProductImageCell.self, forCellWithReuseIdentifier: Constants.DetailConstants.imageCell)
         collectionView.backgroundColor = .white
         return collectionView
@@ -111,6 +110,7 @@ class ProductDetailView : UIViewController, ProductDetailViewInterface {
     }
     
 }
+
 extension ProductDetailView : DetailButtonsInterface {
     
     func addToCartClicked() {
@@ -122,6 +122,7 @@ extension ProductDetailView : DetailButtonsInterface {
     }
 
 }
+
 extension ProductDetailView : UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
