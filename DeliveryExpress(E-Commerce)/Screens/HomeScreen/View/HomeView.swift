@@ -9,12 +9,6 @@ import Foundation
 import UIKit
 import SnapKit
 
-enum HomeViewOutput {
-    case productClicked(Product)
-    case categoryClicked(String)
-    case loadData
-}
-
 class HomeView : UIViewController {
     //MARK: - Programmatic UI Objects
     private let categoryTitleLabel = TitleLabel(text: Constants.HomeConstants.categTitle)
@@ -45,6 +39,9 @@ class HomeView : UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.prodCell)
+        collectionView.register(FooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "FooterView")
+        collectionView.contentInset.bottom = 50 // FooterView'in yüksekliği kadar bir değer verin
+
         collectionView.layer.cornerRadius = 12
         collectionView.backgroundColor = .white
         return collectionView
@@ -58,8 +55,8 @@ class HomeView : UIViewController {
     }()
     //MARK: -Variables
     var presenter: HomePresenterInterface?
-    var categoryList = [String]()
-    var productList = [Product]()
+    lazy var categoryList = [String]()
+    lazy var productList = [Product]()
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,7 +145,7 @@ extension HomeView : UICollectionViewDataSource, UICollectionViewDelegate, UICol
             return CGSize.zero
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case productCollectionView:
@@ -178,9 +175,29 @@ extension HomeView : UICollectionViewDataSource, UICollectionViewDelegate, UICol
             return UICollectionViewCell()
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard collectionView == productCollectionView else {return UICollectionReusableView()}
+        if kind == UICollectionView.elementKindSectionFooter {
+                    let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FooterView", for: indexPath) as! FooterView
+            footerView.delegate = self
+            footerView.button.isHidden = activityIndicator.isAnimating
+                    return footerView
+                }
+                return UICollectionReusableView()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        guard collectionView == productCollectionView else {return CGSize(width: 0, height: 0)}
+        return CGSize(width: collectionView.bounds.width, height: 50)
+    }
 }
     //MARK: - UICollectionViewCell Button Actions
-extension HomeView : priceButtonDelegate, CategoryButtonDelegate {
+extension HomeView : FooterDelegate,priceButtonDelegate, CategoryButtonDelegate {
+    
+    func seeAllClicked() {
+        presenter?.handleViewOutput(with: .seeAllClicked)
+    }
     
     func priceButtonClicked(_ index: Int) {
         presenter?.handleViewOutput(with: .productClicked(productList[index]))

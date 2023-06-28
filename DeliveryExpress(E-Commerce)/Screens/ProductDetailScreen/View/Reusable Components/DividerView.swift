@@ -13,13 +13,14 @@ class DividerView : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
-        setupConstraints()
     }
     
-    private func setupConstraints() {
-        self.widthAnchor.constraint(equalToConstant: 393 * 0.95).isActive = true
-        self.heightAnchor.constraint(equalToConstant: 1).isActive = true
+    convenience init(width : CGFloat,height : CGFloat) {
+        self.init(frame: .zero)
+        widthAnchor.constraint(equalToConstant: width).isActive = true
+        heightAnchor.constraint(equalToConstant: height).isActive = true
     }
+
     private func setupUI() {
         self.backgroundColor = .black
         self.translatesAutoresizingMaskIntoConstraints = false

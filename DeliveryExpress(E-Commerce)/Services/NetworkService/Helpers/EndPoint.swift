@@ -23,20 +23,29 @@ protocol EndPointType {
 enum EndPointItems<T : Decodable> {
     case products
     case categories
+    case productsOfCategory(String)
+    case search(String)
+    case topProducts(Int)
 }
 
 extension EndPointItems : EndPointType{
     var path: String {
         switch self {
+        case .topProducts(let limit):
+            return "?limit=\(limit)"
         case.products :
-            return ""
+            return "/"
         case .categories:
-            return "categories"
+            return "/categories"
+        case .productsOfCategory(let category):
+            return "/category/\(category)"
+        case .search(let query):
+            return "/search?q=\(query)"
         }
     }
     
     var baseURL: String {
-        return "https://dummyjson.com/products/"
+        return "https://dummyjson.com/products"
     }
     
     var url: URL? {
@@ -44,11 +53,6 @@ extension EndPointItems : EndPointType{
     }
     
     var method: HTTPMethods {
-        switch self {
-        case.products:
-            return .get
-        case .categories:
-            return .get
-        }
+        return .get
     }
 }

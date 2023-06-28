@@ -10,7 +10,7 @@ import UIKit
 
 protocol HomeRouterInterface {
     var view : UIViewController? {get set}
-    func navigateTo(to output : routerRotations)
+    func navigateTo(to output : HomeRouterRotations)
 }
 
 protocol HomePresenterInterface : AnyObject {
@@ -39,6 +39,12 @@ enum HomeInteractorOutput {
     case categoriesLoaded([String])
     case productsLoaded([Product])
     case loadFailed
+}
+enum HomeViewOutput {
+    case productClicked(Product)
+    case categoryClicked(String)
+    case loadData
+    case seeAllClicked
 }
 
 

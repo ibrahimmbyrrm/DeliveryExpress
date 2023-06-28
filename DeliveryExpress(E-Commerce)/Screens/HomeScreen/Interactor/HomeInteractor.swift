@@ -29,7 +29,7 @@ final class HomeInteractor : HomeInteractorInterface {
             }
         }
         dispatchGroup.enter()
-        service.fetchData(type: EndPointItems<ProductResponse>.products) { [weak self] response in
+        service.fetchData(type: EndPointItems<ProductResponse>.topProducts(8)) { [weak self] response in
             guard let self else {return}
             defer {dispatchGroup.leave()}
             switch response {

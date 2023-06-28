@@ -22,12 +22,13 @@ final class HomePresenter : HomePresenterInterface{
     func handleViewOutput(with output : HomeViewOutput) {
         switch output {
         case .categoryClicked(let selectedCategory):
-            print(selectedCategory)
+            router.navigateTo(to: .toCategory(selectedCategory))
         case.productClicked(let selectedProduct):
             router.navigateTo(to: .toProductDetail(selectedProduct))
         case .loadData:
-            print("fetch data called")
             interactor.fetchData()
+        case .seeAllClicked:
+            router.navigateTo(to: .toAllProducts)
         }
     }
     

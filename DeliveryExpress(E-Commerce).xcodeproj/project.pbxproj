@@ -25,6 +25,12 @@
 		80152BC72A4A4CDA00330AB8 /* DetailButtonsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80152BC62A4A4CDA00330AB8 /* DetailButtonsStackView.swift */; };
 		80152BC92A4A536400330AB8 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80152BC82A4A536400330AB8 /* DividerView.swift */; };
 		80152BCD2A4A60B000330AB8 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80152BCC2A4A60B000330AB8 /* UIImageView+Extension.swift */; };
+		80BA2EB92A4B6B8A00BC55CB /* DiscoverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA2EB82A4B6B8A00BC55CB /* DiscoverBuilder.swift */; };
+		80BA2EBB2A4B6BDD00BC55CB /* DiscoverContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA2EBA2A4B6BDD00BC55CB /* DiscoverContracts.swift */; };
+		80BA2EBD2A4B6C1E00BC55CB /* DiscoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA2EBC2A4B6C1E00BC55CB /* DiscoverPresenter.swift */; };
+		80BA2EBF2A4B6C2E00BC55CB /* DiscoverInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA2EBE2A4B6C2E00BC55CB /* DiscoverInteractor.swift */; };
+		80BA2EC12A4B6C4500BC55CB /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA2EC02A4B6C4500BC55CB /* DiscoverView.swift */; };
+		80BA2EC32A4B6C8100BC55CB /* DiscoverRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA2EC22A4B6C8100BC55CB /* DiscoverRouter.swift */; };
 		80E6AC772A449A3600EC17D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E6AC762A449A3600EC17D9 /* AppDelegate.swift */; };
 		80E6AC792A449A3600EC17D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E6AC782A449A3600EC17D9 /* SceneDelegate.swift */; };
 		80E6AC802A449A3700EC17D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E6AC7F2A449A3700EC17D9 /* Assets.xcassets */; };
@@ -43,6 +49,9 @@
 		80E6ACB92A44B11500EC17D9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 80E6ACB82A44B11500EC17D9 /* Alamofire */; };
 		80E6ACBB2A44B13E00EC17D9 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E6ACBA2A44B13E00EC17D9 /* NetworkHelper.swift */; };
 		80E6ACBD2A44B16F00EC17D9 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E6ACBC2A44B16F00EC17D9 /* EndPoint.swift */; };
+		80F3E0802A4C3562002730F0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E07F2A4C3562002730F0 /* UIViewController+Extension.swift */; };
+		80F3E0822A4CA6F9002730F0 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0812A4CA6F9002730F0 /* UITabBarController+Extension.swift */; };
+		80F3E0882A4CAE88002730F0 /* SeeAllFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0872A4CAE88002730F0 /* SeeAllFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +72,12 @@
 		80152BC62A4A4CDA00330AB8 /* DetailButtonsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailButtonsStackView.swift; sourceTree = "<group>"; };
 		80152BC82A4A536400330AB8 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		80152BCC2A4A60B000330AB8 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		80BA2EB82A4B6B8A00BC55CB /* DiscoverBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverBuilder.swift; sourceTree = "<group>"; };
+		80BA2EBA2A4B6BDD00BC55CB /* DiscoverContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverContracts.swift; sourceTree = "<group>"; };
+		80BA2EBC2A4B6C1E00BC55CB /* DiscoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresenter.swift; sourceTree = "<group>"; };
+		80BA2EBE2A4B6C2E00BC55CB /* DiscoverInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverInteractor.swift; sourceTree = "<group>"; };
+		80BA2EC02A4B6C4500BC55CB /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		80BA2EC22A4B6C8100BC55CB /* DiscoverRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverRouter.swift; sourceTree = "<group>"; };
 		80E6AC732A449A3600EC17D9 /* DeliveryExpress(E-Commerce).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DeliveryExpress(E-Commerce).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E6AC762A449A3600EC17D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80E6AC782A449A3600EC17D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +96,9 @@
 		80E6ACB52A44B0F800EC17D9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		80E6ACBA2A44B13E00EC17D9 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		80E6ACBC2A44B16F00EC17D9 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		80F3E07F2A4C3562002730F0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		80F3E0812A4CA6F9002730F0 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
+		80F3E0872A4CAE88002730F0 /* SeeAllFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +137,8 @@
 				800DE50F2A48AB9E006567E5 /* UIColor+Ext.swift */,
 				80152BC42A49E27800330AB8 /* String+Extension.swift */,
 				80152BCC2A4A60B000330AB8 /* UIImageView+Extension.swift */,
+				80F3E07F2A4C3562002730F0 /* UIViewController+Extension.swift */,
+				80F3E0812A4CA6F9002730F0 /* UITabBarController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -180,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				80152BCA2A4A551D00330AB8 /* Cells */,
-				80152BBF2A49D28300330AB8 /* CustomViews */,
+				80152BBF2A49D28300330AB8 /* Reusable Components */,
 				80152BB22A49C3C800330AB8 /* ProductDetailView.swift */,
 			);
 			path = View;
@@ -194,14 +214,14 @@
 			path = Contracts;
 			sourceTree = "<group>";
 		};
-		80152BBF2A49D28300330AB8 /* CustomViews */ = {
+		80152BBF2A49D28300330AB8 /* Reusable Components */ = {
 			isa = PBXGroup;
 			children = (
 				80152BC22A49D2FB00330AB8 /* ProductDetailContainer.swift */,
 				80152BC62A4A4CDA00330AB8 /* DetailButtonsStackView.swift */,
 				80152BC82A4A536400330AB8 /* DividerView.swift */,
 			);
-			path = CustomViews;
+			path = "Reusable Components";
 			sourceTree = "<group>";
 		};
 		80152BCA2A4A551D00330AB8 /* Cells */ = {
@@ -217,8 +237,71 @@
 			children = (
 				80E6ACB02A44ADEB00EC17D9 /* ProductCell.swift */,
 				80E6ACAE2A44ADD400EC17D9 /* CategoryCell.swift */,
+				80F3E0872A4CAE88002730F0 /* SeeAllFooterView.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		80BA2EB12A4B6B3100BC55CB /* DiscoverScreen */ = {
+			isa = PBXGroup;
+			children = (
+				80BA2EB72A4B6B7000BC55CB /* Builder */,
+				80BA2EB62A4B6B6900BC55CB /* Router */,
+				80BA2EB52A4B6B6400BC55CB /* Presenter */,
+				80BA2EB42A4B6B5F00BC55CB /* Interactor */,
+				80BA2EB32A4B6B5000BC55CB /* View */,
+				80BA2EB22A4B6B4700BC55CB /* Contracts */,
+			);
+			path = DiscoverScreen;
+			sourceTree = "<group>";
+		};
+		80BA2EB22A4B6B4700BC55CB /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				80BA2EBA2A4B6BDD00BC55CB /* DiscoverContracts.swift */,
+			);
+			path = Contracts;
+			sourceTree = "<group>";
+		};
+		80BA2EB32A4B6B5000BC55CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				80F3E0832A4CA7E9002730F0 /* Cells */,
+				80BA2EC02A4B6C4500BC55CB /* DiscoverView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		80BA2EB42A4B6B5F00BC55CB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				80BA2EBE2A4B6C2E00BC55CB /* DiscoverInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		80BA2EB52A4B6B6400BC55CB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				80BA2EBC2A4B6C1E00BC55CB /* DiscoverPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		80BA2EB62A4B6B6900BC55CB /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				80BA2EC22A4B6C8100BC55CB /* DiscoverRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		80BA2EB72A4B6B7000BC55CB /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				80BA2EB82A4B6B8A00BC55CB /* DiscoverBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		80E6AC6A2A449A3600EC17D9 = {
@@ -254,6 +337,7 @@
 		80E6AC8A2A449A9200EC17D9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				80BA2EB12A4B6B3100BC55CB /* DiscoverScreen */,
 				80152BAB2A49C2D000330AB8 /* ProductDetailScreen */,
 				80E6AC9F2A449F2500EC17D9 /* BasketScreen */,
 				80E6AC8D2A449ADC00EC17D9 /* HomeScreen */,
@@ -395,8 +479,7 @@
 		80E6ACB22A44B0E500EC17D9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				80E6ACB42A44B0EE00EC17D9 /* Core */,
-				80E6ACB32A44B0E900EC17D9 /* Helpers */,
+				80F3E08A2A4CB0F0002730F0 /* NetworkService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -416,6 +499,22 @@
 				80E6ACB52A44B0F800EC17D9 /* NetworkManager.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		80F3E0832A4CA7E9002730F0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		80F3E08A2A4CB0F0002730F0 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				80E6ACB32A44B0E900EC17D9 /* Helpers */,
+				80E6ACB42A44B0EE00EC17D9 /* Core */,
+			);
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,8 +603,10 @@
 				80E6ACA82A449F4D00EC17D9 /* BasketView.swift in Sources */,
 				80152BBE2A49C3EF00330AB8 /* ProductDetailContracts.swift in Sources */,
 				80E6ACB12A44ADEB00EC17D9 /* ProductCell.swift in Sources */,
+				80BA2EBF2A4B6C2E00BC55CB /* DiscoverInteractor.swift in Sources */,
 				80E6AC942A449B5000EC17D9 /* HomeView.swift in Sources */,
 				80E6AC9A2A449B6000EC17D9 /* HomeRouter.swift in Sources */,
+				80F3E0882A4CAE88002730F0 /* SeeAllFooterView.swift in Sources */,
 				80152BB62A49C3D400330AB8 /* ProductDetailInteractor.swift in Sources */,
 				80E6AC772A449A3600EC17D9 /* AppDelegate.swift in Sources */,
 				80152BB32A49C3C800330AB8 /* ProductDetailView.swift in Sources */,
@@ -517,15 +618,22 @@
 				80E6AC962A449B5500EC17D9 /* HomeInteractor.swift in Sources */,
 				80E6ACA62A449F4700EC17D9 /* BasketBuilder.swift in Sources */,
 				80E6ACBD2A44B16F00EC17D9 /* EndPoint.swift in Sources */,
+				80BA2EC32A4B6C8100BC55CB /* DiscoverRouter.swift in Sources */,
+				80BA2EBB2A4B6BDD00BC55CB /* DiscoverContracts.swift in Sources */,
 				80152BBA2A49C3E200330AB8 /* ProductDetailRouter.swift in Sources */,
 				80152BAA2A48B9CF00330AB8 /* Constants.swift in Sources */,
+				80BA2EC12A4B6C4500BC55CB /* DiscoverView.swift in Sources */,
 				800DE5102A48AB9E006567E5 /* UIColor+Ext.swift in Sources */,
+				80F3E0802A4C3562002730F0 /* UIViewController+Extension.swift in Sources */,
+				80BA2EB92A4B6B8A00BC55CB /* DiscoverBuilder.swift in Sources */,
 				80152BC92A4A536400330AB8 /* DividerView.swift in Sources */,
 				80152BCD2A4A60B000330AB8 /* UIImageView+Extension.swift in Sources */,
 				80E6ACAF2A44ADD400EC17D9 /* CategoryCell.swift in Sources */,
+				80BA2EBD2A4B6C1E00BC55CB /* DiscoverPresenter.swift in Sources */,
 				800DE50D2A458DD0006567E5 /* TitleLabel.swift in Sources */,
 				80152BC72A4A4CDA00330AB8 /* DetailButtonsStackView.swift in Sources */,
 				80152BB82A49C3DB00330AB8 /* ProductDetailPresenter.swift in Sources */,
+				80F3E0822A4CA6F9002730F0 /* UITabBarController+Extension.swift in Sources */,
 				80152BC32A49D2FB00330AB8 /* ProductDetailContainer.swift in Sources */,
 				80152BC52A49E27800330AB8 /* String+Extension.swift in Sources */,
 				80152BC12A49D29400330AB8 /* ProductImageCell.swift in Sources */,
