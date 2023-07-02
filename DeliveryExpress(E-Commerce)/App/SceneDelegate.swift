@@ -18,10 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let homeNavigationController = HomeBuilder.buildModule().embedNavigationController()
-        let basketView = BasketView()
+        let basketView = BasketBuilder.buildModule().embedNavigationController()
         homeNavigationController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
         let mainTabBar = UITabBarController(screens: [homeNavigationController,basketView])
-        var window = UIWindow(windowScene: windowScene)
+        let window = UIWindow(windowScene: windowScene)
         window.rootViewController = mainTabBar
         self.window = window
         window.makeKeyAndVisible()

@@ -52,6 +52,12 @@
 		80F3E0802A4C3562002730F0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E07F2A4C3562002730F0 /* UIViewController+Extension.swift */; };
 		80F3E0822A4CA6F9002730F0 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0812A4CA6F9002730F0 /* UITabBarController+Extension.swift */; };
 		80F3E0882A4CAE88002730F0 /* SeeAllFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0872A4CAE88002730F0 /* SeeAllFooterView.swift */; };
+		80F3E08E2A507F9E002730F0 /* BasketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E08D2A507F9E002730F0 /* BasketInteractor.swift */; };
+		80F3E0902A507FA4002730F0 /* BasketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E08F2A507FA4002730F0 /* BasketPresenter.swift */; };
+		80F3E0922A507FBB002730F0 /* BasketRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0912A507FBB002730F0 /* BasketRouter.swift */; };
+		80F3E0952A507FCC002730F0 /* BasketContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0942A507FCC002730F0 /* BasketContracts.swift */; };
+		80F3E0982A508931002730F0 /* BasketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0972A508931002730F0 /* BasketCell.swift */; };
+		80F3E09B2A518971002730F0 /* TotalCostStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E09A2A518971002730F0 /* TotalCostStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +105,12 @@
 		80F3E07F2A4C3562002730F0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		80F3E0812A4CA6F9002730F0 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
 		80F3E0872A4CAE88002730F0 /* SeeAllFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllFooterView.swift; sourceTree = "<group>"; };
+		80F3E08D2A507F9E002730F0 /* BasketInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketInteractor.swift; sourceTree = "<group>"; };
+		80F3E08F2A507FA4002730F0 /* BasketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketPresenter.swift; sourceTree = "<group>"; };
+		80F3E0912A507FBB002730F0 /* BasketRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketRouter.swift; sourceTree = "<group>"; };
+		80F3E0942A507FCC002730F0 /* BasketContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketContracts.swift; sourceTree = "<group>"; };
+		80F3E0972A508931002730F0 /* BasketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCell.swift; sourceTree = "<group>"; };
+		80F3E09A2A518971002730F0 /* TotalCostStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCostStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,6 +434,7 @@
 		80E6AC9F2A449F2500EC17D9 /* BasketScreen */ = {
 			isa = PBXGroup;
 			children = (
+				80F3E0932A507FC6002730F0 /* Contracts */,
 				80E6ACA42A449F4100EC17D9 /* Builder */,
 				80E6ACA32A449F3D00EC17D9 /* Router */,
 				80E6ACA22A449F3A00EC17D9 /* Presenter */,
@@ -434,6 +447,8 @@
 		80E6ACA02A449F3500EC17D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				80F3E0992A518967002730F0 /* Custom Views */,
+				80F3E0962A508920002730F0 /* Cells */,
 				80E6ACA72A449F4D00EC17D9 /* BasketView.swift */,
 			);
 			path = View;
@@ -442,6 +457,7 @@
 		80E6ACA12A449F3700EC17D9 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				80F3E08D2A507F9E002730F0 /* BasketInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -449,6 +465,7 @@
 		80E6ACA22A449F3A00EC17D9 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				80F3E08F2A507FA4002730F0 /* BasketPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -456,6 +473,7 @@
 		80E6ACA32A449F3D00EC17D9 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				80F3E0912A507FBB002730F0 /* BasketRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -515,6 +533,30 @@
 				80E6ACB42A44B0EE00EC17D9 /* Core */,
 			);
 			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		80F3E0932A507FC6002730F0 /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				80F3E0942A507FCC002730F0 /* BasketContracts.swift */,
+			);
+			path = Contracts;
+			sourceTree = "<group>";
+		};
+		80F3E0962A508920002730F0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				80F3E0972A508931002730F0 /* BasketCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		80F3E0992A518967002730F0 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				80F3E09A2A518971002730F0 /* TotalCostStackView.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,6 +647,7 @@
 				80E6ACB12A44ADEB00EC17D9 /* ProductCell.swift in Sources */,
 				80BA2EBF2A4B6C2E00BC55CB /* DiscoverInteractor.swift in Sources */,
 				80E6AC942A449B5000EC17D9 /* HomeView.swift in Sources */,
+				80F3E0922A507FBB002730F0 /* BasketRouter.swift in Sources */,
 				80E6AC9A2A449B6000EC17D9 /* HomeRouter.swift in Sources */,
 				80F3E0882A4CAE88002730F0 /* SeeAllFooterView.swift in Sources */,
 				80152BB62A49C3D400330AB8 /* ProductDetailInteractor.swift in Sources */,
@@ -615,12 +658,15 @@
 				80E6AC792A449A3600EC17D9 /* SceneDelegate.swift in Sources */,
 				80152BBC2A49C3E900330AB8 /* ProductDetailBuilder.swift in Sources */,
 				80E6AC982A449B5C00EC17D9 /* HomePresenter.swift in Sources */,
+				80F3E0952A507FCC002730F0 /* BasketContracts.swift in Sources */,
 				80E6AC962A449B5500EC17D9 /* HomeInteractor.swift in Sources */,
 				80E6ACA62A449F4700EC17D9 /* BasketBuilder.swift in Sources */,
+				80F3E08E2A507F9E002730F0 /* BasketInteractor.swift in Sources */,
 				80E6ACBD2A44B16F00EC17D9 /* EndPoint.swift in Sources */,
 				80BA2EC32A4B6C8100BC55CB /* DiscoverRouter.swift in Sources */,
 				80BA2EBB2A4B6BDD00BC55CB /* DiscoverContracts.swift in Sources */,
 				80152BBA2A49C3E200330AB8 /* ProductDetailRouter.swift in Sources */,
+				80F3E09B2A518971002730F0 /* TotalCostStackView.swift in Sources */,
 				80152BAA2A48B9CF00330AB8 /* Constants.swift in Sources */,
 				80BA2EC12A4B6C4500BC55CB /* DiscoverView.swift in Sources */,
 				800DE5102A48AB9E006567E5 /* UIColor+Ext.swift in Sources */,
@@ -631,9 +677,11 @@
 				80E6ACAF2A44ADD400EC17D9 /* CategoryCell.swift in Sources */,
 				80BA2EBD2A4B6C1E00BC55CB /* DiscoverPresenter.swift in Sources */,
 				800DE50D2A458DD0006567E5 /* TitleLabel.swift in Sources */,
+				80F3E0982A508931002730F0 /* BasketCell.swift in Sources */,
 				80152BC72A4A4CDA00330AB8 /* DetailButtonsStackView.swift in Sources */,
 				80152BB82A49C3DB00330AB8 /* ProductDetailPresenter.swift in Sources */,
 				80F3E0822A4CA6F9002730F0 /* UITabBarController+Extension.swift in Sources */,
+				80F3E0902A507FA4002730F0 /* BasketPresenter.swift in Sources */,
 				80152BC32A49D2FB00330AB8 /* ProductDetailContainer.swift in Sources */,
 				80152BC52A49E27800330AB8 /* String+Extension.swift in Sources */,
 				80152BC12A49D29400330AB8 /* ProductImageCell.swift in Sources */,

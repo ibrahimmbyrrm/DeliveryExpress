@@ -24,6 +24,12 @@ class ProductDetailPresenter : ProductDetailPresenterInterface {
         switch output {
         case .addToCart(let product):
             print("presenter added to cart \(product.title)")
+            let decodableData = UserDefaults.standard.data(forKey: "savedData")
+            var fetchedCart =  try? JSONDecoder().decode([Product].self, from: decodableData!)
+            fetchedCart?.append(product)
+            guard let encoded = try? JSONEncoder().encode(fetchedCart) else {return}
+            UserDefaults.standard.set(encoded, forKey: "savedData")
+            print("user defaukta kaydettim")
         case .goToPayment(let product):
             print("presenter goes to payment \(product.title)")
         }
