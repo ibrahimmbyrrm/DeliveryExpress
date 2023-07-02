@@ -81,6 +81,13 @@ extension BasketView : UITableViewDelegate, UITableViewDataSource {
         presenter?.handleViewOutput(output: .productClicked(cartList[indexPath.row]))
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presenter?.handleViewOutput(output: .deleteItem(indexPath.row))
+            tableView.reloadData()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cartList.count
     }
@@ -107,6 +114,4 @@ extension BasketView : BasketViewInterface {
             self.cartTableView.reloadData()
         }
     }
-    
-    
 }

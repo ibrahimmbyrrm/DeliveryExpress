@@ -19,7 +19,7 @@ protocol BasketPresenterInterface : AnyObject{
 }
 protocol BasketInteractorInterface {
     var presenter : BasketPresenterInterface? {get set}
-    func readUserDefaults()
+    func handlePresenterOutput(output : BasketPresenterToInteractorOutput)
 }
 protocol BasketRouterInterface {
     var view : UIViewController? {get set}
@@ -31,6 +31,7 @@ enum BasketInteractorOutput {
 enum BasketViewOutput {
     case loadCart
     case productClicked(Product)
+    case deleteItem(Int)
 }
 enum BasketPresenterOutput {
     case cartFetched([Product])
@@ -38,4 +39,8 @@ enum BasketPresenterOutput {
 enum BasketRotations {
     case toProductDetail(Product)
     case toPaymentScreen
+}
+enum BasketPresenterToInteractorOutput {
+    case loadAllItems
+    case removeAtIndex(Int)
 }

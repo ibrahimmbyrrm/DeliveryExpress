@@ -29,9 +29,11 @@ class BasketPresenter : BasketPresenterInterface {
     func handleViewOutput(output : BasketViewOutput) {
         switch output {
         case .loadCart:
-            interactor.readUserDefaults()
+            interactor.handlePresenterOutput(output: .loadAllItems)
         case .productClicked(let product):
             router.navigateTo(to: .toProductDetail(product))
+        case .deleteItem(let itemIndex):
+            interactor.handlePresenterOutput(output: .removeAtIndex(itemIndex))
         }
     }
 }
