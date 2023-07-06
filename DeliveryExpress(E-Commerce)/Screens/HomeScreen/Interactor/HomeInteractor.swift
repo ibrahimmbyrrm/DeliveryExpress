@@ -8,6 +8,7 @@
 import Foundation
 
 final class HomeInteractor : HomeInteractorInterface {
+    
     weak var presenter: HomePresenterInterface?
     private let service : NetworkService
 

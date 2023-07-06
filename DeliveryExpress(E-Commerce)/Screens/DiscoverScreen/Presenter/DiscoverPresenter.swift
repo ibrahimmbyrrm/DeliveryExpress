@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DiscoverPresenter : DiscoverPresenterInterface {
+final class DiscoverPresenter : DiscoverPresenterInterface {
 
     private let interactor : DiscoverInteractorInterface
     private let view : DiscoverViewInterface

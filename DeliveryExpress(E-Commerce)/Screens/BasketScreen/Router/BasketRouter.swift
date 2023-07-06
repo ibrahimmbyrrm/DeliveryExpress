@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class BasketRouter : BasketRouterInterface{
+final class BasketRouter : BasketRouterInterface{
     var view: UIViewController?
     
     func navigateTo(to rotation : BasketRotations) {

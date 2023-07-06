@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-class BasketBuilder {
+final class BasketBuilder {
     
     static func buildModule() -> UIViewController {
         var router : BasketRouterInterface = BasketRouter()
-        var view : BasketViewInterface = BasketView()
+        var view : BasketViewInterface = BasketVC()
         var interactor : BasketInteractorInterface = BasketInteractor()
         let presenter : BasketPresenterInterface = BasketPresenter(router: router, view: view, interactor: interactor)
         router.view = view as? UIViewController

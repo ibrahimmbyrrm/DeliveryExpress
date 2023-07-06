@@ -8,17 +8,12 @@
 import Foundation
 import UIKit
 
-enum DiscoverBuildTypes {
-    case withCategory(String)
-    case allProducts
-}
-
-class DiscoverBuilder {
+final class DiscoverBuilder {
     
     static func build(with type : DiscoverBuildTypes) -> UIViewController {
         var router : DiscoverRouterInterface = DiscoverRouter()
         var interactor : DiscoverInteractorInterface = DiscoverInteractor(service: NetworkManager.shared)
-        var view : DiscoverViewInterface = DiscoverView()
+        var view : DiscoverViewInterface = DiscoverVC()
         router.view = view as? UIViewController
         switch type {
         case .withCategory(let category):

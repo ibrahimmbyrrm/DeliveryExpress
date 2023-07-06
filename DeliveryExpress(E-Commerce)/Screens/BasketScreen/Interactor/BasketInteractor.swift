@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BasketInteractor : BasketInteractorInterface{
+final class BasketInteractor : BasketInteractorInterface{
     weak var presenter: BasketPresenterInterface?
  
     func handlePresenterOutput(output: BasketPresenterToInteractorOutput) {

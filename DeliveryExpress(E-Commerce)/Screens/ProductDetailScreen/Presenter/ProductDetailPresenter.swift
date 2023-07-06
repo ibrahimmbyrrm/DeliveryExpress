@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ProductDetailPresenter : ProductDetailPresenterInterface {
+final class ProductDetailPresenter : ProductDetailPresenterInterface {
     private let interactor : ProductDetailInteractorInterface
     private let view : ProductDetailViewInterface
     private let router : ProductDetailRouterInterface

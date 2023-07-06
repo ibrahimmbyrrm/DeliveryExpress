@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-class ProductDetailBuilder : ProductDetailBuilderInterface {
+final class ProductDetailBuilder : ProductDetailBuilderInterface {
     
     static func buildProductScreen(product : Product) -> UIViewController {
         var router : ProductDetailRouterInterface = ProductDetailRouter()
-        var view : ProductDetailViewInterface = ProductDetailView(product: product)
+        var view : ProductDetailViewInterface = ProductDetailVC(product: product)
         var interactor : ProductDetailInteractorInterface = ProductDetailInteractor()
         let presenter : ProductDetailPresenterInterface = ProductDetailPresenter(interactor: interactor, view: view, router: router)
         interactor.presenter = presenter

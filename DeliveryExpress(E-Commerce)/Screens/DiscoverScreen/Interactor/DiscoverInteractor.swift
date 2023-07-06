@@ -7,12 +7,14 @@
 
 import Foundation
 
-class DiscoverInteractor : DiscoverInteractorInterface {
-    var presenter: DiscoverPresenterInterface?
+final class DiscoverInteractor : DiscoverInteractorInterface {
+    weak var presenter: DiscoverPresenterInterface?
+    
     private let service : NetworkService
     init(service : NetworkService) {
         self.service = service
     }
+    
     func fetchData<T>(endPoint : EndPointItems<T>) {
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()

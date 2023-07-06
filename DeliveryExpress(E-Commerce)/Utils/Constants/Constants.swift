@@ -1,10 +1,9 @@
 //
-//  Constants.swift
+//  HomeConstants.swift
 //  DeliveryExpress(E-Commerce)
 //
-//  Created by İbrahim Bayram on 25.06.2023.
+//  Created by İbrahim Bayram on 6.07.2023.
 //
-
 import Foundation
 
 enum Constants {
@@ -19,5 +18,3 @@ enum Constants {
         static let detailTitle = "Product Details"
     }
 }
-
-

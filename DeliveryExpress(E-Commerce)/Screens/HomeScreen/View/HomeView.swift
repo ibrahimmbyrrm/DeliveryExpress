@@ -1,21 +1,20 @@
 //
-//  HomeView.swift
+//  BasketViews.swift
 //  DeliveryExpress(E-Commerce)
 //
-//  Created by İbrahim Bayram on 22.06.2023.
+//  Created by İbrahim Bayram on 6.07.2023.
 //
 
 import Foundation
 import UIKit
-import SnapKit
 
-class HomeView : UIViewController {
-    //MARK: - Programmatic UI Objects
-    private let categoryTitleLabel = TitleLabel(text: Constants.HomeConstants.categTitle)
+class HomeView : UIView {
     
-    private let productTitleLabel = TitleLabel(text: Constants.HomeConstants.prodTitle)
+    let categoryTitleLabel = TitleLabel(text: Constants.HomeConstants.categTitle)
     
-    private var categoryCollectionView : UICollectionView = {
+    let productTitleLabel = TitleLabel(text: Constants.HomeConstants.prodTitle)
+    
+    var categoryCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
@@ -30,7 +29,7 @@ class HomeView : UIViewController {
         return collectionView
     }()
     
-    private var productCollectionView : UICollectionView = {
+    var productCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 10
@@ -40,68 +39,54 @@ class HomeView : UIViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.prodCell)
         collectionView.register(FooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "FooterView")
-        collectionView.contentInset.bottom = 50 // FooterView'in yüksekliği kadar bir değer verin
+        collectionView.contentInset.bottom = 50
 
         collectionView.layer.cornerRadius = 12
         collectionView.backgroundColor = .white
         return collectionView
     }()
     
-    private let activityIndicator: UIActivityIndicatorView = {
+    let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.color = .black
         indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
     }()
-    //MARK: -Variables
-    var presenter: HomePresenterInterface?
-    lazy var categoryList = [String]()
-    lazy var productList = [Product]()
-    //MARK: - Life Cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .orange
-        self.title = "Deviery Express"
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        navigationController?.navigationBar.prefersLargeTitles = true
-        setDelegates()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         addSubviews()
-        setupCategoryCollectionViewConstraints()
-        setupProductCollectionViewConstraints()
+        setupActivityIndicator()
         setupCategoryTitlelabelConstraints()
         setupProductTitleLabelContstraints()
-        setupActivityIndicator()
-        presenter?.handleViewOutput(with: .loadData)
+        setupProductCollectionViewConstraints()
+        setupCategoryCollectionViewConstraints()
+        backgroundColor = .orange
     }
-    //MARK: - UI Configurations
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private func addSubviews() {
     [productCollectionView,categoryCollectionView,categoryTitleLabel,productTitleLabel,activityIndicator].forEach { v in
-        view.addSubview(v)
+        addSubview(v)
         }
-    }
-    
-    private func setDelegates() {
-        categoryCollectionView.delegate = self
-        categoryCollectionView.dataSource = self
-        productCollectionView.delegate = self
-        productCollectionView.dataSource = self
     }
     
     private func setupActivityIndicator() {
         activityIndicator.snp.makeConstraints { make in
-            make.centerX.equalTo(view.snp.centerX)
-            make.centerY.equalTo(view.snp.centerY)
+            make.centerX.equalTo(self.snp.centerX)
+            make.centerY.equalTo(self.snp.centerY)
         }
         activityIndicator.startAnimating()
-        
     }
     
     private func setupCategoryCollectionViewConstraints() {
         categoryCollectionView.snp.makeConstraints { make in
             make.height.equalTo(60)
-            make.leading.equalTo(view.snp.leading).offset(8)
-            make.trailing.equalTo(view.snp.trailing).offset(-8)
+            make.leading.equalTo(self.snp.leading).offset(8)
+            make.trailing.equalTo(self.snp.trailing).offset(-8)
             make.top.equalTo(categoryTitleLabel.snp.bottom).offset(10)
         }
     }
@@ -109,7 +94,7 @@ class HomeView : UIViewController {
     private func setupProductTitleLabelContstraints() {
         productTitleLabel.textColor = .white
         productTitleLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(view.snp.centerX)
+            make.centerX.equalTo(self.snp.centerX)
             make.top.equalTo(categoryCollectionView.snp.bottom).offset(10)
         }
     }
@@ -117,114 +102,18 @@ class HomeView : UIViewController {
     private func setupProductCollectionViewConstraints() {
         productCollectionView.snp.makeConstraints { make in
             make.top.equalTo(productTitleLabel.snp.bottom).offset(10)
-            make.leading.equalTo(view.snp.leading).offset(8)
-            make.trailing.equalTo(view.snp.trailing).offset(-8)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.leading.equalTo(self.snp.leading).offset(8)
+            make.trailing.equalTo(self.snp.trailing).offset(-8)
+            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
        }
     }
     
     private func setupCategoryTitlelabelConstraints() {
         categoryTitleLabel.textColor = .white
         categoryTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
-            make.centerX.equalTo(view.snp.centerX)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(20)
+            make.centerX.equalTo(self.snp.centerX)
         }
     }
+    
 }
-    //MARK: - CollectionView Methods
-extension HomeView : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch collectionView {
-        case categoryCollectionView:
-            return CGSize(width: 140, height: 40)
-        case productCollectionView:
-            let width = (collectionView.frame.width - 30) / 2
-            return CGSize(width: width, height: width)
-        default:
-            return CGSize.zero
-        }
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch collectionView {
-        case productCollectionView:
-            return productList.count
-        case categoryCollectionView:
-            return categoryList.count
-        default:
-            return 0
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch collectionView {
-        case productCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.HomeConstants.prodCell, for: indexPath) as! ProductCollectionViewCell
-            cell.configure(with: productList[indexPath.row])
-            cell.delegate = self
-            cell.index = indexPath.row
-            return cell
-        case categoryCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.HomeConstants.categCell, for: indexPath) as! CategoryCollectionViewCell
-            cell.titleLabel.text = categoryList[indexPath.row].uppercased()
-            cell.delegate = self
-            cell.index = indexPath.row
-            return cell
-        default:
-            return UICollectionViewCell()
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard collectionView == productCollectionView else {return UICollectionReusableView()}
-        if kind == UICollectionView.elementKindSectionFooter {
-                    let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FooterView", for: indexPath) as! FooterView
-            footerView.delegate = self
-            footerView.button.isHidden = activityIndicator.isAnimating
-                    return footerView
-                }
-                return UICollectionReusableView()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        guard collectionView == productCollectionView else {return CGSize(width: 0, height: 0)}
-        return CGSize(width: collectionView.bounds.width, height: 50)
-    }
-}
-    //MARK: - UICollectionViewCell Button Actions
-extension HomeView : FooterDelegate,priceButtonDelegate, CategoryButtonDelegate {
-    
-    func seeAllClicked() {
-        presenter?.handleViewOutput(with: .seeAllClicked)
-    }
-    
-    func priceButtonClicked(_ index: Int) {
-        presenter?.handleViewOutput(with: .productClicked(productList[index]))
-    }
-    
-    func categoryClicked(_ index: Int) {
-        presenter?.handleViewOutput(with: .categoryClicked(categoryList[index]))
-    }
-}
-    //MARK: - Interface Methods
-extension HomeView : HomeViewInterface {
-    
-    func stopActivityIndicator() {
-        self.activityIndicator.stopAnimating()
-    }
-    
-    func saveData(with output: HomePresenterOutput) {
-        switch output {
-        case .saveCategories(let categories):
-            self.categoryList = categories
-            self.categoryCollectionView.reloadData()
-        case .saveProducts(let products):
-            self.productList = products
-            self.productCollectionView.reloadData()
-        }
-    }
-}
-
-
-

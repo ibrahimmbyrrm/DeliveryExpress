@@ -7,8 +7,7 @@
 
 import Foundation
 
-class ProductDetailInteractor : ProductDetailInteractorInterface {
-    var presenter: ProductDetailPresenterInterface?
-    
+final class ProductDetailInteractor : ProductDetailInteractorInterface {
+   weak var presenter: ProductDetailPresenterInterface?
     
 }

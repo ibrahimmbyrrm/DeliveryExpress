@@ -14,7 +14,7 @@ enum HomeRouterRotations {
     case toAllProducts
 }
 
-class HomeRouter : HomeRouterInterface {
+final class HomeRouter : HomeRouterInterface {
     weak var view: UIViewController?
     
     func navigateTo(to output: HomeRouterRotations) {

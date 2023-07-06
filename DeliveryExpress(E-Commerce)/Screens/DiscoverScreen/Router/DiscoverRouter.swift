@@ -7,7 +7,8 @@
 
 import Foundation
 import UIKit
-class DiscoverRouter : DiscoverRouterInterface {
+
+final class DiscoverRouter : DiscoverRouterInterface {
     weak var view: UIViewController?
     
     func navigateTo(to output: DiscoverRouterRotations) {

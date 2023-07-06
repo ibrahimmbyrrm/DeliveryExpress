@@ -8,13 +8,6 @@
 import Foundation
 import UIKit
 
-enum DiscoverRouterRotations {
-    case toProductDetail(Product)
-}
-enum DiscoverPresenterOutput {
-    case categoriesLoaded([String])
-    case productsLoaded([Product])
-}
 protocol DiscoverViewInterface {
     var productList : [Product] {get set}
     var categoryList : [String] {get set}
@@ -28,7 +21,7 @@ protocol DiscoverInteractorInterface {
     func fetchData<T>(endPoint : EndPointItems<T>)
 }
 
-protocol DiscoverPresenterInterface {
+protocol DiscoverPresenterInterface : AnyObject {
     func handleInteractorOutout(with output : DiscoverInteractorOutput)
     func handleViewOutput(with output : DiscoverViewOutput)
 }
@@ -46,5 +39,15 @@ enum DiscoverViewOutput {
     case productClicked(Product)
     case categoryChanged(String)
     case all
-    
+}
+enum DiscoverRouterRotations {
+    case toProductDetail(Product)
+}
+enum DiscoverPresenterOutput {
+    case categoriesLoaded([String])
+    case productsLoaded([Product])
+}
+enum DiscoverBuildTypes {
+    case withCategory(String)
+    case allProducts
 }

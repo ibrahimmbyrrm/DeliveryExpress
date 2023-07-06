@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BasketPresenter : BasketPresenterInterface {
+final class BasketPresenter : BasketPresenterInterface {
     
     let router : BasketRouterInterface
     let view : BasketViewInterface

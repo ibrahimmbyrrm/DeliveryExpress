@@ -15,7 +15,7 @@ class ProductDetailContainer: UIView {
         label.numberOfLines = 0
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.translatesAutoresizingMaskIntoConstraints
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Apple"
         return label
     }()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProductDetailRouter : ProductDetailRouterInterface {
+final class ProductDetailRouter : ProductDetailRouterInterface {
     var presenter: ProductDetailPresenterInterface?
     
     
