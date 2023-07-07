@@ -6,9 +6,8 @@
 //
 
 import Foundation
-
+import UIKit
 final class ProductDetailRouter : ProductDetailRouterInterface {
     var presenter: ProductDetailPresenterInterface?
-    
-    
+
 }

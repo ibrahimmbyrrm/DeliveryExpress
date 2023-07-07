@@ -17,4 +17,7 @@ enum Constants {
         static let imageCell = "ProductImageCell"
         static let detailTitle = "Product Details"
     }
+    enum DiscoverConstants {
+        static let changeCategoryButtonTitle = "Change Category"
+    }
 }

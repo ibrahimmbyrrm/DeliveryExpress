@@ -34,7 +34,7 @@ final class ProductDetailVC : BaseViewController<ProductDetailView>, ProductDeta
         rootView.imageCollectionView.dataSource = self
         rootView.buttonsStackView.delegate = self
     }
-    
+ 
 }
 
 extension ProductDetailVC : DetailButtonsInterface {

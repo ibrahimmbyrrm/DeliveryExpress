@@ -34,7 +34,7 @@ class DiscoverView : UIView {
     }()
     let changeCategory : UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Change Category", for: .normal)
+        button.setTitle(Constants.DiscoverConstants.changeCategoryButtonTitle, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -97,7 +97,7 @@ class DiscoverView : UIView {
             make.bottom.equalTo(self.snp.bottom)
             make.top.equalTo(changeCategory.snp.bottom).offset(10)
         }
-        productsCollectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: "ProductCell")
+        productsCollectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.prodCell)
     }
     
     private func setupSearchBar() {

@@ -24,13 +24,14 @@ class TotalCostStackView : UIStackView {
         label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 24)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .blue
+        label.textColor = .orange
         return label
         
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .gray
         addSubviews()
         setupConstraints()
         setupStackViewProperties()
@@ -55,17 +56,20 @@ class TotalCostStackView : UIStackView {
         [costLabel, totalCostTitleLabel].forEach { v in
             addArrangedSubview(v)
         }
-        
     }
     
     private func setupConstraints() {
         totalCostTitleLabel.snp.makeConstraints { make in
             make.leading.equalTo(self.snp.leading).offset(10)
             make.centerX.equalTo(self.snp.centerX)
+            make.width.equalTo(100)
+            make.height.equalTo(30)
         }
         costLabel.snp.makeConstraints { make in
             make.trailing.equalTo(self.snp.trailing).inset(10)
             make.centerX.equalTo(self.snp.centerX)
+            make.width.equalTo(100)
+            make.height.equalTo(30)
         }
     }
 }

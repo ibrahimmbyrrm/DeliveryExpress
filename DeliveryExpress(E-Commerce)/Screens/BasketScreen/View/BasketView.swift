@@ -20,7 +20,6 @@ class BasketView : UIView {
     }()
     
     let totalCostStackView =  TotalCostStackView()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -52,6 +51,7 @@ class BasketView : UIView {
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
             make.centerX.equalTo(self.snp.centerX)
             make.width.equalTo(self.snp.width)
+            make.height.equalTo(60)
         }
     }
 }

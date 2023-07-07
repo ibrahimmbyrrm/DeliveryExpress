@@ -14,10 +14,12 @@ protocol ProductDetailViewInterface {
 
 protocol ProductDetailPresenterInterface : AnyObject {
     func handleViewOutput(with output : ProductDetailViewOutput)
+    func handleInteractorOutput()
 }
 
 protocol ProductDetailInteractorInterface {
     var presenter : ProductDetailPresenterInterface? {get set}
+    func saveToUserDefaults(product : Product)
 }
 
 protocol ProductDetailRouterInterface {
