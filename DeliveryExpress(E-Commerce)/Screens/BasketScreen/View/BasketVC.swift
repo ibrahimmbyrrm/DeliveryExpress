@@ -35,8 +35,8 @@ final class BasketVC : BaseViewController<BasketView> {
     }
     
     private func setupNavigationController() {
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .done, target: self, action: #selector(clearCart))
-        title = "Shopping Cart"
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: Constants.BasketConstants.clearButtonTitle, style: .done, target: self, action: #selector(clearCart))
+        title = Constants.BasketConstants.title
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
@@ -45,22 +45,11 @@ final class BasketVC : BaseViewController<BasketView> {
     }
     
 }
-
-extension BasketVC : BadgeChangable {
-    func changeBadgeValue() {
-        if var badgeInt = Int(self.tabBarItem.badgeValue ?? "") {
-            badgeInt += 1
-            self.tabBarItem.badgeValue = "\(badgeInt)"
-        }
-    }
-}
-
 extension BasketVC : BasketViewInterface {
     func handlePresenterOutput(output: BasketPresenterOutput) {
         switch output {
         case .cartFetched(let cart):
             self.cartList = cart
-            print("cart list geldi")
             rootView.cartTableView.reloadData()
         }
     }
@@ -69,7 +58,7 @@ extension BasketVC : BasketViewInterface {
 extension BasketVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "basketCell") as! BasketCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.BasketConstants.basketCell) as! BasketCell
         cell.layer.cornerRadius = 12
         cell.configure(product: cartList[indexPath.row])
         return cell

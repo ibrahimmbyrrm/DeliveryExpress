@@ -348,8 +348,8 @@
 		80E6AC752A449A3600EC17D9 /* DeliveryExpress(E-Commerce) */ = {
 			isa = PBXGroup;
 			children = (
-				806BFEB42A59B4270004621D /* ReusableComponents */,
 				80F3E0D92A570528002730F0 /* Utils */,
+				806BFEB42A59B4270004621D /* ReusableComponents */,
 				800DE5062A44C5C0006567E5 /* Entities */,
 				80E6AC8A2A449A9200EC17D9 /* Screens */,
 				800DE50E2A48AB91006567E5 /* Extensions */,

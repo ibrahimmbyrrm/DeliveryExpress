@@ -12,7 +12,7 @@ class BasketView : UIView {
     
     let cartTableView : UITableView = {
         let tableView = UITableView()
-        tableView.register(BasketCell.self, forCellReuseIdentifier: "basketCell")
+        tableView.register(BasketCell.self, forCellReuseIdentifier: Constants.BasketConstants.basketCell)
         tableView.layer.cornerRadius = 12
         tableView.separatorStyle = .singleLine
         tableView.separatorColor = .black

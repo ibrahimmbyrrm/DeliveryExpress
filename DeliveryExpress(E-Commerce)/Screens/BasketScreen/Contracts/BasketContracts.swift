@@ -8,9 +8,6 @@
 import Foundation
 import UIKit
 
-protocol BadgeChangable {
-    func changeBadgeValue()
-}
 protocol BasketViewInterface {
     var cartList : [Product] {get set}
     var presenter : BasketPresenterInterface? {get set}

@@ -7,6 +7,7 @@
 import Foundation
 
 enum Constants {
+    static let UserDefaultsKey = "userCart"
     enum HomeConstants {
         static let prodCell = "ProductCell"
         static let categCell = "CategoryCell"
@@ -19,5 +20,10 @@ enum Constants {
     }
     enum DiscoverConstants {
         static let changeCategoryButtonTitle = "Change Category"
+    }
+    enum BasketConstants {
+        static let clearButtonTitle = "Clear"
+        static let title = "Shopping Cart"
+        static let basketCell = "basketCell"
     }
 }
