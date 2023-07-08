@@ -12,7 +12,7 @@ class TotalCostStackView : UIStackView {
     private let totalCostTitleLabel : UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.text = "Total Cost:"
+        label.text = Constants.BasketConstants.totalCostTitle
         label.font = UIFont.systemFont(ofSize: 24)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black

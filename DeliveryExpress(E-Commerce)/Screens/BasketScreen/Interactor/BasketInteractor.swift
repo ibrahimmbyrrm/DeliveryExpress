@@ -11,9 +11,11 @@ final class BasketInteractor : BasketInteractorInterface{
     weak var presenter: BasketPresenterInterface?
  
     func handlePresenterOutput(output: BasketPresenterToInteractorOutput) {
+        
         guard let decodableProduct = UserDefaults.standard.data(forKey: Constants.UserDefaultsKey) else {return}
         guard var decoded = try? JSONDecoder().decode([Product].self, from: decodableProduct) else {return}
         var currentBadge = decoded.count
+        
         switch output {
         case .loadAllItems:
             presenter?.handleInteractorOutput(output: .cartFetched(decoded))

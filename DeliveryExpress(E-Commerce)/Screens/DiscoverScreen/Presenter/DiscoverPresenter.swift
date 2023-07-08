@@ -27,10 +27,8 @@ final class DiscoverPresenter : DiscoverPresenterInterface {
     }
     
     func handleInteractorOutout(with output: DiscoverInteractorOutput) {
-        print("handle ettik")
         switch output {
         case .productsLoaded(let response):
-            print("response geldi")
             view.handlePresenterOutput(with: .productsLoaded(response.products))
         case .categoriesLoaded(let categs):
             view.handlePresenterOutput(with: .categoriesLoaded(categs))

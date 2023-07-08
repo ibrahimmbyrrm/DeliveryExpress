@@ -1,5 +1,11 @@
 import UIKit
 
+enum AlertType {
+    case productAdded
+    case cartEmpty
+    case cartCleaned
+}
+
 class CustomAlertViewController: UIViewController {
     private let containerView: UIView = {
         let view = UIView()
@@ -27,16 +33,22 @@ class CustomAlertViewController: UIViewController {
     
     private var duration: Double = 1.0
     
-    init(message: String, duration: Double = 1.0,image : UIImage) {
+    init(type : AlertType) {
         super.init(nibName: nil, bundle: nil)
         self.modalPresentationStyle = .popover
-        self.messageLabel.text = message
-        self.duration = duration
-        self.tickImageView.image = image
-        if image == UIImage(systemName: "checkmark.circle.fill") {
+        switch type {
+        case .productAdded:
+            self.messageLabel.text = "Product saved to cart"
             tickImageView.tintColor = .systemGreen
-        }else {
+            tickImageView.image = UIImage(systemName: "checkmark.circle.fill")
+        case .cartEmpty:
+            self.messageLabel.text = "Your cart is empty"
+            tickImageView.image = UIImage(systemName: "xmark.circle.fill")
             tickImageView.tintColor = .systemRed
+        case .cartCleaned:
+            self.messageLabel.text = "Your cart is cleaned"
+            tickImageView.image = UIImage(systemName: "checkmark.circle.fill")
+            tickImageView.tintColor = .systemGreen
         }
     }
     

@@ -18,7 +18,7 @@ final class BasketVC : BaseViewController<BasketView> {
             rootView.totalCostStackView.configureTotalCost(cart: cartList)
         }
     }
-    
+    //MARK: - UIViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
@@ -28,7 +28,7 @@ final class BasketVC : BaseViewController<BasketView> {
     override func viewWillAppear(_ animated: Bool) {
         presenter?.handleViewOutput(output: .loadCart)
     }
-
+    //MARK: - Initial Setup Functions
     private func setDelegates() {
         rootView.cartTableView.dataSource = self
         rootView.cartTableView.delegate = self
@@ -39,12 +39,13 @@ final class BasketVC : BaseViewController<BasketView> {
         title = Constants.BasketConstants.title
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-
+    //MARK: - Selector Functions
     @objc func clearCart() {
         rootView.checkTheBasketToClear(ownerVC: self)
     }
     
 }
+//MARK: - Interface Methods
 extension BasketVC : BasketViewInterface {
     func handlePresenterOutput(output: BasketPresenterOutput) {
         switch output {
@@ -54,7 +55,7 @@ extension BasketVC : BasketViewInterface {
         }
     }
 }
-
+//MARK: - UITableView Methods
 extension BasketVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

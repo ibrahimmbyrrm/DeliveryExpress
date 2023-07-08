@@ -43,7 +43,7 @@ class DetailButtonsStackView: UIStackView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    //MARK: - UI Functions
     private func configureStackViewProperties() {
         self.distribution = .equalCentering
         self.axis = .horizontal
@@ -68,7 +68,7 @@ class DetailButtonsStackView: UIStackView {
             make.height.equalTo(36)
         }
     }
-    
+    //MARK: - Selector Methods
     @objc func addToCartClicked() {
         delegate?.addToCartClicked()
     }

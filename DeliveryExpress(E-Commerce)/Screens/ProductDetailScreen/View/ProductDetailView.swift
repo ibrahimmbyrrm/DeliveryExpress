@@ -54,6 +54,10 @@ class ProductDetailView : UIView {
     func configure(with product :  Product) {
         productDetailView.configureWith(with: product)
     }
+    func callProductAddedAlert(ownerVC : ProductDetailVC) {
+        let alert = CustomAlertViewController(type: .productAdded)
+        ownerVC.present(alert, animated: true, completion: nil)
+    }
     //MARK: - UI Methods(AddSubviews and Constraints)
     private func addSubviews() {
         [detailsTitle,imageCollectionView,productDetailView,buttonsStackView].forEach { v in

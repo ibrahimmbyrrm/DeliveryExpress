@@ -15,8 +15,6 @@ class ProductDetailContainer: UIView {
         label.numberOfLines = 0
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Apple"
         return label
     }()
     private let modelLabel : UILabel = {
@@ -25,8 +23,6 @@ class ProductDetailContainer: UIView {
         label.numberOfLines = 1
         label.textColor = .darkGray
         label.font = UIFont.systemFont(ofSize: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Iphone X"
         return label
     }()
     private let descriptionLabel : UILabel = {
@@ -35,23 +31,17 @@ class ProductDetailContainer: UIView {
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .black
         label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "An apple mobile which is nothing like apple"
         return label
     }()
     private let ratingLabel : UILabel = {
        let label = UILabel()
         label.textAlignment = .left
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "4.8"
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
     private let stockLabel : UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Stock : 64"
         label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .black
@@ -62,8 +52,6 @@ class ProductDetailContainer: UIView {
         label.font = UIFont.systemFont(ofSize: 25)
         label.backgroundColor = .white
         label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "999$"
         label.textAlignment = .center
         return label
     }()

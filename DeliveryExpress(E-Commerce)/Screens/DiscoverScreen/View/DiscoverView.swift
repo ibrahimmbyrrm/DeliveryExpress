@@ -60,6 +60,28 @@ class DiscoverView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    typealias DiscoverViewInterfaceVC = DiscoverViewInterface & BaseViewController<DiscoverView>
+    
+    func callChangeCategoryAlert(ownerVC : DiscoverViewInterfaceVC) {
+        let alert = UIAlertController(title: "Change the Category", message: nil, preferredStyle: .actionSheet)
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
+        let allCategoriesButton = UIAlertAction(title: "All Products", style: .destructive) { _ in
+            ownerVC.presenter?.handleViewOutput(with: .all)
+            ownerVC.rootView.pageTitleLabel.text = "All Products"
+        }
+        alert.addAction(cancelButton)
+        alert.addAction(allCategoriesButton)
+        ownerVC.categoryList.forEach { category in
+            let alertAction = UIAlertAction(title: category, style: .default) { _ in
+                ownerVC.presenter?.handleViewOutput(with: .categoryChanged(category))
+                ownerVC.rootView.pageTitleLabel.text = category.capitalized
+            }
+            
+            alert.addAction(alertAction)
+        }
+        ownerVC.present(alert, animated: true)
+    }
+    
     private func setupCurrentCategoryButtonConstraints() {
         changeCategory.snp.makeConstraints { make in
             make.leading.equalTo(self.snp.leading).offset(8)
@@ -101,7 +123,7 @@ class DiscoverView : UIView {
     }
     
     private func setupSearchBar() {
-        searchBar.placeholder = "Find your product..."
+        searchBar.placeholder = Constants.DiscoverConstants.searchBarPlaceholder
         searchBar.backgroundColor = .white
     }
 }

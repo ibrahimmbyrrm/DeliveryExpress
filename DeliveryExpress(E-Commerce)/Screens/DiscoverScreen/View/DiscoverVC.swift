@@ -22,7 +22,7 @@ final class DiscoverVC : BaseViewController<DiscoverView> {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.titleView = rootView.searchBar
+        setupNavigationBar()
         setDelegates()
         setupChangeCategoryButton()
     }
@@ -32,28 +32,15 @@ final class DiscoverVC : BaseViewController<DiscoverView> {
         rootView.productsCollectionView.dataSource = self
         rootView.searchBar.delegate = self
     }
+    private func setupNavigationBar() {
+        self.navigationItem.titleView = rootView.searchBar
+    }
     private func setupChangeCategoryButton() {
         rootView.changeCategory.addTarget(nil, action: #selector(currentCategoryClicked), for: .touchUpInside)
     }
     //MARK: - Selector Methods
     @objc private func currentCategoryClicked() {
-        let alert = UIAlertController(title: "Change the Category", message: nil, preferredStyle: .actionSheet)
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
-        let allCategoriesButton = UIAlertAction(title: "All Products", style: .destructive) { _ in
-            self.presenter?.handleViewOutput(with: .all)
-            self.rootView.pageTitleLabel.text = "All Products"
-        }
-        alert.addAction(cancelButton)
-        alert.addAction(allCategoriesButton)
-        categoryList.forEach { category in
-            let alertAction = UIAlertAction(title: category, style: .default) { _ in
-                self.presenter?.handleViewOutput(with: .categoryChanged(category))
-                self.rootView.pageTitleLabel.text = category.capitalized
-            }
-            
-            alert.addAction(alertAction)
-        }
-        self.present(alert, animated: true)
+        rootView.callChangeCategoryAlert(ownerVC: self)
     }
     
 }
@@ -61,7 +48,6 @@ final class DiscoverVC : BaseViewController<DiscoverView> {
 extension DiscoverVC : DiscoverViewInterface {
     
     func handlePresenterOutput(with output : DiscoverPresenterOutput) {
-        print("lşmdlmşg")
         switch output {
         case .categoriesLoaded(let categories):
             self.categoryList = categories

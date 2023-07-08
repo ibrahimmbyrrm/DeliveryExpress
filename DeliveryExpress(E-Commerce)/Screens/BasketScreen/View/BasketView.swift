@@ -50,13 +50,13 @@ class BasketView : UIView {
     
     func checkTheBasketToClear(ownerVC : AlertShowableBasketVC) {
         if ownerVC.cartList.isEmpty {
-            let customAlert = CustomAlertViewController(message: "Your cart is empty", duration: 1.0, image: UIImage(systemName: "xmark.circle.fill")!)
+            let customAlert = CustomAlertViewController(type: .cartEmpty)
             ownerVC.present(customAlert, animated: true)
         }else {
             let alert = UIAlertController(title: "Are you sure about cleaning the basket ?", message: nil, preferredStyle: .alert)
             let yesButton = UIAlertAction(title: "YES", style: .cancel) { _ in
                 ownerVC.presenter?.handleViewOutput(output: .clearCart)
-                let customAlert = CustomAlertViewController(message: "Your cart is cleaned.", duration: 1.0, image: UIImage(systemName: "checkmark.circle.fill")!)
+                let customAlert = CustomAlertViewController(type: .cartCleaned)
                 ownerVC.present(customAlert, animated: true)
             }
             let noButton = UIAlertAction(title: "NO", style: .destructive)

@@ -15,7 +15,7 @@ protocol FooterDelegate : AnyObject {
 class FooterView: UICollectionReusableView {
     let button: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("See All", for: .normal)
+        button.setTitle(Constants.HomeConstants.seeAllTitle, for: .normal)
         button.addTarget(nil, action: #selector(showAllButtonTapped), for: .touchUpInside)
         button.backgroundColor = .orange
         button.tintColor = .white

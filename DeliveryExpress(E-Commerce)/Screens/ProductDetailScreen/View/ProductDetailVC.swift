@@ -15,7 +15,6 @@ final class ProductDetailVC : BaseViewController<ProductDetailView>, ProductDeta
     weak var presenter: ProductDetailPresenterInterface?
     var product : Product
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
@@ -36,9 +35,7 @@ final class ProductDetailVC : BaseViewController<ProductDetailView>, ProductDeta
         rootView.buttonsStackView.delegate = self
     }
     func productAddedToCart() {
-        let alert = CustomAlertViewController(message: "Product saved to cart", image: UIImage(systemName: "checkmark.circle.fill")!)
-        self.present(alert, animated: true, completion: nil)
-        
+        rootView.callProductAddedAlert(ownerVC: self)
     }
 }
 
