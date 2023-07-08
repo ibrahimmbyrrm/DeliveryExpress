@@ -8,11 +8,7 @@
 import Foundation
 import UIKit
 
-protocol BadgeChangable : AnyObject {
-    func changeBadgeValue()
-}
-
-final class BasketVC : BaseViewController<BasketView>, BadgeChangable {
+final class BasketVC : BaseViewController<BasketView> {
 
     var presenter: BasketPresenterInterface?
     
@@ -26,9 +22,7 @@ final class BasketVC : BaseViewController<BasketView>, BadgeChangable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .done, target: self, action: #selector(clearCart))
-        title = "Shopping Cart"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        setupNavigationController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,20 +33,39 @@ final class BasketVC : BaseViewController<BasketView>, BadgeChangable {
         rootView.cartTableView.dataSource = self
         rootView.cartTableView.delegate = self
     }
+    
+    private func setupNavigationController() {
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .done, target: self, action: #selector(clearCart))
+        title = "Shopping Cart"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 
     @objc func clearCart() {
-        print("clear tapped")
-        presenter?.handleViewOutput(output: .clearCart)
+        rootView.checkTheBasketToClear(ownerVC: self)
     }
+    
+}
+
+extension BasketVC : BadgeChangable {
     func changeBadgeValue() {
         if var badgeInt = Int(self.tabBarItem.badgeValue ?? "") {
             badgeInt += 1
             self.tabBarItem.badgeValue = "\(badgeInt)"
         }
-        
     }
-    
 }
+
+extension BasketVC : BasketViewInterface {
+    func handlePresenterOutput(output: BasketPresenterOutput) {
+        switch output {
+        case .cartFetched(let cart):
+            self.cartList = cart
+            print("cart list geldi")
+            rootView.cartTableView.reloadData()
+        }
+    }
+}
+
 extension BasketVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,16 +97,5 @@ extension BasketVC : UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
-    }
-}
-    
-extension BasketVC : BasketViewInterface {
-    func handlePresenterOutput(output: BasketPresenterOutput) {
-        switch output {
-        case .cartFetched(let cart):
-            self.cartList = cart
-            print("cart list geldi")
-            rootView.cartTableView.reloadData()
-        }
     }
 }

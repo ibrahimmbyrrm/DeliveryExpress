@@ -21,6 +21,7 @@ final class BasketInteractor : BasketInteractorInterface{
             decoded.remove(at: index)
             let encodedData = try? JSONEncoder().encode(decoded)
             UserDefaults.standard.set(encodedData, forKey: "savedData")
+            currentBadge = decoded.count
             presenter?.handleInteractorOutput(output: .cartFetched(decoded))
         case .clearCart:
             let encoded = try? JSONEncoder().encode([Product]())

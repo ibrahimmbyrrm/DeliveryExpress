@@ -216,7 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				80152BCA2A4A551D00330AB8 /* Cells */,
-				80152BBF2A49D28300330AB8 /* Reusable Components */,
+				80152BBF2A49D28300330AB8 /* CustomViews */,
 				80F3E0D32A56FDD4002730F0 /* ProductDetailView.swift */,
 				80152BB22A49C3C800330AB8 /* ProductDetailVC.swift */,
 			);
@@ -231,15 +231,13 @@
 			path = Contracts;
 			sourceTree = "<group>";
 		};
-		80152BBF2A49D28300330AB8 /* Reusable Components */ = {
+		80152BBF2A49D28300330AB8 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				80152BC22A49D2FB00330AB8 /* ProductDetailContainer.swift */,
 				80152BC62A4A4CDA00330AB8 /* DetailButtonsStackView.swift */,
-				80152BC82A4A536400330AB8 /* DividerView.swift */,
-				80F3E0E02A58536E002730F0 /* DoneAlert.swift */,
 			);
-			path = "Reusable Components";
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		80152BCA2A4A551D00330AB8 /* Cells */ = {
@@ -258,6 +256,15 @@
 				80F3E0872A4CAE88002730F0 /* SeeAllFooterView.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		806BFEB42A59B4270004621D /* ReusableComponents */ = {
+			isa = PBXGroup;
+			children = (
+				80F3E0E02A58536E002730F0 /* DoneAlert.swift */,
+				80152BC82A4A536400330AB8 /* DividerView.swift */,
+			);
+			path = ReusableComponents;
 			sourceTree = "<group>";
 		};
 		80BA2EB12A4B6B3100BC55CB /* DiscoverScreen */ = {
@@ -341,6 +348,7 @@
 		80E6AC752A449A3600EC17D9 /* DeliveryExpress(E-Commerce) */ = {
 			isa = PBXGroup;
 			children = (
+				806BFEB42A59B4270004621D /* ReusableComponents */,
 				80F3E0D92A570528002730F0 /* Utils */,
 				800DE5062A44C5C0006567E5 /* Entities */,
 				80E6AC8A2A449A9200EC17D9 /* Screens */,

@@ -36,7 +36,7 @@ final class ProductDetailVC : BaseViewController<ProductDetailView>, ProductDeta
         rootView.buttonsStackView.delegate = self
     }
     func productAddedToCart() {
-        let alert = CustomAlertViewController(message: "Product saved to cart")
+        let alert = CustomAlertViewController(message: "Product saved to cart", image: UIImage(systemName: "checkmark.circle.fill")!)
         self.present(alert, animated: true, completion: nil)
         
     }
