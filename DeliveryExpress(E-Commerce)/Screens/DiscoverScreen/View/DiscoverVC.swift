@@ -61,6 +61,7 @@ final class DiscoverVC : BaseViewController<DiscoverView> {
 extension DiscoverVC : DiscoverViewInterface {
     
     func handlePresenterOutput(with output : DiscoverPresenterOutput) {
+        print("lşmdlmşg")
         switch output {
         case .categoriesLoaded(let categories):
             self.categoryList = categories

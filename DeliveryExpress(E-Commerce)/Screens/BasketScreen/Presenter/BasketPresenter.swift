@@ -34,6 +34,8 @@ final class BasketPresenter : BasketPresenterInterface {
             router.navigateTo(to: .toProductDetail(product))
         case .deleteItem(let itemIndex):
             interactor.handlePresenterOutput(output: .removeAtIndex(itemIndex))
+        case .clearCart:
+            interactor.handlePresenterOutput(output: .clearCart)
         }
     }
 }

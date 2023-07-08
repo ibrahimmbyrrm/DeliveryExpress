@@ -18,7 +18,7 @@ class BasketView : UIView {
         tableView.separatorColor = .black
         return tableView
     }()
-    
+
     let totalCostStackView =  TotalCostStackView()
     override init(frame: CGRect) {
         super.init(frame: frame)

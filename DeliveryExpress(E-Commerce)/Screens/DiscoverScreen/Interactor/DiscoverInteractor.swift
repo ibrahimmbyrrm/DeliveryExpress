@@ -8,7 +8,7 @@
 import Foundation
 
 final class DiscoverInteractor : DiscoverInteractorInterface {
-    weak var presenter: DiscoverPresenterInterface?
+    var presenter: DiscoverPresenterInterface?
     
     private let service : NetworkService
     init(service : NetworkService) {

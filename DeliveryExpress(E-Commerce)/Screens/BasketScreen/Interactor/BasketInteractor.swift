@@ -17,11 +17,17 @@ final class BasketInteractor : BasketInteractorInterface{
         case .loadAllItems:
             presenter?.handleInteractorOutput(output: .cartFetched(decoded))
         case .removeAtIndex(let index):
+            print(index)
             decoded.remove(at: index)
             let encodedData = try? JSONEncoder().encode(decoded)
             UserDefaults.standard.set(encodedData, forKey: "savedData")
             presenter?.handleInteractorOutput(output: .cartFetched(decoded))
+        case .clearCart:
+            UserDefaults.standard.set(nil, forKey: "savedData")
+            print("cart cleared")
         }
+        let currentBadge = decoded.count
+       SceneDelegate.shared?.basketView.tabBarItem.badgeValue = "\(currentBadge)"
         
     }
 

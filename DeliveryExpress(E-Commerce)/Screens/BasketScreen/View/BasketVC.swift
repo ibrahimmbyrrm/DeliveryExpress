@@ -8,7 +8,11 @@
 import Foundation
 import UIKit
 
-final class BasketVC : BaseViewController<BasketView> {
+protocol BadgeChangable : AnyObject {
+    func changeBadgeValue()
+}
+
+final class BasketVC : BaseViewController<BasketView>, BadgeChangable {
 
     var presenter: BasketPresenterInterface?
     
@@ -22,6 +26,7 @@ final class BasketVC : BaseViewController<BasketView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .done, target: self, action: #selector(clearCart))
         title = "Shopping Cart"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -33,6 +38,18 @@ final class BasketVC : BaseViewController<BasketView> {
     private func setDelegates() {
         rootView.cartTableView.dataSource = self
         rootView.cartTableView.delegate = self
+    }
+
+    @objc func clearCart() {
+        print("clear tapped")
+        presenter?.handleViewOutput(output: .clearCart)
+    }
+    func changeBadgeValue() {
+        if var badgeInt = Int(self.tabBarItem.badgeValue ?? "") {
+            badgeInt += 1
+            self.tabBarItem.badgeValue = "\(badgeInt)"
+        }
+        
     }
     
 }

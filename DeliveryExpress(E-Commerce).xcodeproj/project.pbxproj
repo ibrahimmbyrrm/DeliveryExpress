@@ -63,6 +63,7 @@
 		80F3E0D42A56FDD4002730F0 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0D32A56FDD4002730F0 /* ProductDetailView.swift */; };
 		80F3E0D62A570019002730F0 /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0D52A570019002730F0 /* DiscoverView.swift */; };
 		80F3E0DD2A570541002730F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0DC2A570541002730F0 /* Constants.swift */; };
+		80F3E0E12A58536E002730F0 /* DoneAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0E02A58536E002730F0 /* DoneAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +122,7 @@
 		80F3E0D32A56FDD4002730F0 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		80F3E0D52A570019002730F0 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		80F3E0DC2A570541002730F0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		80F3E0E02A58536E002730F0 /* DoneAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				80152BC22A49D2FB00330AB8 /* ProductDetailContainer.swift */,
 				80152BC62A4A4CDA00330AB8 /* DetailButtonsStackView.swift */,
 				80152BC82A4A536400330AB8 /* DividerView.swift */,
+				80F3E0E02A58536E002730F0 /* DoneAlert.swift */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -363,8 +366,8 @@
 		80E6AC8B2A449A9C00EC17D9 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				80E6AC762A449A3600EC17D9 /* AppDelegate.swift */,
 				80E6AC782A449A3600EC17D9 /* SceneDelegate.swift */,
+				80E6AC762A449A3600EC17D9 /* AppDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				800DE5102A48AB9E006567E5 /* UIColor+Ext.swift in Sources */,
 				80F3E0802A4C3562002730F0 /* UIViewController+Extension.swift in Sources */,
 				80F3E0D62A570019002730F0 /* DiscoverView.swift in Sources */,
+				80F3E0E12A58536E002730F0 /* DoneAlert.swift in Sources */,
 				80BA2EB92A4B6B8A00BC55CB /* DiscoverBuilder.swift in Sources */,
 				80152BC92A4A536400330AB8 /* DividerView.swift in Sources */,
 				80152BCD2A4A60B000330AB8 /* UIImageView+Extension.swift in Sources */,

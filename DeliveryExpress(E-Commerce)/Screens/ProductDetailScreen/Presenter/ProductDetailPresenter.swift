@@ -29,7 +29,9 @@ final class ProductDetailPresenter : ProductDetailPresenterInterface {
         }
     }
     func handleInteractorOutput() {
-
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.view.productAddedToCart()
+        }
     }
     
     

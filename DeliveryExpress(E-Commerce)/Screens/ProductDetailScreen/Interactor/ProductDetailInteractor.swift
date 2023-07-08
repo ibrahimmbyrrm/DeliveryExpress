@@ -9,15 +9,26 @@ import Foundation
 import UIKit
 
 final class ProductDetailInteractor : ProductDetailInteractorInterface {
+    
     weak var presenter: ProductDetailPresenterInterface?
     
     func saveToUserDefaults(product : Product) {
-        let decodableData = UserDefaults.standard.data(forKey: "savedData")
-        var fetchedCart =  try? JSONDecoder().decode([Product].self, from: decodableData!)
-        fetchedCart?.append(product)
-        guard let encoded = try? JSONEncoder().encode(fetchedCart) else {return}
-        UserDefaults.standard.set(encoded, forKey: "savedData")
+        if let decodableData = UserDefaults.standard.data(forKey: "savedData") {
+            var fetchedCart =  try? JSONDecoder().decode([Product].self, from: decodableData)
+            fetchedCart?.append(product)
+            guard let encoded = try? JSONEncoder().encode(fetchedCart) else {return}
+            UserDefaults.standard.set(encoded, forKey: "savedData")
+        }else {
+            let newCart : [Product] = [product]
+            guard let encoded = try? JSONEncoder().encode(newCart) else {return}
+            UserDefaults.standard.set(encoded, forKey: "savedData")
+        }
+        guard var badgeValue = Int(SceneDelegate.shared?.basketView.tabBarItem.badgeValue ?? "0") else {return}
+        badgeValue += 1
+        SceneDelegate.shared?.basketView.tabBarItem.badgeValue = "\(badgeValue)"
         presenter?.handleInteractorOutput()
+        
+        
     }
     
 }

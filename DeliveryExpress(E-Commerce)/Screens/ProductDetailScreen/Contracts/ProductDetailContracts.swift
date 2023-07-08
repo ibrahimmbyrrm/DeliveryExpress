@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProductDetailViewInterface {
     var presenter : ProductDetailPresenterInterface? {get set}
+    func productAddedToCart()
 }
 
 protocol ProductDetailPresenterInterface : AnyObject {

@@ -15,6 +15,7 @@ final class ProductDetailVC : BaseViewController<ProductDetailView>, ProductDeta
     weak var presenter: ProductDetailPresenterInterface?
     var product : Product
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
@@ -34,7 +35,11 @@ final class ProductDetailVC : BaseViewController<ProductDetailView>, ProductDeta
         rootView.imageCollectionView.dataSource = self
         rootView.buttonsStackView.delegate = self
     }
- 
+    func productAddedToCart() {
+        let alert = CustomAlertViewController(message: "Product saved to cart")
+        self.present(alert, animated: true, completion: nil)
+        
+    }
 }
 
 extension ProductDetailVC : DetailButtonsInterface {
@@ -46,7 +51,7 @@ extension ProductDetailVC : DetailButtonsInterface {
     func goToPaymentClicked() {
         presenter?.handleViewOutput(with: .goToPayment(self.product))
     }
-
+    
 }
 
 extension ProductDetailVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
