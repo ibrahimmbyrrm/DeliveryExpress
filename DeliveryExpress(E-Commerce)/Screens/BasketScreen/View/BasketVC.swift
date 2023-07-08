@@ -66,10 +66,8 @@ extension BasketVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            presenter?.handleViewOutput(output: .deleteItem(indexPath.row))
-            tableView.reloadData()
-        }
+        editingStyle == .delete ? presenter?.handleViewOutput(output: .deleteItem(indexPath.row)) : nil
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
