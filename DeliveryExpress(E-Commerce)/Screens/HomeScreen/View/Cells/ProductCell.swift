@@ -14,10 +14,9 @@ protocol priceButtonDelegate : AnyObject {
 }
 
 class ProductCollectionViewCell: UICollectionViewCell {
-    
+    //MARK: - UI Objects
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
@@ -25,13 +24,11 @@ class ProductCollectionViewCell: UICollectionViewCell {
     private let productImageView : UIImageView = {
         let imageview = UIImageView()
         imageview.contentMode = .scaleAspectFit
-        imageview.translatesAutoresizingMaskIntoConstraints = false
         return imageview
     }()
     
     private let descriptionLabel : UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 12)
@@ -41,19 +38,22 @@ class ProductCollectionViewCell: UICollectionViewCell {
     private let priceButton : UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(rgb: 0xEF9440)
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(nil, action: #selector(priceButtonClicked), for: .touchUpInside)
         button.tintColor = .white
         return button
     }()
-    
+    //MARK: - Local Variables
     weak var delegate : priceButtonDelegate?
     var index : Int?
+    //MARK: - Initial Functions
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
         setupUI()
-        setupConstraints()
+        setupProductImageViewConstraints()
+        setupTitleLabelConstraints()
+        setupDescriptionLabelConstraints()
+        setupPriceButtonConstraints()
     }
     
     func configure(with product : Product) {
@@ -63,7 +63,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         priceButton.setTitle("\(product.price)$ ▶", for: .normal)
         
     }
-    
+    //MARK: - Layout Functions
     private func addSubviews(){
         [titleLabel,descriptionLabel,productImageView,priceButton].forEach { v in
             contentView.addSubview(v)
@@ -76,25 +76,34 @@ class ProductCollectionViewCell: UICollectionViewCell {
         layer.borderColor = CGColor(red: 239/255, green: 148/255, blue: 64/255, alpha: 1)
     }
     
-    private func setupConstraints() {
+    private func setupProductImageViewConstraints() {
         productImageView.snp.makeConstraints { make in
             make.width.equalTo(145)
             make.height.equalTo(92)
             make.top.equalTo(contentView.snp.top).offset(7)
             make.centerX.equalTo(contentView.snp.centerX)
         }
+    }
+    
+    private func setupTitleLabelConstraints() {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(productImageView.snp.bottom).offset(2.5)
             make.centerX.equalTo(contentView.snp.centerX)
             make.width.equalTo(160)
             make.height.equalTo(15)
         }
+    }
+    
+    private func setupDescriptionLabelConstraints() {
         descriptionLabel.snp.makeConstraints { make in
             make.centerX.equalTo(contentView.snp.centerX)
             make.top.equalTo(titleLabel.snp.bottom).offset(2.5)
             make.width.equalTo(160)
             make.height.equalTo(23)
         }
+    }
+    
+    private func setupPriceButtonConstraints() {
         priceButton.snp.makeConstraints { make in
             make.width.equalTo(70)
             make.height.equalTo(20)

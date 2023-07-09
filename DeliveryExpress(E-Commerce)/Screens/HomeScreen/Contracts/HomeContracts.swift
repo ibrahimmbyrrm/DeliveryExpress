@@ -12,7 +12,9 @@ protocol HomeRouterInterface {
     var view : UIViewController? {get set}
     func navigateTo(to output : HomeRouterRotations)
 }
-
+protocol FooterDelegate : AnyObject {
+    func seeAllClicked()
+}
 protocol HomePresenterInterface : AnyObject {
     func handleInteractorOutput(with output : HomeInteractorOutput)
     func handleViewOutput(with output : HomeViewOutput)

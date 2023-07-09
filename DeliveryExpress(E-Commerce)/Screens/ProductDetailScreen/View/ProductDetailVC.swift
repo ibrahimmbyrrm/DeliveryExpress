@@ -37,6 +37,20 @@ final class ProductDetailVC : BaseViewController<ProductDetailView>, ProductDeta
     func productAddedToCart() {
         rootView.callProductAddedAlert(ownerVC: self)
     }
+    /// Payment Ekranında Kart Numarasının düzgün görünmesini bu metodla sağlayacağız.
+    private func formatCardNumber(_ cardNumber: String) -> String {
+            var formattedString = ""
+            
+            // Kart numarasını "XXXX XXXX XXXX XXXX" formatına uygun hale getirin
+            for (index, character) in cardNumber.enumerated() {
+                if index > 0 && index % 4 == 0 {
+                    formattedString.append(" ")
+                }
+                formattedString.append(character)
+            }
+            
+            return formattedString
+    }
 }
 
 extension ProductDetailVC : DetailButtonsInterface {

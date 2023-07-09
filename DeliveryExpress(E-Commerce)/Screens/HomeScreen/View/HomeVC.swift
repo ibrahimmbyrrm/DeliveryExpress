@@ -17,13 +17,16 @@ final class HomeVC : BaseViewController<HomeView> {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Deviery Express"
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        navigationController?.navigationBar.prefersLargeTitles = true
+        setupNavigationBar()
         setDelegates()
         presenter?.handleViewOutput(with: .loadData)
     }
-
+    private func setupNavigationBar() {
+        self.title = "Deviery Express"
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    //MARK: - Delegate Settings
     private func setDelegates() {
         rootView.categoryCollectionView.delegate = self
         rootView.categoryCollectionView.dataSource = self

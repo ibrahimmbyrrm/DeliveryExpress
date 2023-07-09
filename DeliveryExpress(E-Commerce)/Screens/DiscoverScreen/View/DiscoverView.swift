@@ -18,7 +18,6 @@ class DiscoverView : UIView {
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 2
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.layer.cornerRadius = 12
         collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.categCell)
@@ -29,22 +28,20 @@ class DiscoverView : UIView {
     let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.color = .black
-        indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
     }()
     let changeCategory : UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(Constants.DiscoverConstants.changeCategoryButtonTitle, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     let pageTitleLabel : UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .center
         return label
     }()
+    //MARK: - Initial Functions
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -59,7 +56,7 @@ class DiscoverView : UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    //MARK: - Custom Alert Functions
     typealias DiscoverViewInterfaceVC = DiscoverViewInterface & BaseViewController<DiscoverView>
     
     func callChangeCategoryAlert(ownerVC : DiscoverViewInterfaceVC) {
@@ -81,7 +78,7 @@ class DiscoverView : UIView {
         }
         ownerVC.present(alert, animated: true)
     }
-    
+    //MARK: - Layout Functions
     private func setupCurrentCategoryButtonConstraints() {
         changeCategory.snp.makeConstraints { make in
             make.leading.equalTo(self.snp.leading).offset(8)

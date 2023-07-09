@@ -14,7 +14,6 @@ class TitleLabel : UILabel {
         self.text = text
         self.textAlignment = .center
         self.font = UIFont.boldSystemFont(ofSize: 28)
-        self.translatesAutoresizingMaskIntoConstraints = false
         self.numberOfLines = 1
         self.textColor = .black
     }

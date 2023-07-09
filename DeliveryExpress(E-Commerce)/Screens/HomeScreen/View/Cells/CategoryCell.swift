@@ -13,26 +13,29 @@ protocol CategoryButtonDelegate : AnyObject{
 }
 
 class CategoryCollectionViewCell: UICollectionViewCell {
-    
+    //MARK: - UI Objects
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.textColor = .orange
         label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()
+    //MARK: - Local Variables
     weak var delegate : CategoryButtonDelegate?
     var index : Int?
-    
+    //MARK: - Initial Functions
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureGesture()
         setupUI()
-        setupConstraints()
+        setupTitleLabelConstraints()
     }
-    
-    private func setupConstraints() {
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    //MARK: - Layout Functions
+    private func setupTitleLabelConstraints() {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.top)
             make.leading.equalTo(contentView.snp.leading)
@@ -55,12 +58,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(categoryClicked))
         contentView.addGestureRecognizer(gesture)
     }
-    
+    //MARK: - Selector Methods
     @objc private func categoryClicked() {
         delegate?.categoryClicked(index ?? 0)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

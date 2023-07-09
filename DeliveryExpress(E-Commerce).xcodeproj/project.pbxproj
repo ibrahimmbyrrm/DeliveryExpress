@@ -63,7 +63,7 @@
 		80F3E0D42A56FDD4002730F0 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0D32A56FDD4002730F0 /* ProductDetailView.swift */; };
 		80F3E0D62A570019002730F0 /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0D52A570019002730F0 /* DiscoverView.swift */; };
 		80F3E0DD2A570541002730F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0DC2A570541002730F0 /* Constants.swift */; };
-		80F3E0E12A58536E002730F0 /* DoneAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0E02A58536E002730F0 /* DoneAlert.swift */; };
+		80F3E0E12A58536E002730F0 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3E0E02A58536E002730F0 /* CustomAlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,7 +122,7 @@
 		80F3E0D32A56FDD4002730F0 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		80F3E0D52A570019002730F0 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		80F3E0DC2A570541002730F0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		80F3E0E02A58536E002730F0 /* DoneAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneAlert.swift; sourceTree = "<group>"; };
+		80F3E0E02A58536E002730F0 /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,10 +258,65 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		803B65B02A5AA2FE0002D48C /* PaymentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				803B65B62A5AA3150002D48C /* Contracts */,
+				803B65B52A5AA3120002D48C /* Builder */,
+				803B65B42A5AA3100002D48C /* Router */,
+				803B65B32A5AA30D0002D48C /* Presenter */,
+				803B65B22A5AA30A0002D48C /* Interactor */,
+				803B65B12A5AA3060002D48C /* View */,
+			);
+			path = PaymentScreen;
+			sourceTree = "<group>";
+		};
+		803B65B12A5AA3060002D48C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		803B65B22A5AA30A0002D48C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		803B65B32A5AA30D0002D48C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		803B65B42A5AA3100002D48C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		803B65B52A5AA3120002D48C /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		803B65B62A5AA3150002D48C /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Contracts;
+			sourceTree = "<group>";
+		};
 		806BFEB42A59B4270004621D /* ReusableComponents */ = {
 			isa = PBXGroup;
 			children = (
-				80F3E0E02A58536E002730F0 /* DoneAlert.swift */,
+				80F3E0E02A58536E002730F0 /* CustomAlertController.swift */,
 				80152BC82A4A536400330AB8 /* DividerView.swift */,
 			);
 			path = ReusableComponents;
@@ -363,6 +418,7 @@
 		80E6AC8A2A449A9200EC17D9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				803B65B02A5AA2FE0002D48C /* PaymentScreen */,
 				80BA2EB12A4B6B3100BC55CB /* DiscoverScreen */,
 				80152BAB2A49C2D000330AB8 /* ProductDetailScreen */,
 				80E6AC9F2A449F2500EC17D9 /* BasketScreen */,
@@ -701,7 +757,7 @@
 				800DE5102A48AB9E006567E5 /* UIColor+Ext.swift in Sources */,
 				80F3E0802A4C3562002730F0 /* UIViewController+Extension.swift in Sources */,
 				80F3E0D62A570019002730F0 /* DiscoverView.swift in Sources */,
-				80F3E0E12A58536E002730F0 /* DoneAlert.swift in Sources */,
+				80F3E0E12A58536E002730F0 /* CustomAlertController.swift in Sources */,
 				80BA2EB92A4B6B8A00BC55CB /* DiscoverBuilder.swift in Sources */,
 				80152BC92A4A536400330AB8 /* DividerView.swift in Sources */,
 				80152BCD2A4A60B000330AB8 /* UIImageView+Extension.swift in Sources */,

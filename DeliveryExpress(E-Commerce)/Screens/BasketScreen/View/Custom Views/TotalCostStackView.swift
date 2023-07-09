@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 class TotalCostStackView : UIStackView {
+    //MARK: - UI Objects
     private let totalCostTitleLabel : UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.text = Constants.BasketConstants.totalCostTitle
         label.font = UIFont.systemFont(ofSize: 24)
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         return label
     }()
@@ -23,7 +23,6 @@ class TotalCostStackView : UIStackView {
         let label = UILabel()
         label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 24)
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .orange
         return label
         
@@ -33,7 +32,8 @@ class TotalCostStackView : UIStackView {
         super.init(frame: frame)
         backgroundColor = .gray
         addSubviews()
-        setupConstraints()
+        setupCostLabelConstraints()
+        setupTotalCostTitleLabelConstraints()
         setupStackViewProperties()
     }
     
@@ -46,7 +46,7 @@ class TotalCostStackView : UIStackView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    //MARK: - Layout Functions
     private func setupStackViewProperties() {
         distribution = .equalSpacing
         axis = .horizontal
@@ -58,13 +58,16 @@ class TotalCostStackView : UIStackView {
         }
     }
     
-    private func setupConstraints() {
+    private func setupTotalCostTitleLabelConstraints() {
         totalCostTitleLabel.snp.makeConstraints { make in
             make.leading.equalTo(self.snp.leading).offset(10)
             make.centerX.equalTo(self.snp.centerX)
             make.width.equalTo(100)
             make.height.equalTo(30)
         }
+    }
+    
+    private func setupCostLabelConstraints() {
         costLabel.snp.makeConstraints { make in
             make.trailing.equalTo(self.snp.trailing).inset(10)
             make.centerX.equalTo(self.snp.centerX)

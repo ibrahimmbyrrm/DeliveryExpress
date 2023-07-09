@@ -12,7 +12,6 @@ class ProductImageCell: UICollectionViewCell {
     let productImageView : UIImageView = {
         let imageview = UIImageView()
         imageview.contentMode = .scaleAspectFit
-        imageview.translatesAutoresizingMaskIntoConstraints = false
         return imageview
     }()
     override init(frame: CGRect) {

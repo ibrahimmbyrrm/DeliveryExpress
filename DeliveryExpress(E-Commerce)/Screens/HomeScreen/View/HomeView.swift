@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class HomeView : UIView {
+    //MARK: - UI Objects
     
     let categoryTitleLabel = TitleLabel(text: Constants.HomeConstants.categTitle)
-    
     let productTitleLabel = TitleLabel(text: Constants.HomeConstants.prodTitle)
     
     var categoryCollectionView : UICollectionView = {
@@ -21,7 +21,6 @@ class HomeView : UIView {
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 2
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.layer.cornerRadius = 12
         collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.categCell)
@@ -49,10 +48,9 @@ class HomeView : UIView {
     let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.color = .black
-        indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
     }()
-    
+    //MARK: - Initial Functions
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
@@ -67,7 +65,7 @@ class HomeView : UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    //MARK: - Layout Functions
     private func addSubviews() {
     [productCollectionView,categoryCollectionView,categoryTitleLabel,productTitleLabel,activityIndicator].forEach { v in
         addSubview(v)

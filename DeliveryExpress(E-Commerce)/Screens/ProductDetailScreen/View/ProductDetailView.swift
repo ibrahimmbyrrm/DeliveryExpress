@@ -15,7 +15,6 @@ class ProductDetailView : UIView {
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.register(ProductImageCell.self, forCellWithReuseIdentifier: Constants.DetailConstants.imageCell)
@@ -29,7 +28,6 @@ class ProductDetailView : UIView {
         label.text = Constants.DetailConstants.detailTitle
         label.textColor = .black
         label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
