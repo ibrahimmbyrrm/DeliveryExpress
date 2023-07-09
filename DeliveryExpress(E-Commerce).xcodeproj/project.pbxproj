@@ -24,6 +24,17 @@
 		80152BC72A4A4CDA00330AB8 /* DetailButtonsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80152BC62A4A4CDA00330AB8 /* DetailButtonsStackView.swift */; };
 		80152BC92A4A536400330AB8 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80152BC82A4A536400330AB8 /* DividerView.swift */; };
 		80152BCD2A4A60B000330AB8 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80152BCC2A4A60B000330AB8 /* UIImageView+Extension.swift */; };
+		803B65B82A5ABB740002D48C /* PaymentContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65B72A5ABB740002D48C /* PaymentContracts.swift */; };
+		803B65BA2A5ABB790002D48C /* PaymentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65B92A5ABB790002D48C /* PaymentBuilder.swift */; };
+		803B65BC2A5ABB7E0002D48C /* PaymentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65BB2A5ABB7E0002D48C /* PaymentRouter.swift */; };
+		803B65BE2A5ABB840002D48C /* PaymentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65BD2A5ABB840002D48C /* PaymentPresenter.swift */; };
+		803B65C02A5ABB8A0002D48C /* PaymentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65BF2A5ABB8A0002D48C /* PaymentInteractor.swift */; };
+		803B65C22A5ABB8E0002D48C /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65C12A5ABB8E0002D48C /* PaymentView.swift */; };
+		803B65C42A5ABB930002D48C /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65C32A5ABB930002D48C /* PaymentVC.swift */; };
+		803B65C72A5ABBC70002D48C /* CreditCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65C62A5ABBC70002D48C /* CreditCartView.swift */; };
+		803B65C92A5AF93C0002D48C /* AddressInputStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65C82A5AF93C0002D48C /* AddressInputStackView.swift */; };
+		803B65CB2A5AF9690002D48C /* AddressTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65CA2A5AF9690002D48C /* AddressTextField.swift */; };
+		803B65CD2A5B01840002D48C /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65CC2A5B01840002D48C /* Address.swift */; };
 		80BA2EB92A4B6B8A00BC55CB /* DiscoverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA2EB82A4B6B8A00BC55CB /* DiscoverBuilder.swift */; };
 		80BA2EBB2A4B6BDD00BC55CB /* DiscoverContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA2EBA2A4B6BDD00BC55CB /* DiscoverContracts.swift */; };
 		80BA2EBD2A4B6C1E00BC55CB /* DiscoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BA2EBC2A4B6C1E00BC55CB /* DiscoverPresenter.swift */; };
@@ -83,6 +94,17 @@
 		80152BC62A4A4CDA00330AB8 /* DetailButtonsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailButtonsStackView.swift; sourceTree = "<group>"; };
 		80152BC82A4A536400330AB8 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		80152BCC2A4A60B000330AB8 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		803B65B72A5ABB740002D48C /* PaymentContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentContracts.swift; sourceTree = "<group>"; };
+		803B65B92A5ABB790002D48C /* PaymentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentBuilder.swift; sourceTree = "<group>"; };
+		803B65BB2A5ABB7E0002D48C /* PaymentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRouter.swift; sourceTree = "<group>"; };
+		803B65BD2A5ABB840002D48C /* PaymentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPresenter.swift; sourceTree = "<group>"; };
+		803B65BF2A5ABB8A0002D48C /* PaymentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentInteractor.swift; sourceTree = "<group>"; };
+		803B65C12A5ABB8E0002D48C /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		803B65C32A5ABB930002D48C /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		803B65C62A5ABBC70002D48C /* CreditCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCartView.swift; sourceTree = "<group>"; };
+		803B65C82A5AF93C0002D48C /* AddressInputStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInputStackView.swift; sourceTree = "<group>"; };
+		803B65CA2A5AF9690002D48C /* AddressTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTextField.swift; sourceTree = "<group>"; };
+		803B65CC2A5B01840002D48C /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		80BA2EB82A4B6B8A00BC55CB /* DiscoverBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverBuilder.swift; sourceTree = "<group>"; };
 		80BA2EBA2A4B6BDD00BC55CB /* DiscoverContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverContracts.swift; sourceTree = "<group>"; };
 		80BA2EBC2A4B6C1E00BC55CB /* DiscoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresenter.swift; sourceTree = "<group>"; };
@@ -143,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				800DE5072A44C5C6006567E5 /* Product.swift */,
+				803B65CC2A5B01840002D48C /* Address.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -274,6 +297,9 @@
 		803B65B12A5AA3060002D48C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				803B65C52A5ABBBE0002D48C /* Custom Views */,
+				803B65C12A5ABB8E0002D48C /* PaymentView.swift */,
+				803B65C32A5ABB930002D48C /* PaymentVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,6 +307,7 @@
 		803B65B22A5AA30A0002D48C /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				803B65BF2A5ABB8A0002D48C /* PaymentInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -288,6 +315,7 @@
 		803B65B32A5AA30D0002D48C /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				803B65BD2A5ABB840002D48C /* PaymentPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -295,6 +323,7 @@
 		803B65B42A5AA3100002D48C /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				803B65BB2A5ABB7E0002D48C /* PaymentRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -302,6 +331,7 @@
 		803B65B52A5AA3120002D48C /* Builder */ = {
 			isa = PBXGroup;
 			children = (
+				803B65B92A5ABB790002D48C /* PaymentBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -309,8 +339,19 @@
 		803B65B62A5AA3150002D48C /* Contracts */ = {
 			isa = PBXGroup;
 			children = (
+				803B65B72A5ABB740002D48C /* PaymentContracts.swift */,
 			);
 			path = Contracts;
+			sourceTree = "<group>";
+		};
+		803B65C52A5ABBBE0002D48C /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				803B65C62A5ABBC70002D48C /* CreditCartView.swift */,
+				803B65C82A5AF93C0002D48C /* AddressInputStackView.swift */,
+				803B65CA2A5AF9690002D48C /* AddressTextField.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		806BFEB42A59B4270004621D /* ReusableComponents */ = {
@@ -721,6 +762,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				803B65BA2A5ABB790002D48C /* PaymentBuilder.swift in Sources */,
 				80E6ACBB2A44B13E00EC17D9 /* NetworkHelper.swift in Sources */,
 				80E6ACB62A44B0F800EC17D9 /* NetworkManager.swift in Sources */,
 				800DE5082A44C5C6006567E5 /* Product.swift in Sources */,
@@ -730,6 +772,7 @@
 				80BA2EBF2A4B6C2E00BC55CB /* DiscoverInteractor.swift in Sources */,
 				80E6AC942A449B5000EC17D9 /* HomeVC.swift in Sources */,
 				80F3E0922A507FBB002730F0 /* BasketRouter.swift in Sources */,
+				803B65C42A5ABB930002D48C /* PaymentVC.swift in Sources */,
 				80E6AC9A2A449B6000EC17D9 /* HomeRouter.swift in Sources */,
 				80F3E0CE2A56F8B4002730F0 /* BasketView.swift in Sources */,
 				80F3E0882A4CAE88002730F0 /* SeeAllFooterView.swift in Sources */,
@@ -746,9 +789,11 @@
 				80E6AC962A449B5500EC17D9 /* HomeInteractor.swift in Sources */,
 				80E6ACA62A449F4700EC17D9 /* BasketBuilder.swift in Sources */,
 				80F3E08E2A507F9E002730F0 /* BasketInteractor.swift in Sources */,
+				803B65CD2A5B01840002D48C /* Address.swift in Sources */,
 				80E6ACBD2A44B16F00EC17D9 /* EndPoint.swift in Sources */,
 				80BA2EC32A4B6C8100BC55CB /* DiscoverRouter.swift in Sources */,
 				80BA2EBB2A4B6BDD00BC55CB /* DiscoverContracts.swift in Sources */,
+				803B65C22A5ABB8E0002D48C /* PaymentView.swift in Sources */,
 				80152BBA2A49C3E200330AB8 /* ProductDetailRouter.swift in Sources */,
 				80F3E09B2A518971002730F0 /* TotalCostStackView.swift in Sources */,
 				80F3E0D02A56F9EC002730F0 /* BaseViewController.swift in Sources */,
@@ -759,6 +804,9 @@
 				80F3E0D62A570019002730F0 /* DiscoverView.swift in Sources */,
 				80F3E0E12A58536E002730F0 /* CustomAlertController.swift in Sources */,
 				80BA2EB92A4B6B8A00BC55CB /* DiscoverBuilder.swift in Sources */,
+				803B65C92A5AF93C0002D48C /* AddressInputStackView.swift in Sources */,
+				803B65CB2A5AF9690002D48C /* AddressTextField.swift in Sources */,
+				803B65BE2A5ABB840002D48C /* PaymentPresenter.swift in Sources */,
 				80152BC92A4A536400330AB8 /* DividerView.swift in Sources */,
 				80152BCD2A4A60B000330AB8 /* UIImageView+Extension.swift in Sources */,
 				80F3E0D22A56FB6D002730F0 /* HomeView.swift in Sources */,
@@ -767,9 +815,13 @@
 				800DE50D2A458DD0006567E5 /* TitleLabel.swift in Sources */,
 				80F3E0982A508931002730F0 /* BasketCell.swift in Sources */,
 				80152BC72A4A4CDA00330AB8 /* DetailButtonsStackView.swift in Sources */,
+				803B65BC2A5ABB7E0002D48C /* PaymentRouter.swift in Sources */,
 				80152BB82A49C3DB00330AB8 /* ProductDetailPresenter.swift in Sources */,
 				80F3E0822A4CA6F9002730F0 /* UITabBarController+Extension.swift in Sources */,
 				80F3E0902A507FA4002730F0 /* BasketPresenter.swift in Sources */,
+				803B65C02A5ABB8A0002D48C /* PaymentInteractor.swift in Sources */,
+				803B65C72A5ABBC70002D48C /* CreditCartView.swift in Sources */,
+				803B65B82A5ABB740002D48C /* PaymentContracts.swift in Sources */,
 				80152BC32A49D2FB00330AB8 /* ProductDetailContainer.swift in Sources */,
 				80152BC52A49E27800330AB8 /* String+Extension.swift in Sources */,
 				80152BC12A49D29400330AB8 /* ProductImageCell.swift in Sources */,

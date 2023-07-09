@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+//MARK: - Interfaces
 protocol ProductDetailViewInterface {
     var presenter : ProductDetailPresenterInterface? {get set}
     func productAddedToCart()
@@ -34,8 +34,7 @@ protocol DetailButtonsInterface : AnyObject {
     func addToCartClicked()
     func goToPaymentClicked()
 }
-
-//May be changed
+//MARK: - Enums
 enum ProductDetailViewOutput {
     case addToCart(Product)
     case goToPayment(Product)

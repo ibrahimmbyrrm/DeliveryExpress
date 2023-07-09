@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+//MARK: - Interfaces
 protocol HomeRouterInterface {
     var view : UIViewController? {get set}
     func navigateTo(to output : HomeRouterRotations)
@@ -31,7 +31,7 @@ protocol HomeViewInterface : AnyObject {
     func saveData(with output : HomePresenterOutput)
     func stopActivityIndicator()
 }
-
+//MARK: - Enums
 enum HomePresenterOutput {
     case saveProducts([Product])
     case saveCategories([String])
@@ -48,8 +48,5 @@ enum HomeViewOutput {
     case loadData
     case seeAllClicked
 }
-
-
-typealias EntryPoint = HomeViewInterface & UIViewController
 
 

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class BasketVC : BaseViewController<BasketView> {
+final class BasketVC : BaseViewController<BasketView>, PaymentButtonDelegate {
 
     var presenter: BasketPresenterInterface?
     
@@ -23,10 +23,14 @@ final class BasketVC : BaseViewController<BasketView> {
         super.viewDidLoad()
         setDelegates()
         setupNavigationController()
+        rootView.totalCostStackView.delegate = self
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         presenter?.handleViewOutput(output: .loadCart)
+    }
+    func goToPaymentClicked() {
+        present(PaymentBuilder.buildModule(with: .withCart(cartList)), animated: true)
     }
     //MARK: - Initial Setup Functions
     private func setDelegates() {

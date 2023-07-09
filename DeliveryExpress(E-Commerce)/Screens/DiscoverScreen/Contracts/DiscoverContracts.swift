@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+//MARK: - Interfaces
 protocol DiscoverViewInterface {
     var productList : [Product] {get set}
     var categoryList : [String] {get set}
@@ -30,6 +30,7 @@ protocol DiscoverRouterInterface {
     var view : UIViewController? {get set}
     func navigateTo(to output: DiscoverRouterRotations)
 }
+//MARK: - Enums
 enum DiscoverInteractorOutput {
     case categoriesLoaded([String])
     case productsLoaded(ProductResponse)

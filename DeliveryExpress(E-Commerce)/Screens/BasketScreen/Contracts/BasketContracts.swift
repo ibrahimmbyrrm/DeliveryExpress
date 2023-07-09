@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+//MARK: - Interfaces
 protocol BasketViewInterface {
     var cartList : [Product] {get set}
     var presenter : BasketPresenterInterface? {get set}
@@ -26,6 +26,7 @@ protocol BasketRouterInterface {
     var view : UIViewController? {get set}
     func navigateTo(to rotation : BasketRotations)
 }
+//MARK: - Enums
 enum BasketInteractorOutput {
     case cartFetched([Product])
 }

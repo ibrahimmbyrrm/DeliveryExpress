@@ -40,7 +40,6 @@ final class ProductDetailVC : BaseViewController<ProductDetailView>, ProductDeta
     /// Payment Ekranında Kart Numarasının düzgün görünmesini bu metodla sağlayacağız.
     private func formatCardNumber(_ cardNumber: String) -> String {
             var formattedString = ""
-            
             // Kart numarasını "XXXX XXXX XXXX XXXX" formatına uygun hale getirin
             for (index, character) in cardNumber.enumerated() {
                 if index > 0 && index % 4 == 0 {
@@ -60,6 +59,7 @@ extension ProductDetailVC : DetailButtonsInterface {
     }
     
     func goToPaymentClicked() {
+        self.present(PaymentBuilder.buildModule(with: .withProduct(self.product)), animated: true)
         presenter?.handleViewOutput(with: .goToPayment(self.product))
     }
     
