@@ -8,15 +8,12 @@
 import Foundation
 import UIKit
 
-class PaymentVC : BaseViewController<PaymentView> {
+class PaymentVC : BaseViewController<PaymentView>, UITextFieldDelegate {
     
     var presenter: PaymentPresenterInterface?
     
     init(totalCost : Int) {
         super.init(nibName: nil, bundle: nil)
-        ///Testing data transfer
-        rootView.cardView.cartNumberTextField.text = "\(totalCost)"
-        
     }
     
     required init?(coder: NSCoder) {
@@ -34,7 +31,7 @@ extension PaymentVC : PaymentViewInterface, CompleteShoppingDelegate {
         
     }
     func completeChopping(adress: Address) {
-        print(adress.country)
+        //presenter.handleViewOutput(with adress)
     }
 }
 

@@ -19,6 +19,7 @@ class PaymentView : UIView {
         addSubviews()
         setupCardViewConstraints()
         setupAddressInputStackView()
+        cardView.cartNumberTextField.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -47,5 +48,29 @@ class PaymentView : UIView {
             make.width.equalTo(373)
             make.height.equalTo(197)
         }
+    }
+}
+extension PaymentView : UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        
+        let inputText = (text as NSString).replacingCharacters(in: range, with: string)
+        let numbersOnly = inputText.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        let formattedString = formatCardNumber(numbersOnly)
+        textField.text = formattedString
+        return false
+    }
+    
+    private func formatCardNumber(_ cardNumber: String) -> String {
+        var formattedString = ""
+        for (index, character) in cardNumber.enumerated() {
+            if index > 0 && index % 4 == 0 {
+                formattedString.append("   ")
+            }
+            formattedString.append(character)
+        }
+        
+        return formattedString
     }
 }
