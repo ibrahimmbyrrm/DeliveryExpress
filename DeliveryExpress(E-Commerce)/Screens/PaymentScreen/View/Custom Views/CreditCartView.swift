@@ -108,7 +108,7 @@ class CreditCartView : UIView {
         monthTextField.snp.makeConstraints { make in
             make.leading.equalTo(self.snp.leading).offset(20)
             make.bottom.equalTo(self.snp.bottom).inset(14)
-            make.trailing.equalTo(yearTextField.snp.leading).inset(8)
+            make.trailing.equalTo(yearTextField.snp.leading).inset(12)
             make.width.equalTo(40)
             make.height.equalTo(30)
         }
@@ -116,7 +116,7 @@ class CreditCartView : UIView {
     private func setupYearTextFieldConstraints() {
         yearTextField.snp.makeConstraints { make in
             make.bottom.equalTo(self.snp.bottom).inset(14)
-            make.leading.equalTo(monthTextField.snp.trailing).offset(8)
+            make.leading.equalTo(monthTextField.snp.trailing).offset(12)
             make.width.equalTo(40)
             make.height.equalTo(30)
         }

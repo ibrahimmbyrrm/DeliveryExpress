@@ -12,6 +12,13 @@ class PaymentView : UIView {
     
     let cardView = CreditCartView()
     let addressStackView = AddressInputStackView()
+    let priceLabel : UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont.boldSystemFont(ofSize: 24)
+        return label
+    }()
     //MARK: - Initial Functions
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,6 +26,7 @@ class PaymentView : UIView {
         addSubviews()
         setupCardViewConstraints()
         setupAddressInputStackView()
+        setupPriceLabelConstraints()
         cardView.cartNumberTextField.delegate = self
     }
     
@@ -27,14 +35,22 @@ class PaymentView : UIView {
     }
     //MARK: - Layout Functions
     private func addSubviews() {
-        [cardView,addressStackView].forEach { v in
+        [cardView,priceLabel,addressStackView].forEach { v in
             addSubview(v)
+        }
+    }
+    
+    private func setupPriceLabelConstraints() {
+        priceLabel.snp.makeConstraints { make in
+            make.top.equalTo(cardView.snp.bottom).offset(10)
+            make.width.equalTo(self.snp.width)
+            make.leading.equalTo(self.snp.leading).offset(10)
         }
     }
     
     private func setupAddressInputStackView() {
         addressStackView.snp.makeConstraints { make in
-            make.top.equalTo(cardView.snp.bottom).offset(20)
+            make.top.equalTo(priceLabel.snp.bottom).offset(20)
             make.height.equalTo(300)
             make.leading.equalTo(self.snp.leading).offset(10)
             make.trailing.equalTo(self.snp.trailing).inset(10)

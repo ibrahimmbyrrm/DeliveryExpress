@@ -14,6 +14,7 @@ class PaymentVC : BaseViewController<PaymentView>, UITextFieldDelegate {
     
     init(totalCost : Int) {
         super.init(nibName: nil, bundle: nil)
+        rootView.priceLabel.text = "Amount to be paid : \(totalCost)$"
     }
     
     required init?(coder: NSCoder) {
