@@ -18,6 +18,7 @@ protocol FooterDelegate : AnyObject {
 protocol HomePresenterInterface : AnyObject {
     func handleInteractorOutput(with output : HomeInteractorOutput)
     func handleViewOutput(with output : HomeViewOutput)
+    func viewDidLoad()
     func hideActivityIndicator()
 }
 
@@ -28,6 +29,8 @@ protocol HomeInteractorInterface : AnyObject {
 
 protocol HomeViewInterface : AnyObject {
     var presenter : HomePresenterInterface? {get set}
+    func setupNavigationBar()
+    func setDelegates()
     func saveData(with output : HomePresenterOutput)
     func stopActivityIndicator()
 }

@@ -14,6 +14,9 @@ protocol DiscoverViewInterface {
     var pageTitle : String? {get set}
     var presenter : DiscoverPresenterInterface? {get set}
     func handlePresenterOutput(with output : DiscoverPresenterOutput)
+    func setDelegates()
+    func setupNavigationBar()
+    func setupChangeCategoryButton()
 }
 
 protocol DiscoverInteractorInterface {
@@ -24,6 +27,7 @@ protocol DiscoverInteractorInterface {
 protocol DiscoverPresenterInterface : AnyObject {
     func handleInteractorOutout(with output : DiscoverInteractorOutput)
     func handleViewOutput(with output : DiscoverViewOutput)
+    func viewDidLoad()
 }
 
 protocol DiscoverRouterInterface {

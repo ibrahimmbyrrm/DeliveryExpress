@@ -22,22 +22,9 @@ final class DiscoverVC : BaseViewController<DiscoverView> {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
-        setDelegates()
-        setupChangeCategoryButton()
+        presenter?.viewDidLoad()
     }
-    //MARK: - UIView Methods
-    private func setDelegates() {
-        rootView.productsCollectionView.delegate = self
-        rootView.productsCollectionView.dataSource = self
-        rootView.searchBar.delegate = self
-    }
-    private func setupNavigationBar() {
-        self.navigationItem.titleView = rootView.searchBar
-    }
-    private func setupChangeCategoryButton() {
-        rootView.changeCategory.addTarget(nil, action: #selector(currentCategoryClicked), for: .touchUpInside)
-    }
+
     //MARK: - Selector Methods
     @objc private func currentCategoryClicked() {
         rootView.callChangeCategoryAlert(ownerVC: self)
@@ -56,6 +43,18 @@ extension DiscoverVC : DiscoverViewInterface {
         }
         rootView.productsCollectionView.reloadData()
         rootView.activityIndicator.stopAnimating()
+    }
+    //MARK: - UIView Methods
+    func setDelegates() {
+        rootView.productsCollectionView.delegate = self
+        rootView.productsCollectionView.dataSource = self
+        rootView.searchBar.delegate = self
+    }
+    func setupNavigationBar() {
+        self.navigationItem.titleView = rootView.searchBar
+    }
+    func setupChangeCategoryButton() {
+        rootView.changeCategory.addTarget(nil, action: #selector(currentCategoryClicked), for: .touchUpInside)
     }
     
 }

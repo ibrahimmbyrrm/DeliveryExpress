@@ -11,11 +11,14 @@ import UIKit
 protocol BasketViewInterface {
     var cartList : [Product] {get set}
     var presenter : BasketPresenterInterface? {get set}
+    func setDelegates()
+    func setupNavigationController()
     func handlePresenterOutput(output : BasketPresenterOutput)
     
 }
 protocol BasketPresenterInterface : AnyObject{
     func handleInteractorOutput(output : BasketInteractorOutput)
+    func viewDidLoad()
     func handleViewOutput(output : BasketViewOutput)
 }
 protocol BasketInteractorInterface {

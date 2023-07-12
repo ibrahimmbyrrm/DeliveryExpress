@@ -26,6 +26,12 @@ final class DiscoverPresenter : DiscoverPresenterInterface {
         
     }
     
+    func viewDidLoad() {
+        view.setDelegates()
+        view.setupChangeCategoryButton()
+        view.setupNavigationBar()
+    }
+    
     func handleInteractorOutout(with output: DiscoverInteractorOutput) {
         switch output {
         case .productsLoaded(let response):

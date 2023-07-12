@@ -21,9 +21,7 @@ final class BasketVC : BaseViewController<BasketView>, PaymentButtonDelegate {
     //MARK: - UIViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDelegates()
-        setupNavigationController()
-        rootView.totalCostStackView.delegate = self
+        presenter?.viewDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -33,12 +31,12 @@ final class BasketVC : BaseViewController<BasketView>, PaymentButtonDelegate {
         present(PaymentBuilder.buildModule(with: .withCart(cartList)), animated: true)
     }
     //MARK: - Initial Setup Functions
-    private func setDelegates() {
+    func setDelegates() {
         rootView.cartTableView.dataSource = self
         rootView.cartTableView.delegate = self
     }
     
-    private func setupNavigationController() {
+    func setupNavigationController() {
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: Constants.BasketConstants.clearButtonTitle, style: .done, target: self, action: #selector(clearCart))
         title = Constants.BasketConstants.title
         navigationController?.navigationBar.prefersLargeTitles = true

@@ -10,15 +10,14 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-final class ProductDetailVC : BaseViewController<ProductDetailView>, ProductDetailViewInterface {
+final class ProductDetailVC : BaseViewController<ProductDetailView> {
     
     weak var presenter: ProductDetailPresenterInterface?
     var product : Product
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDelegates()
-        rootView.configure(with: product)
+        presenter?.viewDidLoad()
     }
     init(product : Product) {
         self.product = product
@@ -29,26 +28,16 @@ final class ProductDetailVC : BaseViewController<ProductDetailView>, ProductDeta
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setDelegates() {
-        rootView.imageCollectionView.delegate = self
-        rootView.imageCollectionView.dataSource = self
-        rootView.buttonsStackView.delegate = self
-    }
     func productAddedToCart() {
         rootView.callProductAddedAlert(ownerVC: self)
     }
-    /// Payment Ekranında Kart Numarasının düzgün görünmesini bu metodla sağlayacağız.
-    private func formatCardNumber(_ cardNumber: String) -> String {
-            var formattedString = ""
-            // Kart numarasını "XXXX XXXX XXXX XXXX" formatına uygun hale getirin
-            for (index, character) in cardNumber.enumerated() {
-                if index > 0 && index % 4 == 0 {
-                    formattedString.append(" ")
-                }
-                formattedString.append(character)
-            }
-            
-            return formattedString
+}
+
+extension ProductDetailVC : ProductDetailViewInterface {
+    func setDelegates() {
+        rootView.imageCollectionView.delegate = self
+        rootView.imageCollectionView.dataSource = self
+        rootView.buttonsStackView.delegate = self
     }
 }
 

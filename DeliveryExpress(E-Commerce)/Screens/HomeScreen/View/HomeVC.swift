@@ -10,30 +10,17 @@ import UIKit
 import SnapKit
 
 final class HomeVC : BaseViewController<HomeView> {
+    
     //MARK: -Variables
     var presenter: HomePresenterInterface?
     lazy var categoryList = [String]()
     lazy var productList = [Product]()
+    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
-        setDelegates()
-        presenter?.handleViewOutput(with: .loadData)
+        presenter?.viewDidLoad()
     }
-    private func setupNavigationBar() {
-        self.title = "Deviery Express"
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    //MARK: - Delegate Settings
-    private func setDelegates() {
-        rootView.categoryCollectionView.delegate = self
-        rootView.categoryCollectionView.dataSource = self
-        rootView.productCollectionView.delegate = self
-        rootView.productCollectionView.dataSource = self
-    }
-    
 
 }
     //MARK: - CollectionView Methods
@@ -114,6 +101,19 @@ extension HomeVC : FooterDelegate,priceButtonDelegate, CategoryButtonDelegate {
 }
     //MARK: - Interface Methods
 extension HomeVC : HomeViewInterface {
+    
+    func setupNavigationBar() {
+        self.title = "Deviery Express"
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    //MARK: - Delegate Settings
+    func setDelegates() {
+        rootView.categoryCollectionView.delegate = self
+        rootView.categoryCollectionView.dataSource = self
+        rootView.productCollectionView.delegate = self
+        rootView.productCollectionView.dataSource = self
+    }
     
     func stopActivityIndicator() {
         rootView.activityIndicator.stopAnimating()

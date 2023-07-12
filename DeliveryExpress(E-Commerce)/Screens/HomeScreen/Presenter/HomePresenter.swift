@@ -20,6 +20,12 @@ final class HomePresenter : HomePresenterInterface{
         self.router = router
     }
     
+    func viewDidLoad() {
+        view?.setDelegates()
+        view?.setupNavigationBar()
+        handleViewOutput(with: .loadData)
+    }
+    
     func handleViewOutput(with output : HomeViewOutput) {
         switch output {
         case .categoryClicked(let selectedCategory):

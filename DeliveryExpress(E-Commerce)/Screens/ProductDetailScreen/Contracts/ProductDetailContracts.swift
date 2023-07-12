@@ -9,12 +9,15 @@ import Foundation
 import UIKit
 //MARK: - Interfaces
 protocol ProductDetailViewInterface {
+    var product : Product {get set}
     var presenter : ProductDetailPresenterInterface? {get set}
+    func setDelegates()
     func productAddedToCart()
 }
 
 protocol ProductDetailPresenterInterface : AnyObject {
     func handleViewOutput(with output : ProductDetailViewOutput)
+    func viewDidLoad()
     func handleInteractorOutput()
 }
 

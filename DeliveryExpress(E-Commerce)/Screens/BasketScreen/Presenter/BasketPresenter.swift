@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class BasketPresenter : BasketPresenterInterface {
     
@@ -17,6 +18,12 @@ final class BasketPresenter : BasketPresenterInterface {
         self.router = router
         self.view = view
         self.interactor = interactor
+    }
+    
+    func viewDidLoad() {
+        view.setDelegates()
+        view.setupNavigationController()
+        (view as? BaseViewController<BasketView>)?.rootView.cartTableView.delegate = view as? UITableViewDelegate
     }
     
     func handleInteractorOutput(output : BasketInteractorOutput) {

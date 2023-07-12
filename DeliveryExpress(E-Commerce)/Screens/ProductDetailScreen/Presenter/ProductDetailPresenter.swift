@@ -19,6 +19,11 @@ final class ProductDetailPresenter : ProductDetailPresenterInterface {
         self.router = router
     }
     
+    func viewDidLoad() {
+        view.setDelegates()
+        (view as? BaseViewController<ProductDetailView>)?.rootView.configure(with: view.product)
+    }
+    
     ///Eğer handleViewOutput fonksiyonuna başka bir output türü eklemezsek, output enumu üzerinde değişiklik yapıp product parametresini direk fonksiyonda alırız ve output girerken tekrar tekrar product vermemize gerek kalmaz.Böylelikle hafızada aynı iş için kullanılan 2 farklı product değişkeni tutulmaz.
     func handleViewOutput(with output : ProductDetailViewOutput) {
         switch output {
