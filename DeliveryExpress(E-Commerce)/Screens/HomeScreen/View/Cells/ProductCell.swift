@@ -15,19 +15,19 @@ protocol priceButtonDelegate : AnyObject {
 
 class ProductCollectionViewCell: UICollectionViewCell {
     //MARK: - UI Objects
-    private let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
     }()
-    private let productImageView : UIImageView = {
+    private lazy var productImageView : UIImageView = {
         let imageview = UIImageView()
         imageview.contentMode = .scaleAspectFit
         return imageview
     }()
     
-    private let descriptionLabel : UILabel = {
+    private lazy var descriptionLabel : UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -35,7 +35,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         label.textColor = .gray
         return label
     }()
-    private let priceButton : UIButton = {
+    private lazy var priceButton : UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(rgb: 0xEF9440)
         button.addTarget(nil, action: #selector(priceButtonClicked), for: .touchUpInside)

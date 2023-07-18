@@ -9,7 +9,7 @@ import UIKit
 
 class ProductImageCell: UICollectionViewCell {
     
-    let productImageView : UIImageView = {
+    lazy var productImageView : UIImageView = {
         let imageview = UIImageView()
         imageview.contentMode = .scaleAspectFit
         return imageview

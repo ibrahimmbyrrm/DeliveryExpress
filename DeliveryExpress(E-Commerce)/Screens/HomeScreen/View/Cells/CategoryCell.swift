@@ -14,7 +14,7 @@ protocol CategoryButtonDelegate : AnyObject{
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     //MARK: - UI Objects
-    let titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .orange

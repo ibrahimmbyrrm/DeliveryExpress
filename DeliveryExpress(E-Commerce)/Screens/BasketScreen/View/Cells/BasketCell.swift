@@ -9,33 +9,33 @@ import UIKit
 
 class BasketCell: UITableViewCell {
     //MARK: - UI Objects
-    private let titleLabel : UILabel = {
+    private lazy var titleLabel : UILabel = {
        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
         label.textAlignment = .right
         label.textColor = .gray
         return label
     }()
-    private let productImageView : UIImageView = {
+    private lazy var productImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    private let productPriceLabel : UILabel = {
+    private lazy var productPriceLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
         label.textAlignment = .right
         label.textColor = .orange
         return label
     }()
-    private let productBrandLabel : UILabel = {
+    private lazy var productBrandLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
         label.textAlignment = .right
         label.textColor = .black
         return label
     }()
-    private let descriptionLabel : UILabel = {
+    private lazy var descriptionLabel : UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .black

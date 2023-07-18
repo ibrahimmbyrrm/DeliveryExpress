@@ -11,10 +11,10 @@ import UIKit
 class HomeView : UIView {
     //MARK: - UI Objects
     
-    let categoryTitleLabel = TitleLabel(text: Constants.HomeConstants.categTitle)
-    let productTitleLabel = TitleLabel(text: Constants.HomeConstants.prodTitle)
+    lazy var categoryTitleLabel = TitleLabel(text: Constants.HomeConstants.categTitle)
+    lazy var productTitleLabel = TitleLabel(text: Constants.HomeConstants.prodTitle)
     
-    var categoryCollectionView : UICollectionView = {
+    lazy var categoryCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
@@ -28,7 +28,7 @@ class HomeView : UIView {
         return collectionView
     }()
     
-    var productCollectionView : UICollectionView = {
+    lazy var productCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 10
@@ -45,7 +45,7 @@ class HomeView : UIView {
         return collectionView
     }()
     
-    let activityIndicator: UIActivityIndicatorView = {
+    lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.color = .black
         return indicator

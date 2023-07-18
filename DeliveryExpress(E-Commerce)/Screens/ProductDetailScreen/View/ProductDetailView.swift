@@ -10,7 +10,7 @@ import UIKit
 
 class ProductDetailView : UIView {
     //MARK: - UI Objects
-    let imageCollectionView : UICollectionView = {
+    lazy var imageCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
@@ -22,7 +22,7 @@ class ProductDetailView : UIView {
         return collectionView
     }()
     
-    let detailsTitle : UILabel = {
+    lazy var detailsTitle : UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.text = Constants.DetailConstants.detailTitle
@@ -31,9 +31,9 @@ class ProductDetailView : UIView {
         return label
     }()
     
-    let buttonsStackView = DetailButtonsStackView()
+    lazy var buttonsStackView = DetailButtonsStackView()
     
-    let productDetailView = ProductDetailContainer()
+    lazy var productDetailView = ProductDetailContainer()
     //MARK: - UIView Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)

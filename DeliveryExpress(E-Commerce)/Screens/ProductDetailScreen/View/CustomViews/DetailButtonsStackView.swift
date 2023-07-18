@@ -9,7 +9,7 @@ import UIKit
 
 class DetailButtonsStackView: UIStackView {
 
-    private let addToCartButton : UIButton = {
+    private lazy var addToCartButton : UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .orange
         button.setTitle("Add to Cart", for: .normal)
@@ -19,7 +19,7 @@ class DetailButtonsStackView: UIStackView {
         button.addTarget(nil, action: #selector(addToCartClicked), for: .touchUpInside)
         return button
     }()
-    private let goToPaymentButton : UIButton = {
+    private lazy var goToPaymentButton : UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .orange
         button.setTitle("Go to Payment", for: .normal)

@@ -10,14 +10,14 @@ import UIKit
 
 class CreditCartView : UIView {
     
-    let cartNumberTextField : UITextField = {
+    lazy var cartNumberTextField : UITextField = {
         let textfield = UITextField()
         textfield.placeholder = "XXXX XXXX XXXX XXXX"
         textfield.borderStyle = .none
         textfield.keyboardType = .numberPad
         return textfield
     }()
-    let monthTextField : UITextField = {
+    lazy var monthTextField : UITextField = {
         let textfield = UITextField()
         textfield.placeholder = "MM"
         textfield.borderStyle = .none
@@ -25,7 +25,7 @@ class CreditCartView : UIView {
         textfield.font = UIFont.systemFont(ofSize: 18)
         return textfield
     }()
-    let yearTextField : UITextField = {
+    lazy var yearTextField : UITextField = {
         let textfield = UITextField()
         textfield.placeholder = "YY"
         textfield.borderStyle = .none
@@ -33,7 +33,7 @@ class CreditCartView : UIView {
         textfield.font = UIFont.systemFont(ofSize: 18)
         return textfield
     }()
-    let ccvTextField : UITextField = {
+    lazy var ccvTextField : UITextField = {
         let textfield = UITextField()
         textfield.placeholder = "XXX"
         textfield.borderStyle = .none
@@ -41,7 +41,7 @@ class CreditCartView : UIView {
         textfield.font = UIFont.systemFont(ofSize: 18)
         return textfield
     }()
-    private let enterTitle : UILabel = {
+    private lazy var enterTitle : UILabel = {
         let label = UILabel()
         label.text = "Enter you credit card."
         label.font = UIFont.systemFont(ofSize: 24)
@@ -49,7 +49,7 @@ class CreditCartView : UIView {
         return label
     }()
     
-    private let masterCardLogo : UIImageView = {
+    private lazy var masterCardLogo : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "mastercard")
         imageView.contentMode = .scaleAspectFit

@@ -9,7 +9,7 @@ import UIKit
 
 class ProductDetailContainer: UIView {
     //MARK: - UI Objects
-    private let brandLabel : UILabel = {
+    private lazy var brandLabel : UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -17,7 +17,7 @@ class ProductDetailContainer: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
-    private let modelLabel : UILabel = {
+    private lazy var modelLabel : UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 1
@@ -25,7 +25,7 @@ class ProductDetailContainer: UIView {
         label.font = UIFont.systemFont(ofSize: 18)
         return label
     }()
-    private let descriptionLabel : UILabel = {
+    private lazy var descriptionLabel : UILabel = {
        let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 16)
@@ -33,21 +33,21 @@ class ProductDetailContainer: UIView {
         label.numberOfLines = 0
         return label
     }()
-    private let ratingLabel : UILabel = {
+    private lazy var ratingLabel : UILabel = {
        let label = UILabel()
         label.textAlignment = .left
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
-    private let stockLabel : UILabel = {
+    private lazy var stockLabel : UILabel = {
         let label = UILabel()
         label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .black
         return label
     }()
-    private let priceLabel : UILabel = {
+    private lazy var priceLabel : UILabel = {
        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25)
         label.backgroundColor = .white
@@ -55,8 +55,8 @@ class ProductDetailContainer: UIView {
         label.textAlignment = .center
         return label
     }()
-    private let topDivider = DividerView(width: 393 * 0.95, height: 1)
-    private let bottomDivider = DividerView(width: 393 * 0.95, height: 1)
+    private lazy var topDivider = DividerView(width: 393 * 0.95, height: 1)
+    private lazy var bottomDivider = DividerView(width: 393 * 0.95, height: 1)
     //MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)

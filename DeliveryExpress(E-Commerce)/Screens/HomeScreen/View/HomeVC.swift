@@ -21,7 +21,6 @@ final class HomeVC : BaseViewController<HomeView> {
         super.viewDidLoad()
         presenter?.viewDidLoad()
     }
-
 }
     //MARK: - CollectionView Methods
 extension HomeVC : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

@@ -28,12 +28,14 @@ final class BasketVC : BaseViewController<BasketView>, PaymentButtonDelegate {
         presenter?.handleViewOutput(output: .loadCart)
     }
     func goToPaymentClicked() {
+        print("go to payment tapped")
         present(PaymentBuilder.buildModule(with: .withCart(cartList)), animated: true)
     }
     //MARK: - Initial Setup Functions
     func setDelegates() {
         rootView.cartTableView.dataSource = self
         rootView.cartTableView.delegate = self
+        rootView.totalCostStackView.delegate = self
     }
     
     func setupNavigationController() {

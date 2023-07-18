@@ -10,8 +10,8 @@ import UIKit
 
 class DiscoverView : UIView {
     //MARK: - Programmatic UI Objects
-    let searchBar = UISearchBar()
-    let productsCollectionView : UICollectionView = {
+    lazy var searchBar = UISearchBar()
+    lazy var productsCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
@@ -25,17 +25,17 @@ class DiscoverView : UIView {
         collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.prodCell)
         return collectionView
     }()
-    let activityIndicator: UIActivityIndicatorView = {
+    lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.color = .black
         return indicator
     }()
-    let changeCategory : UIButton = {
+    lazy var changeCategory : UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(Constants.DiscoverConstants.changeCategoryButtonTitle, for: .normal)
         return button
     }()
-    let pageTitleLabel : UILabel = {
+    lazy var pageTitleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .center

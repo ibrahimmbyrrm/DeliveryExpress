@@ -14,12 +14,12 @@ protocol CompleteShoppingDelegate : AnyObject{
 
 class AddressInputStackView : UIStackView {
     
-    private let countryTF = AddressTextField(placeholder: "Your Country")
-    private let cityTF = AddressTextField(placeholder: "Your City")
-    private let districtTF = AddressTextField(placeholder: "Your District")
-    private let Street1TF = AddressTextField(placeholder: "Street 1")
-    private let Street2TF = AddressTextField(placeholder: "Street 2")
-    private let completeButton : UIButton = {
+    private lazy var countryTF = AddressTextField(placeholder: "Your Country")
+    private lazy var cityTF = AddressTextField(placeholder: "Your City")
+    private lazy var districtTF = AddressTextField(placeholder: "Your District")
+    private lazy var Street1TF = AddressTextField(placeholder: "Street 1")
+    private lazy var Street2TF = AddressTextField(placeholder: "Street 2")
+    private lazy var completeButton : UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Complete Shopping", for: .normal)
         button.backgroundColor = .orange

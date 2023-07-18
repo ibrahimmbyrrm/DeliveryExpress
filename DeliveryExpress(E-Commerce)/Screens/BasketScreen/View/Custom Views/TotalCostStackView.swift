@@ -16,7 +16,7 @@ class TotalCostStackView : UIStackView {
     
     weak var delegate : PaymentButtonDelegate?
     //MARK: - UI Objects
-    private let totalCostTitleLabel : UILabel = {
+    private lazy var totalCostTitleLabel : UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.text = Constants.BasketConstants.totalCostTitle
@@ -26,7 +26,7 @@ class TotalCostStackView : UIStackView {
         return label
     }()
     
-    private let goToPaymentButton : UIButton = {
+    private lazy var goToPaymentButton : UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .black
         button.tintColor = .orange

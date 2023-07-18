@@ -10,9 +10,9 @@ import UIKit
 
 class PaymentView : UIView {
     
-    let cardView = CreditCartView()
-    let addressStackView = AddressInputStackView()
-    let priceLabel : UILabel = {
+    lazy var cardView = CreditCartView()
+    lazy var addressStackView = AddressInputStackView()
+    lazy var priceLabel : UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .left

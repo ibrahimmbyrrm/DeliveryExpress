@@ -10,7 +10,7 @@ import UIKit
 
 class BasketView : UIView {
     
-    let cartTableView : UITableView = {
+    lazy var cartTableView : UITableView = {
         let tableView = UITableView()
         tableView.register(BasketCell.self, forCellReuseIdentifier: Constants.BasketConstants.basketCell)
         tableView.layer.cornerRadius = 12
@@ -19,7 +19,7 @@ class BasketView : UIView {
         return tableView
     }()
 
-    let totalCostStackView =  TotalCostStackView()
+    lazy var totalCostStackView =  TotalCostStackView()
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white

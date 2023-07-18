@@ -10,7 +10,7 @@ import UIKit
 
 class FooterView: UICollectionReusableView {
     //MARK: - UI Objects
-    let button: UIButton = {
+    lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(Constants.HomeConstants.seeAllTitle, for: .normal)
         button.addTarget(nil, action: #selector(showAllButtonTapped), for: .touchUpInside)
