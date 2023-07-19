@@ -25,7 +25,7 @@ protocol DiscoverInteractorInterface {
 }
 
 protocol DiscoverPresenterInterface : AnyObject {
-    func handleInteractorOutout(with output : DiscoverInteractorOutput)
+    func handleInteractorOutput(with output : DiscoverInteractorOutput)
     func handleViewOutput(with output : DiscoverViewOutput)
     func viewDidLoad()
 }

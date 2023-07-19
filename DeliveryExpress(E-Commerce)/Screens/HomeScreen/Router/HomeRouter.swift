@@ -14,15 +14,23 @@ enum HomeRouterRotations {
     case toAllProducts
 }
 
+enum DiscoverType {
+    case toCategory(String)
+    case toAllProducts
+}
+
 final class HomeRouter : HomeRouterInterface {
+    
     weak var view: UIViewController?
     
-    func navigateTo(to output: HomeRouterRotations) {
-        switch output {
-        case .toProductDetail(let product):
-            let detailVC = ProductDetailBuilder.buildProductScreen(product: product)
-            detailVC.modalPresentationStyle = .fullScreen
-            view?.navigationController?.pushViewController(detailVC, animated: true)
+    func navigateToDetail(to product: Product) {
+        let detailVC = ProductDetailBuilder.buildProductScreen(product: product)
+        detailVC.modalPresentationStyle = .fullScreen
+        view?.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func navigateToDiscover(to discoverType : DiscoverType) {
+        switch discoverType {
         case .toCategory(let category):
             view?.navigationController?.pushViewController(DiscoverBuilder.build(with: .withCategory(category)), animated: true)
         case .toAllProducts:

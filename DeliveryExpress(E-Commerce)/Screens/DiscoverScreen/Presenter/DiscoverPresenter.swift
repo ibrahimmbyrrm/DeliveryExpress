@@ -32,7 +32,7 @@ final class DiscoverPresenter : DiscoverPresenterInterface {
         view.setupNavigationBar()
     }
     
-    func handleInteractorOutout(with output: DiscoverInteractorOutput) {
+    func handleInteractorOutput(with output: DiscoverInteractorOutput) {
         switch output {
         case .productsLoaded(let response):
             view.handlePresenterOutput(with: .productsLoaded(response.products))

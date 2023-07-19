@@ -10,7 +10,8 @@ import UIKit
 //MARK: - Interfaces
 protocol HomeRouterInterface {
     var view : UIViewController? {get set}
-    func navigateTo(to output : HomeRouterRotations)
+    func navigateToDetail(to product: Product)
+    func navigateToDiscover(to discoverType : DiscoverType)
 }
 protocol FooterDelegate : AnyObject {
     func seeAllClicked()

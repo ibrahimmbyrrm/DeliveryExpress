@@ -357,6 +357,7 @@
 		806BFEB42A59B4270004621D /* ReusableComponents */ = {
 			isa = PBXGroup;
 			children = (
+				80F3E0CF2A56F9EC002730F0 /* BaseViewController.swift */,
 				80F3E0E02A58536E002730F0 /* CustomAlertController.swift */,
 				80152BC82A4A536400330AB8 /* DividerView.swift */,
 			);
@@ -444,7 +445,7 @@
 		80E6AC752A449A3600EC17D9 /* DeliveryExpress(E-Commerce) */ = {
 			isa = PBXGroup;
 			children = (
-				80F3E0D92A570528002730F0 /* Utils */,
+				80F3E0DB2A57053A002730F0 /* Constants */,
 				806BFEB42A59B4270004621D /* ReusableComponents */,
 				800DE5062A44C5C0006567E5 /* Entities */,
 				80E6AC8A2A449A9200EC17D9 /* Screens */,
@@ -663,15 +664,6 @@
 				80F3E09A2A518971002730F0 /* TotalCostStackView.swift */,
 			);
 			path = "Custom Views";
-			sourceTree = "<group>";
-		};
-		80F3E0D92A570528002730F0 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				80F3E0DB2A57053A002730F0 /* Constants */,
-				80F3E0CF2A56F9EC002730F0 /* BaseViewController.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		80F3E0DB2A57053A002730F0 /* Constants */ = {

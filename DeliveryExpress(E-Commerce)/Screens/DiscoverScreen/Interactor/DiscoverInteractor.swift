@@ -45,8 +45,8 @@ final class DiscoverInteractor : DiscoverInteractorInterface {
         }
         
         dispatchGroup.notify(queue: .main) {
-            self.presenter?.handleInteractorOutout(with: .categoriesLoaded(self.categories))
-            self.presenter?.handleInteractorOutout(with: .productsLoaded(self.productResponse))
+            self.presenter?.handleInteractorOutput(with: .categoriesLoaded(self.categories))
+            self.presenter?.handleInteractorOutput(with: .productsLoaded(self.productResponse))
         }
     }
 }

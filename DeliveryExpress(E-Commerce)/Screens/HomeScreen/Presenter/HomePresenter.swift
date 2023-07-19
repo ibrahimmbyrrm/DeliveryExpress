@@ -23,19 +23,18 @@ final class HomePresenter : HomePresenterInterface{
     func viewDidLoad() {
         view?.setDelegates()
         view?.setupNavigationBar()
-        handleViewOutput(with: .loadData)
     }
     
     func handleViewOutput(with output : HomeViewOutput) {
         switch output {
         case .categoryClicked(let selectedCategory):
-            router.navigateTo(to: .toCategory(selectedCategory))
+            router.navigateToDiscover(to: .toCategory(selectedCategory))
         case.productClicked(let selectedProduct):
-            router.navigateTo(to: .toProductDetail(selectedProduct))
+            router.navigateToDetail(to: selectedProduct)
         case .loadData:
             interactor.fetchData()
         case .seeAllClicked:
-            router.navigateTo(to: .toAllProducts)
+            router.navigateToDiscover(to: .toAllProducts)
         }
     }
     

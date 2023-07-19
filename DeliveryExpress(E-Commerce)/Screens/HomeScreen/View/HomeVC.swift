@@ -20,6 +20,7 @@ final class HomeVC : BaseViewController<HomeView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+        presenter?.handleViewOutput(with: .loadData)
     }
 }
     //MARK: - CollectionView Methods
