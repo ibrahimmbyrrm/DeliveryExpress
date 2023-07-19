@@ -9,19 +9,26 @@ import Foundation
 import UIKit
 
 extension UIColor {
-   convenience init(red: Int, green: Int, blue: Int) {
-       assert(red >= 0 && red <= 255, "Invalid red component")
-       assert(green >= 0 && green <= 255, "Invalid green component")
-       assert(blue >= 0 && blue <= 255, "Invalid blue component")
-
-       self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-   }
-
-   convenience init(rgb: Int) {
-       self.init(
-           red: (rgb >> 16) & 0xFF,
-           green: (rgb >> 8) & 0xFF,
-           blue: rgb & 0xFF
-       )
-   }
+    convenience init(hexString: String, alpha: CGFloat = 1.0) {
+        var formattedString = hexString.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if formattedString.hasPrefix("#") {
+            formattedString.remove(at: formattedString.startIndex)
+        }
+        
+        let scanner = Scanner(string: formattedString)
+        var hexNumber: UInt64 = 0
+        
+        if scanner.scanHexInt64(&hexNumber) {
+            var red, green, blue: CGFloat
+            red = CGFloat((hexNumber & 0xff0000) >> 16) / 255.0
+            green = CGFloat((hexNumber & 0x00ff00) >> 8) / 255.0
+            blue = CGFloat(hexNumber & 0x0000ff) / 255.0
+            
+            self.init(red: red, green: green, blue: blue, alpha: alpha)
+        } else {
+            self.init(white: 1.0, alpha: alpha)
+        }
+    }
 }
+

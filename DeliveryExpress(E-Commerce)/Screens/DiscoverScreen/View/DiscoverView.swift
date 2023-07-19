@@ -21,7 +21,7 @@ class DiscoverView : UIView {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.layer.cornerRadius = 12
         collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.categCell)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor(hexString: "071952")
         collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.prodCell)
         return collectionView
     }()
@@ -37,14 +37,15 @@ class DiscoverView : UIView {
     }()
     lazy var pageTitleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: 25)
         label.textAlignment = .center
+        label.textColor = UIColor(hexString: "97FEED")
         return label
     }()
     //MARK: - Initial Functions
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = UIColor(hexString: "071952")
         addSubviews()
         setupCollectionViewConstraints()
         setupSearchBar()
@@ -121,6 +122,6 @@ class DiscoverView : UIView {
     
     private func setupSearchBar() {
         searchBar.placeholder = Constants.DiscoverConstants.searchBarPlaceholder
-        searchBar.backgroundColor = .white
+        searchBar.backgroundColor = UIColor(hexString: "071952")
     }
 }

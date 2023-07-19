@@ -103,8 +103,8 @@ extension HomeVC : FooterDelegate,priceButtonDelegate, CategoryButtonDelegate {
 extension HomeVC : HomeViewInterface {
     
     func setupNavigationBar() {
-        self.title = "Deviery Express"
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        self.title = "Delivery Express"
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(hexString: "35A29F")]
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     //MARK: - Delegate Settings

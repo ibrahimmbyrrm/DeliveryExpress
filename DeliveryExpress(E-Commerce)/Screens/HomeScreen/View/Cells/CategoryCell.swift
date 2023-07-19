@@ -17,7 +17,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .orange
+        label.textColor = UIColor(hexString: "071952")
         label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()
@@ -47,7 +47,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     private func setupUI() {
         contentView.backgroundColor = .white
         layer.borderWidth = 3
-        layer.borderColor = CGColor(red: 239/255, green: 148/255, blue: 64/255, alpha: 1)
+        layer.borderColor = CGColor(red: 53/255, green: 162/255, blue: 159/255, alpha: 1)
         contentView.addSubview(titleLabel)
         layer.cornerRadius = 12
         clipsToBounds = false

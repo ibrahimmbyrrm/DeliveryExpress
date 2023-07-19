@@ -47,6 +47,7 @@ class BasketCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
+        backgroundColor = UIColor(hexString: "35A29F")
         setupTitleLabelConstraints()
         setupDescriptionLabelConstraints()
         setupProductImageViewConstraints()

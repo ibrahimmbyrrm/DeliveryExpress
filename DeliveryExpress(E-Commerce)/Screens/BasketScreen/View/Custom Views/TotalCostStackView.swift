@@ -22,14 +22,14 @@ class TotalCostStackView : UIStackView {
         label.text = Constants.BasketConstants.totalCostTitle
         label.font = UIFont.systemFont(ofSize: 24)
         label.textColor = .black
-        label.backgroundColor = .gray
+        label.backgroundColor = UIColor(hexString: "35A29F")
         return label
     }()
     
     private lazy var goToPaymentButton : UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .black
-        button.tintColor = .orange
+        button.tintColor = UIColor(hexString: "97FEED")
         button.layer.cornerRadius = 10
         button.setTitle("Go to Payment", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 24)
@@ -38,7 +38,7 @@ class TotalCostStackView : UIStackView {
     }()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .gray
+        backgroundColor = UIColor(hexString: "35A29F")
         addSubviews()
         setutGoToPaymentButtonConstraints()
         setupTotalCostTitleLabelConstraints()

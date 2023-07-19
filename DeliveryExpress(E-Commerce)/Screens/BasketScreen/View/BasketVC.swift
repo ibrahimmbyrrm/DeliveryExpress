@@ -41,6 +41,7 @@ final class BasketVC : BaseViewController<BasketView>, PaymentButtonDelegate {
     func setupNavigationController() {
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: Constants.BasketConstants.clearButtonTitle, style: .done, target: self, action: #selector(clearCart))
         title = Constants.BasketConstants.title
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(hexString: "97FEED")]
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     //MARK: - Selector Functions

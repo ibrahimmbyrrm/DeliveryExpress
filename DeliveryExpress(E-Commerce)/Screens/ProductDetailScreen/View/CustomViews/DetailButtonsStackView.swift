@@ -13,7 +13,7 @@ class DetailButtonsStackView: UIStackView {
         let button = UIButton(type: .system)
         button.backgroundColor = .orange
         button.setTitle("Add to Cart", for: .normal)
-        button.backgroundColor = .orange
+        button.backgroundColor = UIColor(hexString: "0B666A")
         button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(nil, action: #selector(addToCartClicked), for: .touchUpInside)
@@ -21,9 +21,8 @@ class DetailButtonsStackView: UIStackView {
     }()
     private lazy var goToPaymentButton : UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .orange
         button.setTitle("Go to Payment", for: .normal)
-        button.backgroundColor = .orange
+        button.backgroundColor = UIColor(hexString: "0B666A")
         button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(nil, action: #selector(goToPaymentClicked), for: .touchUpInside)

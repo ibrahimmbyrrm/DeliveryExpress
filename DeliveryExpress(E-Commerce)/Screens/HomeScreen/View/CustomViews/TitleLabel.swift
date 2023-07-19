@@ -15,7 +15,7 @@ class TitleLabel : UILabel {
         self.textAlignment = .center
         self.font = UIFont.boldSystemFont(ofSize: 28)
         self.numberOfLines = 1
-        self.textColor = .black
+        self.textColor = UIColor(hexString: "97FEED")
     }
     
     required init?(coder: NSCoder) {

@@ -12,7 +12,7 @@ final class DiscoverVC : BaseViewController<DiscoverView> {
   //MARK: - Local Variables
     var pageTitle: String? {
         didSet {
-            rootView.pageTitleLabel.text = pageTitle
+            rootView.pageTitleLabel.text = pageTitle?.uppercased()
         }
     }
     lazy var productList = [Product]()
@@ -52,6 +52,8 @@ extension DiscoverVC : DiscoverViewInterface {
     }
     func setupNavigationBar() {
         self.navigationItem.titleView = rootView.searchBar
+        self.navigationController?.navigationBar.barTintColor = UIColor(hexString: "071952")
+        self.navigationController?.navigationBar.tintColor = UIColor(hexString: "071952")
     }
     func setupChangeCategoryButton() {
         rootView.changeCategory.addTarget(nil, action: #selector(currentCategoryClicked), for: .touchUpInside)

@@ -37,7 +37,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }()
     private lazy var priceButton : UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(rgb: 0xEF9440)
+        button.backgroundColor = UIColor(hexString: "071952")
         button.addTarget(nil, action: #selector(priceButtonClicked), for: .touchUpInside)
         button.tintColor = .white
         return button
@@ -73,7 +73,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     private func setupUI() {
         contentView.backgroundColor = .white
         layer.borderWidth = 4
-        layer.borderColor = CGColor(red: 239/255, green: 148/255, blue: 64/255, alpha: 1)
+        layer.borderColor = CGColor(red: 53/255, green: 162/255, blue: 159/255, alpha: 1)
     }
     
     private func setupProductImageViewConstraints() {

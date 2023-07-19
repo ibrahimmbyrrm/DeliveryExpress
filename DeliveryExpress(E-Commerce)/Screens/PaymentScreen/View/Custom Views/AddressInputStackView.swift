@@ -22,7 +22,7 @@ class AddressInputStackView : UIStackView {
     private lazy var completeButton : UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Complete Shopping", for: .normal)
-        button.backgroundColor = .orange
+        button.backgroundColor = UIColor(hexString: "35A29F")
         button.tintColor = .black
         button.addTarget(nil, action: #selector(completeShoppingTapped), for: .touchUpInside)
         return button

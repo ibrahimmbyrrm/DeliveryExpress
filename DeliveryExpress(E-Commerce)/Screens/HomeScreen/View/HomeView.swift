@@ -59,7 +59,9 @@ class HomeView : UIView {
         setupProductTitleLabelContstraints()
         setupProductCollectionViewConstraints()
         setupCategoryCollectionViewConstraints()
-        backgroundColor = .orange
+        backgroundColor = UIColor(hexString: "071952", alpha: 1)
+        categoryTitleLabel.textColor = UIColor(hexString: "97FEED")
+        productTitleLabel.textColor = UIColor(hexString: "97FEED")
     }
     
     required init?(coder: NSCoder) {
