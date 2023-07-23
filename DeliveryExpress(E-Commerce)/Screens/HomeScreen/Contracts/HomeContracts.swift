@@ -29,6 +29,8 @@ protocol HomeInteractorInterface : AnyObject {
 }
 
 protocol HomeViewInterface : AnyObject {
+    var categoryList : [String] {get set}
+    var productList : [Product] {get set}
     var presenter : HomePresenterInterface? {get set}
     func setupNavigationBar()
     func setDelegates()

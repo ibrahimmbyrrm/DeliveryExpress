@@ -16,14 +16,14 @@ class BasketView : UIView {
         tableView.layer.cornerRadius = 12
         tableView.separatorStyle = .singleLine
         tableView.separatorColor = .black
-        tableView.backgroundColor = UIColor(hexString: "071952")
+        tableView.backgroundColor = UIColor(hexString: Constants.HexCodes.navy)
         return tableView
     }()
 
     lazy var totalCostStackView =  TotalCostStackView()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(hexString: "071952")
+        backgroundColor = UIColor(hexString: Constants.HexCodes.navy)
         addSubviews()
         setupTableViewConstraints()
         setupTotalCostStackViewConstraints()

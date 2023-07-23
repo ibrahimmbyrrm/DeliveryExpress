@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class PaymentVC : BaseViewController<PaymentView>, UITextFieldDelegate {
+final class PaymentVC : BaseViewController<PaymentView>, UITextFieldDelegate {
     
     var presenter: PaymentPresenterInterface?
     

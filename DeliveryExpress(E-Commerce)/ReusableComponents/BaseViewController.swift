@@ -16,4 +16,6 @@ class BaseViewController<V : UIView> : UIViewController {
     override func loadView() {
         view = V()
     }
+    
 }
+

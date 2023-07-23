@@ -17,15 +17,21 @@ final class BasketInteractor : BasketInteractorInterface{
         var currentBadge = decoded.count
         
         switch output {
+            
         case .loadAllItems:
+            
             presenter?.handleInteractorOutput(output: .cartFetched(decoded))
+            
         case .removeAtIndex(let index):
+            
             decoded.remove(at: index)
             let encodedData = try? JSONEncoder().encode(decoded)
             UserDefaults.standard.set(encodedData, forKey: Constants.UserDefaultsKey)
             currentBadge = decoded.count
             presenter?.handleInteractorOutput(output: .cartFetched(decoded))
+            
         case .clearCart:
+            
             let encoded = try? JSONEncoder().encode([Product]())
             UserDefaults.standard.set(encoded, forKey: Constants.UserDefaultsKey)
             currentBadge = 0

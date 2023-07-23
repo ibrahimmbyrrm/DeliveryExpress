@@ -37,7 +37,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }()
     private lazy var priceButton : UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(hexString: "071952")
+        button.backgroundColor = UIColor(hexString: Constants.HexCodes.navy)
         button.addTarget(nil, action: #selector(priceButtonClicked), for: .touchUpInside)
         button.tintColor = .white
         return button

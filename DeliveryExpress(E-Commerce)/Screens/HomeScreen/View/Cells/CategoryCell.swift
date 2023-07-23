@@ -17,7 +17,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = UIColor(hexString: "071952")
+        label.textColor = UIColor(hexString: Constants.HexCodes.navy)
         label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()

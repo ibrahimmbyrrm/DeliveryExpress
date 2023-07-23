@@ -11,6 +11,7 @@ import UIKit
 class DiscoverView : UIView {
     //MARK: - Programmatic UI Objects
     lazy var searchBar = UISearchBar()
+    
     lazy var productsCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -21,7 +22,7 @@ class DiscoverView : UIView {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.layer.cornerRadius = 12
         collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.categCell)
-        collectionView.backgroundColor = UIColor(hexString: "071952")
+        collectionView.backgroundColor = UIColor(hexString: Constants.HexCodes.mint)
         collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.prodCell)
         return collectionView
     }()
@@ -39,13 +40,13 @@ class DiscoverView : UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25)
         label.textAlignment = .center
-        label.textColor = UIColor(hexString: "97FEED")
+        label.textColor = UIColor(hexString: Constants.HexCodes.mint)
         return label
     }()
     //MARK: - Initial Functions
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(hexString: "071952")
+        backgroundColor = UIColor(hexString: Constants.HexCodes.navy)
         addSubviews()
         setupCollectionViewConstraints()
         setupSearchBar()
@@ -122,6 +123,6 @@ class DiscoverView : UIView {
     
     private func setupSearchBar() {
         searchBar.placeholder = Constants.DiscoverConstants.searchBarPlaceholder
-        searchBar.backgroundColor = UIColor(hexString: "071952")
+        searchBar.backgroundColor = UIColor(hexString: Constants.HexCodes.navy)
     }
 }

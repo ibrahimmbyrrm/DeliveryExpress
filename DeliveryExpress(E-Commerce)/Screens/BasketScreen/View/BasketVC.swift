@@ -28,7 +28,6 @@ final class BasketVC : BaseViewController<BasketView>, PaymentButtonDelegate {
         presenter?.handleViewOutput(output: .loadCart)
     }
     func goToPaymentClicked() {
-        print("go to payment tapped")
         present(PaymentBuilder.buildModule(with: .withCart(cartList)), animated: true)
     }
     //MARK: - Initial Setup Functions
@@ -41,7 +40,7 @@ final class BasketVC : BaseViewController<BasketView>, PaymentButtonDelegate {
     func setupNavigationController() {
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: Constants.BasketConstants.clearButtonTitle, style: .done, target: self, action: #selector(clearCart))
         title = Constants.BasketConstants.title
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(hexString: "97FEED")]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(hexString: Constants.HexCodes.mint)]
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     //MARK: - Selector Functions

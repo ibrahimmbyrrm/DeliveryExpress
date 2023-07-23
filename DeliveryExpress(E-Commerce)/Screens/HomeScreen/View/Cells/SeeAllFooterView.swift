@@ -14,7 +14,7 @@ class FooterView: UICollectionReusableView {
         let button = UIButton(type: .system)
         button.setTitle(Constants.HomeConstants.seeAllTitle, for: .normal)
         button.addTarget(nil, action: #selector(showAllButtonTapped), for: .touchUpInside)
-        button.backgroundColor = UIColor(hexString: "35A29F")
+        button.backgroundColor = UIColor(hexString: Constants.HexCodes.teal)
         button.tintColor = .white
         button.layer.cornerRadius = 8
         button.isHidden = true

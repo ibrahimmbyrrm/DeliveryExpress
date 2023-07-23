@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class PaymentRouter : PaymentRouterInterface {
+final class PaymentRouter : PaymentRouterInterface {
     var view: BaseViewController<PaymentView>?
     
     func navigateTo(to output: DiscoverRouterRotations) {

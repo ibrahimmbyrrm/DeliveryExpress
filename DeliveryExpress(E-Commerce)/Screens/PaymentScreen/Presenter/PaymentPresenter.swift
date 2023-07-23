@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PaymentPresenter : PaymentPresenterInterface{
+final class PaymentPresenter : PaymentPresenterInterface{
     
     private let view : PaymentViewInterface
     private let interactor : PaymentInteractorInterface

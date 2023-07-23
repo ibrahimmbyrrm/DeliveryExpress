@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PaymentInteractor : PaymentInteractorInterface {
+final class PaymentInteractor : PaymentInteractorInterface {
     var presenter: PaymentPresenterInterface?
     
     func handlePresenterToInteractorOutput(with output: PaymentPresenterToInteractorOutput) {

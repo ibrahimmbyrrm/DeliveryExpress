@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PaymentBuilder {
+final class PaymentBuilder {
     
     static func buildModule(with type : PaymentBuildType) -> BaseViewController<PaymentView> {
         var router : PaymentRouterInterface = PaymentRouter()

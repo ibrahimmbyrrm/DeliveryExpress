@@ -37,7 +37,7 @@ class HomeView : UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: Constants.HomeConstants.prodCell)
-        collectionView.register(FooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "FooterView")
+        collectionView.register(FooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: Constants.HomeConstants.footerId)
         collectionView.contentInset.bottom = 50
 
         collectionView.layer.cornerRadius = 12
@@ -59,9 +59,9 @@ class HomeView : UIView {
         setupProductTitleLabelContstraints()
         setupProductCollectionViewConstraints()
         setupCategoryCollectionViewConstraints()
-        backgroundColor = UIColor(hexString: "071952", alpha: 1)
-        categoryTitleLabel.textColor = UIColor(hexString: "97FEED")
-        productTitleLabel.textColor = UIColor(hexString: "97FEED")
+        backgroundColor = UIColor(hexString: Constants.HexCodes.navy, alpha: 1)
+        categoryTitleLabel.textColor = UIColor(hexString: Constants.HexCodes.mint)
+        productTitleLabel.textColor = UIColor(hexString: Constants.HexCodes.mint)
     }
     
     required init?(coder: NSCoder) {
