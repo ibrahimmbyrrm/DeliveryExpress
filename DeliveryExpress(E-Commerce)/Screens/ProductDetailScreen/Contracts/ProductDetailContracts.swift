@@ -27,7 +27,8 @@ protocol ProductDetailInteractorInterface {
 }
 
 protocol ProductDetailRouterInterface {
-    var presenter : ProductDetailPresenterInterface? {get set}
+    var view : UIViewController? {get set}
+    func navigateToProduct(to product : Product)
 }
 
 protocol ProductDetailBuilderInterface {

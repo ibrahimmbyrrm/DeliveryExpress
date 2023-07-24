@@ -17,7 +17,7 @@ final class ProductDetailBuilder : ProductDetailBuilderInterface {
         let presenter : ProductDetailPresenterInterface = ProductDetailPresenter(interactor: interactor, view: view, router: router)
         interactor.presenter = presenter
         view.presenter = presenter
-        router.presenter = presenter
+        router.view = view as? UIViewController
         return view as! UIViewController
     }
 }

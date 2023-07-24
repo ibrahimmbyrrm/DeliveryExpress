@@ -17,8 +17,9 @@ final class BasketRouter : BasketRouterInterface{
             let detailVC = ProductDetailBuilder.buildProductScreen(product: product)
             detailVC.modalPresentationStyle = .fullScreen
             view?.navigationController?.pushViewController(detailVC, animated: true)
-        case .toPaymentScreen:
-            print("go to payment")
+        case .toPaymentScreen(let cart):
+            let payment = PaymentBuilder.buildModule(with: .withCart(cart))
+            view?.present(payment, animated: true)
         }
     }
 }

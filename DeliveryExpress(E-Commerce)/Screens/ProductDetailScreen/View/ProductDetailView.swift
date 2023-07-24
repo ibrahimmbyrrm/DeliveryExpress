@@ -50,6 +50,7 @@ class ProductDetailView : UIView {
     }
     //Configure all ui objects for selected product
     func configure(with product :  Product) {
+        print("configure called")
         productDetailView.configureWith(with: product)
     }
     func callProductAddedAlert(ownerVC : ProductDetailVC) {

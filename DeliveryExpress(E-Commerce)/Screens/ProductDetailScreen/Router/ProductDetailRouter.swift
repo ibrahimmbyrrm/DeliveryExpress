@@ -8,6 +8,11 @@
 import Foundation
 import UIKit
 final class ProductDetailRouter : ProductDetailRouterInterface {
-    var presenter: ProductDetailPresenterInterface?
+    
+    weak var view: UIViewController?
 
+    func navigateToProduct(to product : Product) {
+        let paymentVC = PaymentBuilder.buildModule(with: .withProduct(product))
+        view?.present(paymentVC, animated: true)
+    }
 }

@@ -43,6 +43,8 @@ final class BasketPresenter : BasketPresenterInterface {
             interactor.handlePresenterOutput(output: .removeAtIndex(itemIndex))
         case .clearCart:
             interactor.handlePresenterOutput(output: .clearCart)
+        case .goToPaymentTapped(let currentCart):
+            router.navigateTo(to: .toPaymentScreen(currentCart))
         }
     }
 }

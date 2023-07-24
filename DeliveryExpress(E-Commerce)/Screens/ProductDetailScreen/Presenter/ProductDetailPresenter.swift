@@ -30,7 +30,7 @@ final class ProductDetailPresenter : ProductDetailPresenterInterface {
         case .addToCart(let product):
             interactor.saveToUserDefaults(product: product)
         case .goToPayment(let product):
-            print("presenter goes to payment \(product.title)")
+            router.navigateToProduct(to: product)
         }
     }
     func handleInteractorOutput() {

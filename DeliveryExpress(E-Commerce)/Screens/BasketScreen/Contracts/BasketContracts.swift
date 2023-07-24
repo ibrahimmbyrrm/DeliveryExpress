@@ -38,13 +38,14 @@ enum BasketViewOutput {
     case productClicked(Product)
     case deleteItem(Int)
     case clearCart
+    case goToPaymentTapped([Product])
 }
 enum BasketPresenterOutput {
     case cartFetched([Product])
 }
 enum BasketRotations {
     case toProductDetail(Product)
-    case toPaymentScreen
+    case toPaymentScreen([Product])
 }
 enum BasketPresenterToInteractorOutput {
     case loadAllItems

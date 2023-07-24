@@ -27,8 +27,9 @@ final class BasketVC : BaseViewController<BasketView>, PaymentButtonDelegate {
     override func viewWillAppear(_ animated: Bool) {
         presenter?.handleViewOutput(output: .loadCart)
     }
+    
     func goToPaymentClicked() {
-        present(PaymentBuilder.buildModule(with: .withCart(cartList)), animated: true)
+        presenter?.handleViewOutput(output: .goToPaymentTapped(cartList))
     }
     //MARK: - Initial Setup Functions
     func setDelegates() {

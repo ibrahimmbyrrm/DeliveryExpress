@@ -13,8 +13,8 @@ final class HomeVC : BaseViewController<HomeView> {
     
     //MARK: -Variables
     var presenter: HomePresenterInterface?
-    lazy var categoryList = [String]()
-    lazy var productList = [Product]()
+    var categoryList = [String]()
+    var productList = [Product]()
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -27,15 +27,15 @@ final class HomeVC : BaseViewController<HomeView> {
 extension HomeVC : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return setupCollectionViewFor(rootView: rootView, homeVC: self, indexPath: indexPath, collection: collectionView).sizeForItemAt
+        setupCollectionViewFor(rootView: rootView, homeVC: self, indexPath: indexPath, collection: collectionView).sizeForItemAt
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return setupCollectionViewFor(rootView: rootView, homeVC: self, indexPath: nil, collection: collectionView).numberOfItemsInSection
+        setupCollectionViewFor(rootView: rootView, homeVC: self, indexPath: nil, collection: collectionView).numberOfItemsInSection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return setupCollectionViewFor(rootView: rootView, homeVC: self, indexPath: indexPath, collection: collectionView).cellForItemAt
+        setupCollectionViewFor(rootView: rootView, homeVC: self, indexPath: indexPath, collection: collectionView).cellForItemAt
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

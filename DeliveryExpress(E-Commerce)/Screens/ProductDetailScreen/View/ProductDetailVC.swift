@@ -12,7 +12,7 @@ import Kingfisher
 
 final class ProductDetailVC : BaseViewController<ProductDetailView> {
     
-    weak var presenter: ProductDetailPresenterInterface?
+    var presenter: ProductDetailPresenterInterface?
     var product : Product
     
     override func viewDidLoad() {
@@ -48,7 +48,6 @@ extension ProductDetailVC : DetailButtonsInterface {
     }
     
     func goToPaymentClicked() {
-        self.present(PaymentBuilder.buildModule(with: .withProduct(self.product)), animated: true)
         presenter?.handleViewOutput(with: .goToPayment(self.product))
     }
     
