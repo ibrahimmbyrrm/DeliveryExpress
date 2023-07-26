@@ -25,6 +25,10 @@ final class BasketVC : BaseViewController<BasketView>, PaymentButtonDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        presenter?.viewWillAppear()
+    }
+    
+    func callCurrentCart() {
         presenter?.handleViewOutput(output: .loadCart)
     }
     

@@ -26,6 +26,10 @@ final class BasketPresenter : BasketPresenterInterface {
         (view as? BaseViewController<BasketView>)?.rootView.cartTableView.delegate = view as? UITableViewDelegate
     }
     
+    func viewWillAppear() {
+        view.callCurrentCart()
+    }
+    
     func handleInteractorOutput(output : BasketInteractorOutput) {
         switch output {
         case .cartFetched(let productList):
@@ -44,7 +48,9 @@ final class BasketPresenter : BasketPresenterInterface {
         case .clearCart:
             interactor.handlePresenterOutput(output: .clearCart)
         case .goToPaymentTapped(let currentCart):
-            router.navigateTo(to: .toPaymentScreen(currentCart))
+            if currentCart.count > 0 {
+                router.navigateTo(to: .toPaymentScreen(currentCart))
+            }
         }
     }
 }

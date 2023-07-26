@@ -12,6 +12,7 @@ protocol BasketViewInterface {
     var cartList : [Product] {get set}
     var presenter : BasketPresenterInterface? {get set}
     func setDelegates()
+    func callCurrentCart()
     func setupNavigationController()
     func handlePresenterOutput(output : BasketPresenterOutput)
     
@@ -19,9 +20,11 @@ protocol BasketViewInterface {
 protocol BasketPresenterInterface : AnyObject{
     func handleInteractorOutput(output : BasketInteractorOutput)
     func viewDidLoad()
+    func viewWillAppear()
     func handleViewOutput(output : BasketViewOutput)
 }
 protocol BasketInteractorInterface {
+    var currentCart : [Product] {get set}
     var presenter : BasketPresenterInterface? {get set}
     func handlePresenterOutput(output : BasketPresenterToInteractorOutput)
 }

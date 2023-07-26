@@ -28,6 +28,19 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "80844D722A6FF4F800C9A65A"
+               BuildableName = "DeliveryExpress(E-Commerce)Tests.xctest"
+               BlueprintName = "DeliveryExpress(E-Commerce)Tests"
+               ReferencedContainer = "container:DeliveryExpress(E-Commerce).xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"

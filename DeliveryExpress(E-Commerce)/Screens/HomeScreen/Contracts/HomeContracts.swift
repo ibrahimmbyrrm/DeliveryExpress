@@ -37,6 +37,7 @@ protocol HomeViewInterface : AnyObject {
     func saveData(with output : HomePresenterOutput)
     func stopActivityIndicator()
 }
+
 //MARK: - Enums
 enum HomePresenterOutput {
     case saveProducts([Product])
@@ -48,11 +49,17 @@ enum HomeInteractorOutput {
     case productsLoaded([Product])
     case loadFailed
 }
-enum HomeViewOutput {
+enum HomeViewOutput : Equatable {
+    static func == (lhs: HomeViewOutput, rhs: HomeViewOutput) -> Bool {
+        return lhs == rhs
+    }
+    
     case productClicked(Product)
     case categoryClicked(String)
     case loadData
     case seeAllClicked
 }
+
+
 
 

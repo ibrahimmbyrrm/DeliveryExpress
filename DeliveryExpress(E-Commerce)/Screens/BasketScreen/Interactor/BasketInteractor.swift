@@ -9,7 +9,8 @@ import Foundation
 
 final class BasketInteractor : BasketInteractorInterface{
     weak var presenter: BasketPresenterInterface?
- 
+    lazy var currentCart : [Product] = [Product]()
+    
     func handlePresenterOutput(output: BasketPresenterToInteractorOutput) {
         
         guard let decodableProduct = UserDefaults.standard.data(forKey: Constants.UserDefaultsKey) else {return}
@@ -20,7 +21,7 @@ final class BasketInteractor : BasketInteractorInterface{
             
         case .loadAllItems:
             
-            presenter?.handleInteractorOutput(output: .cartFetched(decoded))
+            self.currentCart = decoded
             
         case .removeAtIndex(let index):
             
@@ -28,15 +29,17 @@ final class BasketInteractor : BasketInteractorInterface{
             let encodedData = try? JSONEncoder().encode(decoded)
             UserDefaults.standard.set(encodedData, forKey: Constants.UserDefaultsKey)
             currentBadge = decoded.count
-            presenter?.handleInteractorOutput(output: .cartFetched(decoded))
+            self.currentCart = decoded
             
         case .clearCart:
             
             let encoded = try? JSONEncoder().encode([Product]())
             UserDefaults.standard.set(encoded, forKey: Constants.UserDefaultsKey)
             currentBadge = 0
-            presenter?.handleInteractorOutput(output: .cartFetched([Product]()))
+            self.currentCart = [Product]()
+            
         }
+        presenter?.handleInteractorOutput(output: .cartFetched(self.currentCart))
         UserDefaults.standard.synchronize()
         SceneDelegate.shared?.basketView.tabBarItem.badgeValue = "\(currentBadge)"
         

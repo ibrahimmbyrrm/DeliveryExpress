@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 final class ProductDetailPresenter : ProductDetailPresenterInterface {
+    
     private let interactor : ProductDetailInteractorInterface
     private let view : ProductDetailViewInterface
     private let router : ProductDetailRouterInterface
