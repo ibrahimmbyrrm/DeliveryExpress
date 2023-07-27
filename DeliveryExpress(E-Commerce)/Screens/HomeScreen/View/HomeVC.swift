@@ -88,7 +88,7 @@ extension HomeVC : HomeViewInterface {
         rootView.activityIndicator.stopAnimating()
     }
     
-    func saveData(with output: HomePresenterOutput) {
+    func handleViewOutput(with output: HomePresenterOutput) {
         switch output {
         case .saveCategories(let categories):
             self.categoryList = categories

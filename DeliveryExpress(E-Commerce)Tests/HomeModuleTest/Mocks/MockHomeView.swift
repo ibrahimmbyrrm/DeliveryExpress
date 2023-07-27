@@ -27,11 +27,13 @@ class MockHomeView : HomeViewInterface {
         invokedSetDelegates = true
     }
     
-    func saveData(with output: DeliveryExpress_E_Commerce_.HomePresenterOutput) {
+    func handleViewOutput(with output: DeliveryExpress_E_Commerce_.HomePresenterOutput) {
         switch output {
-        case .saveCategories(_):
+        case .saveCategories(let categorieos):
+            self.categoryList = categorieos
             invokedSaveCategoriesOutput = true
-        case .saveProducts(_):
+        case .saveProducts(let products):
+            self.productList = products
             invokedSaveProductsOutput = true
         }
     }

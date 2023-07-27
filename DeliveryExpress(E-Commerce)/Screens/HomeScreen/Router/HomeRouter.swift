@@ -8,21 +8,10 @@
 import Foundation
 import UIKit
 
-enum HomeRouterRotations {
-    case toProductDetail(Product)
-    case toCategory(String)
-    case toAllProducts
-}
 
-enum DiscoverType {
-    case toCategory(String)
-    case toAllProducts
-}
 
 final class HomeRouter : HomeRouterInterface {
-    
-    weak var view: UIViewController?
-    var presenteR : HomePresenterInterface?
+    weak var view : UIViewController?
     
     func navigateToDetail(to product: Product) {
         let detailVC = ProductDetailBuilder.buildProductScreen(product: product)

@@ -41,14 +41,14 @@ final class HomePresenter : HomePresenterInterface{
     func handleInteractorOutput(with output : HomeInteractorOutput) {
         switch output {
         case .categoriesLoaded(let categories):
-            view?.saveData(with: .saveCategories(categories))
+            view?.handleViewOutput(with: .saveCategories(categories))
         case .productsLoaded(let products):
-            view?.saveData(with: .saveProducts(products))
+            view?.handleViewOutput(with: .saveProducts(products))
         case .loadFailed:
             print("error")
         }
     }
-    
+
     func hideActivityIndicator() {
         view?.stopActivityIndicator()
     }

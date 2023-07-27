@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 //MARK: - Interfaces
 protocol HomeRouterInterface {
-    var presenter : HomePresenterInterface? {get set}
+    var view : UIViewController? {get set}
     func navigateToDetail(to product: Product)
     func navigateToDiscover(to discoverType : DiscoverType)
 }
@@ -37,7 +37,7 @@ protocol HomeViewInterface : AnyObject {
     var presenter : HomePresenterInterface? {get set}
     func setupNavigationBar()
     func setDelegates()
-    func saveData(with output : HomePresenterOutput)
+    func handleViewOutput(with output : HomePresenterOutput)
     func stopActivityIndicator()
 }
 
@@ -56,11 +56,14 @@ enum HomeViewOutput : Equatable {
     static func == (lhs: HomeViewOutput, rhs: HomeViewOutput) -> Bool {
         return lhs == rhs
     }
-    
     case productClicked(Product)
     case categoryClicked(String)
     case loadData
     case seeAllClicked
+}
+enum DiscoverType {
+    case toCategory(String)
+    case toAllProducts
 }
 
 

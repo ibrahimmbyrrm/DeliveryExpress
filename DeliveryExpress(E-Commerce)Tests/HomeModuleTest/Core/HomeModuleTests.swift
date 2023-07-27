@@ -9,7 +9,6 @@ import XCTest
 @testable import DeliveryExpress_E_Commerce_
 
 final class HomeModuleTests: XCTestCase {
-    let mockProduct = Product(id: 1, title: "aa", description: "aa", price: 1, discountPercentage: 10, rating: 10, stock: 1, brand: "aa", category: "aa", thumbnail: "aa", images: ["",""])
     
     private var mockView : MockHomeView!
     private var presenter: HomePresenter!
@@ -51,27 +50,33 @@ final class HomeModuleTests: XCTestCase {
     func test_saveCategpries_output_mockView() {
         //Given
         XCTAssertFalse(mockView.invokedSaveCategoriesOutput)
+        XCTAssertEqual(mockView.categoryList, [String]())
         //When
-        presenter.handleInteractorOutput(with: .categoriesLoaded([""]))
+        presenter.handleInteractorOutput(with: .categoriesLoaded(MockCategories.mockCategoryList))
         //Then
+        XCTAssertEqual(mockView.categoryList, MockCategories.mockCategoryList)
         XCTAssertTrue(mockView.invokedSaveCategoriesOutput)
     }
     
     func test_saveProducts_output_mockView() {
         //Given
+        XCTAssertEqual(mockView.productList, [Product]())
         XCTAssertFalse(mockView.invokedSaveProductsOutput)
         //When
-        presenter.handleInteractorOutput(with: .productsLoaded([mockProduct]))
+        presenter.handleInteractorOutput(with: .productsLoaded(MockProducts.mockProductList))
         //Then
+        XCTAssertEqual(mockView.productList, MockProducts.mockProductList)
         XCTAssertTrue(mockView.invokedSaveProductsOutput)
     }
     
     func test_productSelected_mockRouter() {
         //Given
         XCTAssertFalse(mockRouter.invokedNavigateToDetail)
+        XCTAssertNil(mockRouter.productToShowDetails)
         //When
-        presenter.handleViewOutput(with: .productClicked(mockProduct))
+        presenter.handleViewOutput(with: .productClicked(MockProducts.mockProduct))
         //Then
+        XCTAssertEqual(mockRouter.productToShowDetails, MockProducts.mockProduct)
         XCTAssertTrue(mockRouter.invokedNavigateToDetail)
     }
     
@@ -87,9 +92,11 @@ final class HomeModuleTests: XCTestCase {
     func test_categorySelected_output_mockRouter() {
         //Given
         XCTAssertFalse(mockRouter.invokedNavigateToCategoryOutput)
+        XCTAssertNil(mockRouter.categoryToShowproducts)
         //When
-        presenter.handleViewOutput(with: .categoryClicked(""))
+        presenter.handleViewOutput(with: .categoryClicked(MockCategories.mockCategory))
         //Then
+        XCTAssertEqual(mockRouter.categoryToShowproducts, MockCategories.mockCategory)
         XCTAssertTrue(mockRouter.invokedNavigateToCategoryOutput)
     }
     
