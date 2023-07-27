@@ -10,7 +10,7 @@ import Foundation
 final class HomeInteractor : HomeInteractorInterface {
     
     weak var presenter: HomePresenterInterface?
-    private let service : NetworkService
+    var service : NetworkService
 
     init(service : NetworkService) {
         self.service = service

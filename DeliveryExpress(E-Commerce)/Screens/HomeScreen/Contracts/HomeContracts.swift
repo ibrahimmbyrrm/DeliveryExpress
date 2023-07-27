@@ -25,6 +25,7 @@ protocol HomePresenterInterface : AnyObject {
 
 protocol HomeInteractorInterface : AnyObject {
     var presenter : HomePresenterInterface? {get set}
+    var service : NetworkService {get set}
     func fetchData()
 }
 

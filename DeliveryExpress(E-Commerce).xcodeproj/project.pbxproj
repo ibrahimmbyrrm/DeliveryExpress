@@ -35,6 +35,7 @@
 		802446642A7151530049461E /* MockDiscoverInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802446632A7151530049461E /* MockDiscoverInteractor.swift */; };
 		802446672A7151610049461E /* MockDiscoverRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802446662A7151610049461E /* MockDiscoverRouter.swift */; };
 		802446692A71516F0049461E /* DiscoverModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802446682A71516F0049461E /* DiscoverModuleTests.swift */; };
+		8024466B2A7290E90049461E /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8024466A2A7290E90049461E /* MockService.swift */; };
 		803B65B82A5ABB740002D48C /* PaymentContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65B72A5ABB740002D48C /* PaymentContracts.swift */; };
 		803B65BA2A5ABB790002D48C /* PaymentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65B92A5ABB790002D48C /* PaymentBuilder.swift */; };
 		803B65BC2A5ABB7E0002D48C /* PaymentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B65BB2A5ABB7E0002D48C /* PaymentRouter.swift */; };
@@ -128,6 +129,7 @@
 		802446632A7151530049461E /* MockDiscoverInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiscoverInteractor.swift; sourceTree = "<group>"; };
 		802446662A7151610049461E /* MockDiscoverRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiscoverRouter.swift; sourceTree = "<group>"; };
 		802446682A71516F0049461E /* DiscoverModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverModuleTests.swift; sourceTree = "<group>"; };
+		8024466A2A7290E90049461E /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		803B65B72A5ABB740002D48C /* PaymentContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentContracts.swift; sourceTree = "<group>"; };
 		803B65B92A5ABB790002D48C /* PaymentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentBuilder.swift; sourceTree = "<group>"; };
 		803B65BB2A5ABB7E0002D48C /* PaymentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRouter.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				8024465A2A71504B0049461E /* MockProducts.swift */,
+				8024466A2A7290E90049461E /* MockService.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -939,6 +942,7 @@
 				802446482A713A7D0049461E /* MockHomeRouter.swift in Sources */,
 				802446622A71514C0049461E /* MockDiscoverView.swift in Sources */,
 				8024465B2A71504B0049461E /* MockProducts.swift in Sources */,
+				8024466B2A7290E90049461E /* MockService.swift in Sources */,
 				802446692A71516F0049461E /* DiscoverModuleTests.swift in Sources */,
 				802446462A713A690049461E /* MockHomeView.swift in Sources */,
 				802446582A7145080049461E /* MockBasketRouter.swift in Sources */,

@@ -11,4 +11,5 @@ import Foundation
 enum MockProducts {
     static let mockProduct = Product(id: 1, title: "aa", description: "aa", price: 1, discountPercentage: 10, rating: 10, stock: 1, brand: "aa", category: "aa", thumbnail: "aa", images: ["",""])
     static let mockProduct2 = Product(id: 2, title: "bb", description: "bb", price: 2, discountPercentage: 20, rating: 20, stock: 2, brand: "bb", category: "bb", thumbnail: "bb", images: ["",""])
+    static let mockProductList = [mockProduct,mockProduct2]
 }

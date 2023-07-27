@@ -15,12 +15,14 @@ final class HomeModuleTests: XCTestCase {
     private var presenter: HomePresenter!
     private var mockInteractor : MockHomeInteractor!
     private var mockRouter : MockHomeRouter!
+    private var mockService : MockService!
     
     override func setUp() {
         super.setUp()
         // Test sırasında kullanılacak sınıfları ve değişkenleri hazırlayın
         mockView = .init()
-        mockInteractor = .init()
+        mockService = .init()
+        mockInteractor = .init(service: mockService)
         mockRouter = .init()
         presenter = .init(interactor: mockInteractor, view: mockView, router: mockRouter)
         mockView.presenter = presenter
@@ -72,6 +74,7 @@ final class HomeModuleTests: XCTestCase {
         //Then
         XCTAssertTrue(mockRouter.invokedNavigateToDetail)
     }
+    
     func test_seeAll_output() {
         //Given
         XCTAssertFalse(mockRouter.invokedNavigateToAllProductsOutput)
@@ -92,12 +95,17 @@ final class HomeModuleTests: XCTestCase {
     
     func test_fetchData() {
         //Given
-        XCTAssertFalse(mockInteractor.invokedFetchData)
+        XCTAssertFalse(mockInteractor.invokedFetchDataMethod)
+        XCTAssertEqual(mockInteractor.exceptedSuccessArray,[Product]())
+        XCTAssertEqual(mockInteractor.invokedFetchDataCount, 0)
         //When
         presenter.handleViewOutput(with: .loadData)
         //Then
-        XCTAssertTrue(mockInteractor.invokedFetchData)
+        XCTAssertEqual(mockInteractor.invokedFetchDataCount, 1)
+        XCTAssertTrue(mockInteractor.invokedFetchDataMethod)
+        XCTAssertEqual(mockInteractor.exceptedSuccessArray,MockProducts.mockProductList)
     }
+    
     func test_stopActivityIndicator() {
         //Given
         XCTAssertFalse(mockView.invokedStopActivityIndicator)
@@ -106,6 +114,20 @@ final class HomeModuleTests: XCTestCase {
         //Then
         XCTAssertTrue(mockView.invokedStopActivityIndicator)
     }
+    
+    func test_mockServicE_fetchData() {
+        //Given
+        XCTAssertEqual(mockInteractor.exceptedSuccessArray,[Product]())
+        XCTAssertFalse(mockService.invokedFetchDataService)
+        XCTAssertEqual(mockService.invokedFetchDataServiceCount,0)
+        //When
+        mockInteractor.fetchData()
+        XCTAssertEqual(mockInteractor.exceptedSuccessArray,MockProducts.mockProductList)
+        XCTAssertTrue(mockService.invokedFetchDataService)
+        XCTAssertEqual(mockService.invokedFetchDataServiceCount,1)
+    }
+
 }
+
 
 
