@@ -23,6 +23,7 @@ final class HomePresenter : HomePresenterInterface{
     func viewDidLoad() {
         view?.setDelegates()
         view?.setupNavigationBar()
+        handleViewOutput(with: .loadData)
     }
     
     func handleViewOutput(with output : HomeViewOutput) {

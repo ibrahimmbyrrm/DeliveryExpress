@@ -107,7 +107,7 @@ final class HomeModuleTests: XCTestCase {
         XCTAssertEqual(mockInteractor.categoryList, [String]())
         XCTAssertEqual(mockInteractor.invokedFetchDataCount, 0)
         //When
-        presenter.handleViewOutput(with: .loadData)
+        presenter.viewDidLoad()
         //Then
         XCTAssertEqual(mockInteractor.invokedFetchDataCount, 2)
         XCTAssertTrue(mockInteractor.invokedFetchDataMethod)
@@ -130,6 +130,7 @@ final class HomeModuleTests: XCTestCase {
         XCTAssertEqual(mockService.invokedFetchDataServiceCount,0)
         //When
         mockInteractor.fetchData()
+        //Then
         XCTAssertTrue(mockService.invokedFetchDataService)
         XCTAssertEqual(mockService.invokedFetchDataServiceCount,2)
     }

@@ -22,7 +22,7 @@ final class ProductDetailPresenter : ProductDetailPresenterInterface {
     
     func viewDidLoad() {
         view.setDelegates()
-        (view as? BaseViewController<ProductDetailView>)?.rootView.configure(with: view.product)
+        view.setupView(with: view.product)
     }
     
     ///Eğer handleViewOutput fonksiyonuna başka bir output türü eklemezsek, output enumu üzerinde değişiklik yapıp product parametresini direk fonksiyonda alırız ve output girerken tekrar tekrar product vermemize gerek kalmaz.Böylelikle hafızada aynı iş için kullanılan 2 farklı product değişkeni tutulmaz.
@@ -31,7 +31,7 @@ final class ProductDetailPresenter : ProductDetailPresenterInterface {
         case .addToCart(let product):
             interactor.saveToUserDefaults(product: product)
         case .goToPayment(let product):
-            router.navigateToProduct(to: product)
+            router.navigateToProductPayment(to: product)
         }
     }
     func handleInteractorOutput() {

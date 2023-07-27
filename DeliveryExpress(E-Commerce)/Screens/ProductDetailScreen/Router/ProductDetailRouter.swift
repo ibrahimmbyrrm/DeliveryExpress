@@ -11,7 +11,7 @@ final class ProductDetailRouter : ProductDetailRouterInterface {
     
     weak var view: UIViewController?
 
-    func navigateToProduct(to product : Product) {
+    func navigateToProductPayment(to product : Product) {
         let paymentVC = PaymentBuilder.buildModule(with: .withProduct(product))
         view?.present(paymentVC, animated: true)
     }

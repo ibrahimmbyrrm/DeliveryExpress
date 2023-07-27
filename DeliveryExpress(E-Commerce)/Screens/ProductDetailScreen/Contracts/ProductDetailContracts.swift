@@ -12,6 +12,7 @@ protocol ProductDetailViewInterface {
     var product : Product {get set}
     var presenter : ProductDetailPresenterInterface? {get set}
     func setDelegates()
+    func setupView(with product : Product)
     func productAddedToCart()
 }
 
@@ -28,7 +29,7 @@ protocol ProductDetailInteractorInterface {
 
 protocol ProductDetailRouterInterface {
     var view : UIViewController? {get set}
-    func navigateToProduct(to product : Product)
+    func navigateToProductPayment(to product : Product)
 }
 
 protocol ProductDetailBuilderInterface {

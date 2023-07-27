@@ -39,6 +39,9 @@ extension ProductDetailVC : ProductDetailViewInterface {
         rootView.imageCollectionView.dataSource = self
         rootView.buttonsStackView.delegate = self
     }
+    func setupView(with product : Product) {
+        rootView.configure(with: product)
+    }
 }
 
 extension ProductDetailVC : DetailButtonsInterface {
