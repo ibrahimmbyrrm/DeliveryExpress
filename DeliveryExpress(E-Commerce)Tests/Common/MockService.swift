@@ -18,6 +18,17 @@ final class MockService : NetworkService {
     func fetchData<T>(type: DeliveryExpress_E_Commerce_.EndPointItems<T>, completion: @escaping (Result<T, DeliveryExpress_E_Commerce_.NetworkError>) -> Void) where T : Decodable {
         invokedFetchDataService = true
         invokedFetchDataServiceCount += 1
-        completion(.success(MockProducts.mockProductList as! T))
+        switch type {
+        case .categories:
+            completion(.success(MockCategories.mockCategoryList as! T))
+        case .products:
+            completion(.success(MockProducts.mockProductList as! T))
+        case .productsOfCategory(_):
+            completion(.success(MockProducts.mockProductList as! T))
+        case .search(_):
+            completion(.success(MockProducts.mockProductList as! T))
+        case .topProducts(_):
+            completion(.success(MockProducts.mockProductList as! T))
+        }
     }
 }

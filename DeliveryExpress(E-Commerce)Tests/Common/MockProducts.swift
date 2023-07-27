@@ -13,3 +13,8 @@ enum MockProducts {
     static let mockProduct2 = Product(id: 2, title: "bb", description: "bb", price: 2, discountPercentage: 20, rating: 20, stock: 2, brand: "bb", category: "bb", thumbnail: "bb", images: ["",""])
     static let mockProductList = [mockProduct,mockProduct2]
 }
+enum MockCategories {
+    static let mockCategory = "Phones"
+    static let mockCategory2 = "Laptops"
+    static let mockCategoryList = [mockCategory,mockCategory2]
+}

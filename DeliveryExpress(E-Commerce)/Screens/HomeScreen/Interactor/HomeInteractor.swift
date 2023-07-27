@@ -11,10 +11,14 @@ final class HomeInteractor : HomeInteractorInterface {
     
     weak var presenter: HomePresenterInterface?
     var service : NetworkService
-
+    
+    lazy var categoryList: [String] = []
+    lazy var productList: [Product] = []
+    
     init(service : NetworkService) {
         self.service = service
     }
+    
     
     func fetchData() {
         let dispatchGroup = DispatchGroup()
@@ -24,7 +28,7 @@ final class HomeInteractor : HomeInteractorInterface {
             defer {dispatchGroup.leave()}
             switch result {
             case .success(let categories):
-                self.presenter?.handleInteractorOutput(with: .categoriesLoaded(categories))
+                self.categoryList = categories
             case.failure(let erorr):
                 print(erorr)
             }
@@ -35,13 +39,15 @@ final class HomeInteractor : HomeInteractorInterface {
             defer {dispatchGroup.leave()}
             switch response {
             case .success(let productResponse):
-                self.presenter?.handleInteractorOutput(with: .productsLoaded(productResponse.products))
+                self.productList = productResponse.products
             case .failure(let error):
                 print(error)
             }
         }
         /// -When all api calls done and all data transfered to presenter, interactor called presenter again for stoping activity indicator on view.
         dispatchGroup.notify(queue: .main) {
+            self.presenter?.handleInteractorOutput(with: .categoriesLoaded(self.categoryList))
+            self.presenter?.handleInteractorOutput(with: .productsLoaded(self.productList))
             self.presenter?.hideActivityIndicator()
         }
     }

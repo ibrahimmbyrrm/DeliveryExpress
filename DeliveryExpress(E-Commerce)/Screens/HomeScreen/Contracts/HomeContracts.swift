@@ -24,6 +24,8 @@ protocol HomePresenterInterface : AnyObject {
 }
 
 protocol HomeInteractorInterface : AnyObject {
+    var productList : [Product] {get set}
+    var categoryList : [String] {get set}
     var presenter : HomePresenterInterface? {get set}
     var service : NetworkService {get set}
     func fetchData()

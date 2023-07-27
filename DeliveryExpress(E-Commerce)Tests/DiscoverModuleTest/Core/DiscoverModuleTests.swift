@@ -19,6 +19,9 @@ final class DiscoverModuleTests: XCTestCase {
         mockInteractor = .init()
         mockRouter = .init()
         mockView = .init()
+        presenter = .init(type: .allProducts, interactor: mockInteractor, view: mockView, router: mockRouter)
+        mockView.presenter = presenter
+        mockInteractor.presenter = presenter
     }
 
     override func tearDown(){

@@ -13,6 +13,8 @@ class MockHomeInteractor : HomeInteractorInterface {
     var presenter: DeliveryExpress_E_Commerce_.HomePresenterInterface?
     var service: NetworkService
     
+    lazy var productList: [DeliveryExpress_E_Commerce_.Product] = []
+    lazy var categoryList: [String] = []
     
     init(service : NetworkService) {
         self.service = service
@@ -20,22 +22,29 @@ class MockHomeInteractor : HomeInteractorInterface {
     
     var invokedFetchDataCount = 0
     var invokedFetchDataMethod = false
-    var invokedFetchDataCalledService = false
-    var exceptedSuccessArray = [Product]()
+    var invokedServiceFromInteractor = false
     
     func fetchData() {
         service.fetchData(type: EndPointItems<[Product]>.products) { result in
-            self.invokedFetchDataCalledService = true
+            self.invokedServiceFromInteractor = true
+            self.invokedFetchDataCount += 1
             switch result {
             case .success(let mockProducts):
-                self.exceptedSuccessArray = mockProducts
+                self.productList = mockProducts
             case .failure(let erorr):
                 print(erorr)
             }
-            
+        }
+        service.fetchData(type: EndPointItems<[String]>.categories) { result in
+            self.invokedFetchDataCount += 1
+            switch result {
+            case .success(let categories):
+                self.categoryList = categories
+            case .failure(let error):
+                print(error)
+            }
         }
         invokedFetchDataMethod = true
-        invokedFetchDataCount += 1
         presenter?.hideActivityIndicator()
     }
     

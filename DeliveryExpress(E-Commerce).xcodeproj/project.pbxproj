@@ -503,8 +503,8 @@
 		80844D742A6FF4F900C9A65A /* DeliveryExpress(E-Commerce)Tests */ = {
 			isa = PBXGroup;
 			children = (
-				8024465E2A7151380049461E /* DiscoverModuleTest */,
 				802446592A71503B0049461E /* Common */,
+				8024465E2A7151380049461E /* DiscoverModuleTest */,
 				8024464F2A7144AC0049461E /* BasketModuleTest */,
 				8024464D2A7144810049461E /* HomeModuleTest */,
 			);

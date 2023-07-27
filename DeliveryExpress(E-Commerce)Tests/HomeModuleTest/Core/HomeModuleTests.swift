@@ -37,7 +37,7 @@ final class HomeModuleTests: XCTestCase {
         mockInteractor = nil
     }
 
-    func test_viewDidLoad() {
+    func test_viewDidLoad_mockView() {
         //Given
         XCTAssertFalse(mockView.invokedSetDelegates)
         XCTAssertFalse(mockView.invokedSetupNavigationBar)
@@ -48,7 +48,7 @@ final class HomeModuleTests: XCTestCase {
         XCTAssertTrue(mockView.invokedSetupNavigationBar)
     }
     
-    func test_saveCategpries_output() {
+    func test_saveCategpries_output_mockView() {
         //Given
         XCTAssertFalse(mockView.invokedSaveCategoriesOutput)
         //When
@@ -57,7 +57,7 @@ final class HomeModuleTests: XCTestCase {
         XCTAssertTrue(mockView.invokedSaveCategoriesOutput)
     }
     
-    func test_saveProducts_output() {
+    func test_saveProducts_output_mockView() {
         //Given
         XCTAssertFalse(mockView.invokedSaveProductsOutput)
         //When
@@ -66,7 +66,7 @@ final class HomeModuleTests: XCTestCase {
         XCTAssertTrue(mockView.invokedSaveProductsOutput)
     }
     
-    func test_productSelected() {
+    func test_productSelected_mockRouter() {
         //Given
         XCTAssertFalse(mockRouter.invokedNavigateToDetail)
         //When
@@ -75,7 +75,7 @@ final class HomeModuleTests: XCTestCase {
         XCTAssertTrue(mockRouter.invokedNavigateToDetail)
     }
     
-    func test_seeAll_output() {
+    func test_seeAll_output_mockRouter() {
         //Given
         XCTAssertFalse(mockRouter.invokedNavigateToAllProductsOutput)
         //When
@@ -84,7 +84,7 @@ final class HomeModuleTests: XCTestCase {
         XCTAssertTrue(mockRouter.invokedNavigateToAllProductsOutput)
     }
     
-    func test_categorySelected_output() {
+    func test_categorySelected_output_mockRouter() {
         //Given
         XCTAssertFalse(mockRouter.invokedNavigateToCategoryOutput)
         //When
@@ -93,20 +93,22 @@ final class HomeModuleTests: XCTestCase {
         XCTAssertTrue(mockRouter.invokedNavigateToCategoryOutput)
     }
     
-    func test_fetchData() {
+    func test_fetchData_interactor() {
         //Given
         XCTAssertFalse(mockInteractor.invokedFetchDataMethod)
-        XCTAssertEqual(mockInteractor.exceptedSuccessArray,[Product]())
+        XCTAssertEqual(mockInteractor.productList,[Product]())
+        XCTAssertEqual(mockInteractor.categoryList, [String]())
         XCTAssertEqual(mockInteractor.invokedFetchDataCount, 0)
         //When
         presenter.handleViewOutput(with: .loadData)
         //Then
-        XCTAssertEqual(mockInteractor.invokedFetchDataCount, 1)
+        XCTAssertEqual(mockInteractor.invokedFetchDataCount, 2)
         XCTAssertTrue(mockInteractor.invokedFetchDataMethod)
-        XCTAssertEqual(mockInteractor.exceptedSuccessArray,MockProducts.mockProductList)
+        XCTAssertEqual(mockInteractor.categoryList, MockCategories.mockCategoryList)
+        XCTAssertEqual(mockInteractor.productList,MockProducts.mockProductList)
     }
     
-    func test_stopActivityIndicator() {
+    func test_stopActivityIndicator_mockView() {
         //Given
         XCTAssertFalse(mockView.invokedStopActivityIndicator)
         //When
@@ -115,16 +117,14 @@ final class HomeModuleTests: XCTestCase {
         XCTAssertTrue(mockView.invokedStopActivityIndicator)
     }
     
-    func test_mockServicE_fetchData() {
+    func test_fetchData_mockService() {
         //Given
-        XCTAssertEqual(mockInteractor.exceptedSuccessArray,[Product]())
         XCTAssertFalse(mockService.invokedFetchDataService)
         XCTAssertEqual(mockService.invokedFetchDataServiceCount,0)
         //When
         mockInteractor.fetchData()
-        XCTAssertEqual(mockInteractor.exceptedSuccessArray,MockProducts.mockProductList)
         XCTAssertTrue(mockService.invokedFetchDataService)
-        XCTAssertEqual(mockService.invokedFetchDataServiceCount,1)
+        XCTAssertEqual(mockService.invokedFetchDataServiceCount,2)
     }
 
 }

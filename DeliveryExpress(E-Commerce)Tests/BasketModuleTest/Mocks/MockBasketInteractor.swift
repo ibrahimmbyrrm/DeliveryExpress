@@ -17,21 +17,28 @@ final class MockBasketInteractor : BasketInteractorInterface{
         return currentCart.count
     }
     var invokedClearCartOutput = false
+    var invokedClearCartOutputCount = 0
+    
     var invokedLoadAllItemsOutput = false
+    var invokedLoadAllItemsOutputCount = 0
+    
     var invokedRemoveAtIndexOutput = false
+    var invokedRemoveAtIndexOutputCount = 0
     
     func handlePresenterOutput(output: DeliveryExpress_E_Commerce_.BasketPresenterToInteractorOutput) {
         switch output {
         case .clearCart:
             currentCart = []
             invokedClearCartOutput = true
+            invokedClearCartOutputCount += 1
         case .loadAllItems:
-            currentCart.append(MockProducts.mockProduct)
-            currentCart.append(MockProducts.mockProduct2)
+            currentCart = MockProducts.mockProductList
             invokedLoadAllItemsOutput = true
+            invokedLoadAllItemsOutputCount += 1
         case .removeAtIndex(let index):
             currentCart.remove(at: index)
             invokedRemoveAtIndexOutput = true
+            invokedRemoveAtIndexOutputCount += 1
         }
     }
     
