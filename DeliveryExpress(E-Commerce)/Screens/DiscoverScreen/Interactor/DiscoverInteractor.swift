@@ -31,9 +31,12 @@ final class DiscoverInteractor : DiscoverInteractorInterface {
                 print(error)
             }
         }
-        
+        dispatchGroup.notify(queue: .main) {            self.presenter?.handleInteractorOutput(with: .productsLoaded(self.productResponse))
+        }
+    }
+    func fetchCategories() {
+        let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
-        
         service.fetchData(type: EndPointItems<[String]>.categories) { [weak self] result in
             defer {dispatchGroup.leave()}
             switch result {
@@ -43,10 +46,8 @@ final class DiscoverInteractor : DiscoverInteractorInterface {
                 print(error)
             }
         }
-        
         dispatchGroup.notify(queue: .main) {
             self.presenter?.handleInteractorOutput(with: .categoriesLoaded(self.categories))
-            self.presenter?.handleInteractorOutput(with: .productsLoaded(self.productResponse))
         }
     }
 }

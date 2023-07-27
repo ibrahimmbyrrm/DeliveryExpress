@@ -17,11 +17,15 @@ protocol DiscoverViewInterface {
     func setDelegates()
     func setupNavigationBar()
     func setupChangeCategoryButton()
+    func searchByQueryText(with queryText : String)
 }
 
 protocol DiscoverInteractorInterface {
+    var productResponse : ProductResponse! {get set}
+    var categories : [String] {get set}
     var presenter : DiscoverPresenterInterface? {get set}
     func fetchData<T>(endPoint : EndPointItems<T>)
+    func fetchCategories()
 }
 
 protocol DiscoverPresenterInterface : AnyObject {

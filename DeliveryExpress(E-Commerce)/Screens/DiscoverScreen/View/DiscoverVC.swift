@@ -58,13 +58,16 @@ extension DiscoverVC : DiscoverViewInterface {
     func setupChangeCategoryButton() {
         rootView.changeCategory.addTarget(nil, action: #selector(currentCategoryClicked), for: .touchUpInside)
     }
+    func searchByQueryText(with queryText : String) {
+        presenter?.handleViewOutput(with: .fetchQueryResults(queryText))
+        rootView.pageTitleLabel.text = queryText.capitalized
+    }
     
 }
 //MARK: - SearchBar Methods
 extension DiscoverVC : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        presenter?.handleViewOutput(with: .fetchQueryResults(searchText))
-        rootView.pageTitleLabel.text = searchText.capitalized
+        searchByQueryText(with: searchText)
     }
 }
 //MARK: - CollectionView Methods

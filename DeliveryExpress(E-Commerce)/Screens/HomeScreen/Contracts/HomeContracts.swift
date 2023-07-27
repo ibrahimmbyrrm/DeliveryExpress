@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 //MARK: - Interfaces
 protocol HomeRouterInterface {
-    var view : UIViewController? {get set}
+    var presenter : HomePresenterInterface? {get set}
     func navigateToDetail(to product: Product)
     func navigateToDiscover(to discoverType : DiscoverType)
 }

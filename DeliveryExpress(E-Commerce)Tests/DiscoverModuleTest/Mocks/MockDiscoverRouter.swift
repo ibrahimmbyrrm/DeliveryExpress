@@ -12,8 +12,16 @@ import UIKit
 final class MockDiscoverRouter : DiscoverRouterInterface {
     var view: UIViewController?
     
+    var invokedNavigatetoProductDetail = false
+    var productToShownDetailsOf : Product?
+    
+    
     func navigateTo(to output: DeliveryExpress_E_Commerce_.DiscoverRouterRotations) {
-        
+        switch output {
+        case .toProductDetail(let product):
+            invokedNavigatetoProductDetail = true
+            productToShownDetailsOf = product
+        }
     }
     
     

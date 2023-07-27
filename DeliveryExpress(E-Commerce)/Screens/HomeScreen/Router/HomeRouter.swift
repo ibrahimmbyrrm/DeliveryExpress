@@ -22,6 +22,7 @@ enum DiscoverType {
 final class HomeRouter : HomeRouterInterface {
     
     weak var view: UIViewController?
+    var presenteR : HomePresenterInterface?
     
     func navigateToDetail(to product: Product) {
         let detailVC = ProductDetailBuilder.buildProductScreen(product: product)

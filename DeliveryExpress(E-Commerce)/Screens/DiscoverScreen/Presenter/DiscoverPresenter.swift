@@ -23,7 +23,7 @@ final class DiscoverPresenter : DiscoverPresenterInterface {
         case .allProducts:
             interactor.fetchData(endPoint: EndPointItems<ProductResponse>.products)
         }
-        
+        interactor.fetchCategories()
     }
     
     func viewDidLoad() {
